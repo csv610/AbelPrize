@@ -1,0 +1,147 @@
+\documentclass[12pt,a4paper,openany]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{makeidx}
+\makeindex
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\geometry{margin=1in}
+\hypersetup{
+    pdftitle={The Abel Prize Laureates},
+    pdfauthor={Chaman Singh Verma},
+    pdfsubject={A comprehensive report on the Abel Prize laureates},
+    pdfkeywords={Abel Prize, mathematics, laureates, mathematical history}
+}
+
+% TikZ & Colors for the Connections Map
+\usepackage{tikz}
+\usetikzlibrary{shapes,arrows,positioning,fit,backgrounds,calc}
+\definecolor{abelblue}{RGB}{25,55,109}
+\definecolor{abelred}{RGB}{180,30,30}
+\definecolor{abelgreen}{RGB}{30,130,70}
+\definecolor{abelgray}{RGB}{100,100,100}
+\definecolor{abelfill}{RGB}{245,245,250}
+
+\setlength{\headheight}{17pt}
+
+\title{The Abel Prize Laureates\\A Comprehensive Report}
+\author{Chaman Singh Verma}
+\date{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[LE]{\leftmark}
+\fancyhead[RO]{\rightmark}
+\fancyfoot[C]{\thepage}
+
+\setcounter{tocdepth}{2}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+\frontmatter
+\pagestyle{empty}
+
+\begin{titlepage}
+    \centering
+    \vspace*{\fill}
+    \includegraphics[width=\textwidth]{frontcover.png}\par
+    \vspace*{\fill}
+\end{titlepage}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries The Abel Prize Laureates\par}
+    \vspace{0.5cm}
+    {\Large\itshape A Comprehensive Report for Students and Science Writers\par}
+    \vspace{2cm}
+    {\Large\bfseries Chaman Singh Verma\par}
+    \vfill
+    {\large \today\par}
+\end{titlepage}
+
+\hypersetup{pageanchor=true}
+\pagestyle{plain}
+\tableofcontents
+\clearpage
+
+\mainmatter
+\pagestyle{fancy}
+
+\include{chapters/preface}
+\include{chapters/connections}
+
+\part{Laureates 2003--2009}
+
+\include{chapters/serre}
+\include{chapters/atiyah_singer}
+\include{chapters/lax}
+\include{chapters/carleson}
+\include{chapters/varadhan}
+\include{chapters/thompson_tits}
+\include{chapters/gromov}
+
+\part{Laureates 2010--2016}
+
+\include{chapters/tate}
+\include{chapters/milnor}
+\include{chapters/szemeredi}
+\include{chapters/deligne}
+\include{chapters/sinai}
+\include{chapters/nash_nirenberg}
+\include{chapters/wiles}
+
+\part{Laureates 2017--2023}
+
+\include{chapters/meyer}
+\include{chapters/langlands}
+\include{chapters/uhlenbeck}
+\include{chapters/furstenberg_margulis}
+\include{chapters/lovasz_wigderson}
+\include{chapters/sullivan}
+\include{chapters/caffarelli}
+
+\part{Laureates 2024--2026}
+
+\include{chapters/talagrand}
+\include{chapters/kashiwara}
+\include{chapters/faltings}
+
+\backmatter
+\include{chapters/glossary}
+\clearpage
+\printindex
+
+\clearpage
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+    \thispagestyle{empty}
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[abelblue] (current page.south west) rectangle (current page.north east);
+        \draw[abelgray,line width=1pt]
+            ($(current page.south west)+(1.1in,1.1in)$)
+            rectangle
+            ($(current page.north east)+(-1.1in,-1.1in)$);
+        \node[align=center,text=white,text width=0.78\paperwidth] at ($(current page.north)+(0,-2.3in)$) {
+            {\Huge\bfseries The Abel Prize Laureates}\\[0.35cm]
+            {\Large\itshape Deciphering the Giants of Modern Mathematics}
+        };
+        \node[align=left,text=white,text width=0.72\paperwidth] at (current page.center) {
+            Mathematics is the invisible architecture of the modern world. From secure messaging and image compression to climate models, optimization, and the theory of computation, ideas developed by Abel Prize laureates shape both pure research and daily technology.\\[0.45cm]
+            Established in 2002 and first awarded in 2003, the Abel Prize is one of mathematics' highest honors. This volume follows the complete sequence of 24 prize years from Jean-Pierre Serre in 2003 through Gerd Faltings in 2026, covering 29 individual laureates and the fields they transformed.\\[0.45cm]
+            Inside are biographical sketches, high-level explanations, human stories, applied-science connections, guided exercises, reading maps, a glossary, and a generated index for students, science writers, and mathematically curious readers.
+        };
+        \node[align=center,text=white,text width=0.72\paperwidth] at ($(current page.south)+(0,1.85in)$) {
+            {\large\bfseries Audience}\\[0.12cm]
+            Undergraduate students \quad | \quad Science communicators \quad | \quad General readers\\[0.35cm]
+            {\large\bfseries Category}\\[0.12cm]
+            History of mathematics \quad | \quad Modern mathematical ideas \quad | \quad Applied mathematics
+        };
+    \end{tikzpicture}
+\end{titlepage}
+\end{document}
