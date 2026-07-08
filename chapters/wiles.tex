@@ -1,0 +1,352 @@
+\chapter{Andrew Wiles (2016)}
+
+\section{Biographical Sketch}
+
+Sir Andrew John Wiles was born on 11 April 1953 in Cambridge, England. He studied at King's College, Cambridge, where he earned his bachelor's degree in 1974. He completed his PhD in 1980 at Clare College, Cambridge, under the supervision of John Coates. After a junior research fellowship at Harvard, he moved to Princeton University, where he became a professor. Wiles received the Abel Prize in 2016, the Wolf Prize in 1995, the Schock Prize in 1995, and the Fermat Prize in 1995. He was knighted by Queen Elizabeth II. He is currently a professor at the University of Oxford.
+
+Wiles' path to proving Fermat's Last Theorem\index{Fermat's Last Theorem} is one of the most remarkable stories in the history of mathematics. He began working on the problem as a child after reading about it in a library book. By age 10, he had decided to devote his life to proving it. He worked on the problem in secret for seven years (1986--1993), revealing his proof only when it was complete. This period of focused, solitary work was unprecedented in modern mathematics.
+
+His 1993 announcement at the Isaac Newton Institute was front-page news worldwide. The proof was found to contain a gap, but Wiles, with the help of his former student Richard Taylor, repaired the gap in 1994. The final proof was published in the Annals of Mathematics in 1995.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Wiles Do?}
+
+In 1637, the French mathematician Pierre de Fermat scribbled a note in the margin of his copy of Diophantus's ``Arithmetica,'' claiming that the equation $x^n + y^n = z^n$ has no integer solutions when $n > 2$. He wrote, ``I have discovered a truly marvelous proof of this, which this margin is too narrow to contain.''
+
+For 358 years, this claim---Fermat's Last Theorem\index{Fermat's Last Theorem}---defeated every attempt at proof. It became the most famous unsolved problem in mathematics. Andrew Wiles proved it in 1994, in one of the most celebrated achievements in the history of science.
+
+\subsection{Why Does It Matter?}
+
+Fermat's Last Theorem\index{Fermat's Last Theorem} itself is a curiosity: it asks a simple question about integers that no one needed to answer for practical purposes. But the proof was far from simple. Wiles proved a much more general result: the modularity theorem for elliptic curves\index{Elliptic curves}. This result:
+\begin{itemize}
+\item Connects two entirely different worlds: elliptic curves\index{Elliptic curves} (geometry) and modular forms (analysis).
+\item Laid the foundation for the entire Langlands program.
+\item Has applications to cryptography, where elliptic curves\index{Elliptic curves} are essential.
+\item Inspired new methods in number theory that continue to drive research.
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{Fermat's Last Theorem}
+
+Fermat's Last Theorem states that for $n > 2$, the equation $x^n + y^n = z^n$ has no solutions in positive integers. Despite its simple statement, it resisted all attempts at proof for 358 years.
+
+The history of the problem includes:
+\begin{itemize}
+\item \textbf{Pythagorean triples (ancient):} Solutions to $x^2 + y^2 = z^2$ were known to the Babylonians.
+\item \textbf{Fermat (1637):} Posed the problem for $n=4$ and claimed general proof.
+\item \textbf{Euler (1753):} Proved the case $n=3$.
+\item \textbf{Dirichlet and Legendre (1825):} Proved the case $n=5$.
+\item \textbf{Lam\'e (1839):} Proved the case $n=7$.
+\item \textbf{Kummer (1847):} Proved the theorem for all regular primes using ideal theory.
+\item \textbf{Faltings (1983):} Proved the Mordell conjecture, which implies that for each $n \geq 3$, there are only finitely many primitive solutions.
+\item \textbf{Wiles (1994):} Proved the theorem for all $n \geq 3$.
+\end{itemize}
+
+\subsection{Elliptic Curves}
+
+An elliptic curve is defined by an equation $y^2 = x^3 + ax + b$. Despite their name, they are not ellipses. They are called elliptic because they arise in the study of elliptic integrals.
+
+Elliptic curves have a remarkable property: their points form an abelian group. The group law is defined geometrically: given two points $P$ and $Q$ on the curve, draw the line through them; it intersects the curve at a third point $R$; then $P+Q$ is the reflection of $R$ across the $x$-axis. The identity of the group is the point at infinity.
+
+The Mordell--Weil theorem states that the group $E(\mathbb{Q})$ of rational points on an elliptic curve is finitely generated:
+\[
+E(\mathbb{Q}) \cong \mathbb{Z}^r \oplus E(\mathbb{Q})_{\text{tors}},
+\]
+where $r$ is the rank and $E(\mathbb{Q})_{\text{tors}}$ is the finite torsion subgroup.
+
+\subsection{Modular Forms}
+
+A modular form is a highly symmetric function on the upper half-plane. It satisfies:
+\[
+f\left(\frac{az + b}{cz + d}\right) = (cz + d)^k f(z)
+\]
+for matrices $\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in SL(2, \mathbb{Z})$, or more generally for congruence subgroups $\Gamma_0(N)$.
+
+Modular forms are connected to number theory through their Fourier expansions:
+\[
+f(z) = \sum_{n=0}^{\infty} a_n e^{2\pi i n z},
+\]
+whose coefficients encode arithmetic information. For example, the Ramanujan $\tau$-function arises as the coefficients of the discriminant modular form $\Delta(z)$.
+
+A cusp form $f$ is a modular form that vanishes at the cusps (the boundary of the fundamental domain). The space of cusp forms of weight $k$ and level $N$ is finite-dimensional, with dimension given by the Riemann--Roch theorem.
+
+\subsection{The Frey Curve}
+
+In 1985, Gerhard Frey made a crucial observation: if there were a counterexample to Fermat's Last Theorem---say $a^p + b^p = c^p$---then the elliptic curve:
+\[
+E_{a,b,c}: y^2 = x(x - a^p)(x + b^p)
+\]
+would have very special properties. In particular, it would be semistable (a nice technical condition) but not modular.
+
+Jean-Pierre Serre refined this idea into a precise conjecture (the $\varepsilon$-conjecture), which was proved by Kenneth Ribet in 1990. Ribet showed that if $E_{a,b,c}$ were modular, then the corresponding modular form would have level 2, which is impossible. Therefore, proving that all semistable elliptic curves are modular would prove Fermat's Last Theorem.
+
+\subsection{The Modularity Conjecture}
+
+The modularity conjecture (now the modularity theorem) states that every elliptic curve over $\mathbb{Q}$ is modular: its $L$-function equals the $L$-function of a modular form. This was originally conjectured by Taniyama in 1955 and refined by Shimura in the 1960s.
+
+The $L$-function of an elliptic curve $E$ is:
+\[
+L(E, s) = \prod_{p} \frac{1}{1 - a_p p^{-s} + p^{1-2s}},
+\]
+where $a_p = p + 1 - |E(\mathbb{F}_p)|$ is the trace of Frobenius. The modular form $f$ associated to $E$ has the property that its $L$-function:
+\[
+L(f, s) = \sum_{n=1}^\infty a_n n^{-s}
+\]
+satisfies $L(f, s) = L(E, s)$, where the $a_n$ are the Fourier coefficients of $f$.
+
+\subsection{Hecke Operators and the Eichler--Shimura Theorem}
+
+The theory of Hecke operators on modular forms provides a bridge between modular forms and elliptic curves. The Eichler--Shimura theorem states that the $L$-function of a modular form of weight 2 corresponds to the $L$-function of an elliptic curve. This theorem was the prototype for the modularity theorem.
+
+Hecke operators $T_p$ act on the space of modular forms and are simultaneously diagonalizable. A modular form that is an eigenvector for all Hecke operators is called a Hecke eigenform. The eigenvalues $a_p$ of the Hecke operators are the same as the coefficients $a_p$ in the $L$-function.
+
+\section{Deep Insight into the Problem}
+
+\subsection{Wiles' Strategy}
+
+Wiles' proof of the modularity theorem proceeds by studying the deformation theory of Galois representations. The key steps are:
+\begin{enumerate}
+\item Associate to an elliptic curve $E$ its $\ell$-adic Galois representation $\rho_{E,\ell}$.
+\item Show that $\rho_{E,\ell}$ is modular if and only if $E$ is modular.
+\item Use the theory of deformations of Galois representations to show that all semistable elliptic curves are modular.
+\end{enumerate}
+
+\subsection{Galois Representations}
+
+The $\ell$-adic Galois representation associated to an elliptic curve $E$ is:
+\[
+\rho_{E,\ell}: \mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q}) \to GL_2(\mathbb{Z}_\ell),
+\]
+given by the action of the absolute Galois group on the $\ell$-adic Tate module $T_\ell(E) = \varprojlim_n E[\ell^n]$.
+
+The representation $\rho_{E,\ell}$ encodes the arithmetic of $E$: for each prime $p \neq \ell$, the trace of the Frobenius element $\mathrm{Frob}_p$ equals $a_p(E) = p + 1 - |E(\mathbb{F}_p)|$.
+
+\subsection{Modularity of Galois Representations}
+
+The elliptic curve $E$ is modular if $\rho_{E,\ell}$ is isomorphic to $\rho_{f,\ell}$ for some modular form $f$, where $\rho_{f,\ell}$ is the $\ell$-adic representation attached to $f$ by Deligne.
+
+Deligne's construction attaches to a modular form $f$ of weight $k \geq 2$ an $\ell$-adic representation:
+\[
+\rho_{f,\ell}: \mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q}) \to GL_2(\overline{\mathbb{Q}}_\ell)
+\]
+such that for almost all primes $p$:
+\[
+\det(1 - \rho_{f,\ell}(\mathrm{Frob}_p) p^{-s}) = 1 - a_p(f) p^{-s} + p^{k-1-2s},
+\]
+where $a_p(f)$ is the $p$-th Fourier coefficient of $f$.
+
+\subsection{Deformation Theory}
+
+Mazur introduced the theory of deformations of Galois representations. Given a residual representation $\overline{\rho}: \mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q}) \to GL_2(\mathbb{F})$, one can study all liftings $\rho$ to complete local rings $R$ with residue field $\mathbb{F}$. These form a universal deformation ring $R_{\overline{\rho}}$.
+
+The deformation ring $R_{\overline{\rho}}$ is a complete local Noetherian $\mathbb{Z}_\ell$-algebra that represents the functor of deformations of $\overline{\rho}$. It is characterized by the property that for every complete local $\mathbb{Z}_\ell$-algebra $A$ with residue field $\mathbb{F}$, the set of lifts $\rho: G \to GL_2(A)$ of $\overline{\rho}$ is in bijection with $\mathrm{Hom}(R_{\overline{\rho}}, A)$.
+
+\subsection{The Taylor--Wiles Method}
+
+The most innovative part of Wiles' proof is the Taylor--Wiles method (also called the modularity lifting technique). This method provides a criterion for lifting modularity from a residual representation to its deformation.
+
+The key idea is to introduce additional variables (the ``Taylor--Wiles primes'') to create a larger space where the deformation ring can be shown to be a power series ring, and then specialize back.
+
+More precisely, one considers a sequence of sets $Q_n$ of auxiliary primes (Taylor--Wiles primes) satisfying:
+\begin{itemize}
+\item Each $q \in Q_n$ is congruent to 1 mod $\ell^n$.
+\item The Frobenius elements at $q$ have prescribed eigenvalues.
+\item The set $Q_n$ is chosen so that the deformation ring $R_{Q_n}$ for the corresponding level structure is smooth over $\mathbb{Z}_\ell$.
+\end{itemize}
+
+For each $Q_n$, one considers the universal deformation ring $R_n$ for representations of $\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})$ unramified outside $S \cup Q_n$, and the corresponding Hecke algebra $\mathbb{T}_n$. The Taylor--Wiles method shows that $R_n \cong \mathbb{T}_n$ by patching together these isomorphisms as $n \to \infty$.
+
+\subsection{The Numerical Criterion}
+
+The key technical step is a numerical criterion for an isomorphism $R \cong \mathbb{T}$:
+\[
+\#(\mathbb{T}/\mathfrak{m}_\mathbb{T}) \cdot \#(\eta_\mathbb{T}) \leq \#(\Phi_R),
+\]
+where $\eta_\mathbb{T}$ is the congruence ideal and $\Phi_R$ is the adjoint Selmer group. When equality holds, $R \cong \mathbb{T}$.
+
+The congruence ideal $\eta_\mathbb{T}$ measures the failure of the Hecke algebra to be Gorenstein: $\eta_\mathbb{T} = \mathrm{Hom}_{\mathcal{O}}(\mathbb{T}, \mathcal{O})$ as a $\mathbb{T}$-module. The adjoint Selmer group $\Phi_R$ is defined using Galois cohomology\index{Cohomology} and measures the size of the tangent space of the deformation ring.
+
+\subsection{The Gap and Its Repair}
+
+After Wiles announced his proof in June 1993, a gap was discovered in the estimate for the Selmer group. The bound was:
+\[
+\#(\Phi_R) \leq \#(\mathbb{T}/\mathfrak{m}_\mathbb{T}) \cdot \#(\eta_\mathbb{T})
+\]
+but the opposite inequality was needed. Wiles and Taylor spent over a year working on the problem.
+
+The solution came when Wiles realized that the methods of his original proof, when combined with a new idea about the choice of Taylor--Wiles primes (the ``Kolyvagin primes''), could be extended to give the needed bound. The key insight was to use Kolyvagin's theory of Euler systems to bound the Selmer group.
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{The Modularity Theorem}
+
+The theorem states that every elliptic curve over $\mathbb{Q}$ is modular. This was known as the Taniyama--Shimura conjecture and was proven in full by Wiles, Taylor, Breuil, Conrad, Diamond, and Taylor in 2001.
+
+\subsection{Fermat's Last Theorem}
+
+The modularity theorem implies Fermat's Last Theorem because of Frey's construction: if $a^n + b^n = c^n$ were a counterexample, the associated Frey curve would be semistable but not modular, contradicting the modularity theorem.
+
+\subsection{The Taylor--Wiles Method}
+
+The Taylor--Wiles method (also called ``modularity lifting'' or ``potential modularity'') has become the central technique in the Langlands program:
+\begin{itemize}
+\item It was used by Clozel, Harris, and Taylor to prove the Sato--Tate conjecture.
+\item It is used in the proof of the fundamental lemma and the global Langlands correspondence.
+\item It has been extended to higher dimensions by Scholze, Shin, and others.
+\end{itemize}
+
+\subsection{Hecke Algebras and Their Representation Theory}
+
+Wiles' work on the structure of Hecke algebras introduced new methods for studying their representation theory. The key insight was that the Hecke algebra $\mathbb{T}$ for modular forms of weight 2 and level $N$ is isomorphic to the universal deformation ring $R$ of a certain Galois representation.
+
+This isomorphism $R \cong \mathbb{T}$ is now known as the ``R = T theorem'' and has become a fundamental tool in the Langlands program.
+
+\section{Impact of the Discovery}
+
+\subsection{Impact on Mathematics}
+
+\begin{itemize}
+\item \textbf{Number Theory}: Wiles' proof revolutionized number theory by establishing deep connections between Galois representations and automorphic forms.
+\item \textbf{The Langlands Program}: Wiles' methods opened the door to proving the Langlands correspondence for $GL_n$, which has been accomplished for many cases.
+\item \textbf{Arithmetic Geometry}: The modularity theorem is essential for understanding the arithmetic of elliptic curves and their $L$-functions.
+\item \textbf{Galois Representations}: The theory of deformations of Galois representations, which was central to Wiles' proof, has become one of the most active areas of number theory.
+\end{itemize}
+
+\subsection{Impact on Cryptography}
+
+The mathematics of elliptic curves, which Wiles' work helped illuminate, is now central to cryptography. While the modularity theorem itself has no direct cryptographic application, the theory of elliptic curves over finite fields is the basis for:
+\begin{itemize}
+\item Elliptic curve cryptography (ECC)
+\item Elliptic curve Diffie--Hellman (ECDH)
+\item Elliptic curve digital signature algorithm (ECDSA)
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{The Langlands Program}
+
+Wiles' modularity lifting method has been extended to many new contexts. The work of Clozel, Harris, and Taylor on the Sato--Tate conjecture, the proof of the fundamental lemma by Ng\^o, and the work of Scholze on perfectoid spaces\index{Perfectoid spaces} all use variations of the modularity lifting technique.
+
+\subsection{The $p$-adic Langlands Program}
+
+Building on Wiles' ideas, the $p$-adic Langlands program seeks to understand the relationship between $p$-adic Galois representations and $p$-adic automorphic forms, using the theory of $(\varphi,\Gamma)$-modules developed by Fontaine and Colmez.
+
+The $p$-adic Langlands program for $GL_2(\mathbb{Q}_p)$ has been developed by Colmez, Paskunas, and others. The key idea is that $p$-adic representations of the absolute Galois group of $\mathbb{Q}_p$ correspond to $p$-adic Banach space representations of $GL_2(\mathbb{Q}_p)$.
+
+\subsection{The Birch and Swinnerton-Dyer Conjecture}
+
+The modularity theorem is a key ingredient in the partial progress on the Birch and Swinnerton-Dyer conjecture. The conjecture states:
+\[
+\mathrm{ord}_{s=1} L(E, s) = \mathrm{rank}(E(\mathbb{Q})).
+\]
+
+The work of Kolyvagin, Gross--Zagier, and others uses modularity to bound Selmer groups and construct rational points on elliptic curves. The Gross--Zagier theorem expresses the height of certain Heegner points on $E$ in terms of the derivative of $L(E, s)$ at $s=1$.
+
+\subsection{Potential Modularity}
+
+The Taylor--Wiles method has been extended to show that many Galois representations are potentially modular---that is, modular after a finite extension of the base field. This is a key ingredient in the proof of the Sato--Tate conjecture and the Serre conjecture.
+
+The potential modularity theorem of Taylor, Harris, and Shepherd-Barron states that for any elliptic curve $E$ over a CM field $F$, there exists a finite extension $F'/F$ such that $E$ is modular over $F'$.
+
+\subsection{The Modularity of Abelian Surfaces}
+
+Recent work by Boxer, Calegari, Gee, and others has extended modularity lifting to abelian surfaces (2-dimensional abelian varieties\index{Abelian varieties}), using the theory of $p$-adic Hodge theory\index{Hodge theory} and potential automorphy.
+
+\subsection{The Serre Conjecture}
+
+The Serre conjecture (now the Serre modularity theorem) was proved by Khare, Wintenberger, and Kisin. It states that any odd, irreducible, two-dimensional Galois representation over a finite field arises from a modular form of a specific weight and level.
+
+The proof uses Wiles' modularity lifting methods in a crucial way, combined with the theory of compatible systems and the geometric Jacquet--Langlands correspondence.
+
+\subsection{The Fontaine--Mazur Conjecture}
+
+The Fontaine--Mazur conjecture, which predicts that geometric $p$-adic Galois representations arise from algebraic geometry, has been proved in many cases using Wiles' methods. The conjecture states that an irreducible $p$-adic Galois representation that is unramified outside a finite set of primes and de Rham at $p$ should be isomorphic to a subquotient of the \'etale cohomology\index{Cohomology} of an algebraic variety.
+
+\subsection{Computational Number Theory}
+
+The modularity theorem has concrete computational implications: given an elliptic curve, one can compute its modular form and vice versa. This has been implemented in software (PARI/GP, SageMath, Magma) and is used for computing $L$-functions, ranks, and other invariants of elliptic curves.
+
+The Cremona database of elliptic curves, which lists all elliptic curves over $\mathbb{Q}$ up to conductor 500,000, is organized by the modularity theorem: each curve corresponds to a newform of weight 2.
+
+\subsection{The Arithmetic of Elliptic Curves}
+
+The modularity theorem provides a powerful tool for studying the arithmetic of elliptic curves:
+\begin{itemize}
+\item It allows the construction of rational points on elliptic curves using Heegner points and the Gross--Zagier formula.
+\item It provides bounds on the size of the Selmer group via the theory of Euler systems.
+\item It gives a formula for the special value $L(E, 1)$ in terms of the order of the Tate--Shafarevich group (the Birch--Swinnerton-Dyer formula).
+\end{itemize}
+
+\section{Conclusion}
+
+Andrew Wiles' proof of Fermat's Last Theorem is one of the greatest intellectual achievements of all time. It resolved a 358-year-old problem by creating a deep connection between elliptic curves and modular forms, a connection that now lies at the heart of modern number theory.
+
+The methods Wiles developed---modularity lifting, the Taylor--Wiles patching argument, and the R = T theorem---have become essential tools in the Langlands program and continue to drive research in number theory. The modularity theorem itself is now a cornerstone of arithmetic geometry, with applications from the Birch--Swinnerton-Dyer conjecture to the theory of $p$-adic Galois representations.
+
+Wiles' story also captured the public imagination like few mathematical achievements before or since. His seven years of secret work, the dramatic announcement, the discovery of the gap, and the eventual triumph inspired a new generation of mathematicians.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Wiles worked on Fermat's Last Theorem in secret for seven years. To avoid suspicion, he would publish papers from his old research periodically so his colleagues wouldn't know he was working on it.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``A bridge connecting elliptic curves and modular forms to prove that Fermat's equation $x^n + y^n = z^n$ has no solutions for $n \geq 3$.''
+
+\subsection{Mathematical Lineage}
+Advised by John Coates.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Wiles' proof laid the groundwork for post-quantum cryptographic schemes, specifically isogeny\index{Isogeny-based cryptography}-based cryptography (like CSIDH), which relies on maps between elliptic curves.
+
+\subsection{Algorithms and Numerical Implementations}
+Double-and-add scalar multiplication algorithms and modular arithmetic reduction schemes are implemented in hardware security modules to perform secure elliptic curve arithmetic.
+
+\section{The Research Frontier}
+Proving the modularity conjecture for higher-dimensional Galois representations (e.g., $GL_n$ modularity), which constitutes a large part of the Langlands program.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Explain Gerhard Frey's construction of the elliptic curve $y^2 = x(x-a^p)(x+b^p)$ and why it violates modularity if $a^p+b^p=c^p$.
+  \item State the modularity theorem for elliptic curves over $\mathbb{Q}$ and explain its translation in terms of L-functions.
+  \item Describe the basic idea of deformation theory of Galois representations used by Wiles.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Gary Cornell, Joseph H. Silverman, and Glenn Stevens, \emph{Modular Forms and Fermat's Last Theorem}, Springer.
+  \item Fred Diamond and Jerry Shurman, \emph{A First Course in Modular Forms}, Springer.
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item A. Wiles, ``Modular elliptic curves and Fermat's last theorem,'' Annals of Mathematics 141 (1995), 443--551.
+\item R. Taylor and A. Wiles, ``Ring-theoretic properties of certain Hecke algebras,'' Annals of Mathematics 141 (1995), 553--572.
+\item H. Darmon, ``Wiles' theorem and the arithmetic of elliptic curves,'' in ``Modular Forms and Fermat's Last Theorem,'' Springer, 1997.
+\item K. Rubin and A. Silverberg, ``A report on Wiles' Cambridge lectures,'' Bulletin of the American Mathematical Society 31 (1994), 15--38.
+\item C. Breuil, B. Conrad, F. Diamond, and R. Taylor, ``On the modularity of elliptic curves over $\mathbb{Q}$,'' Journal of the American Mathematical Society 14 (2001), 843--939.
+\item G. Frey, ``Links between stable elliptic curves and certain Diophantine equations,'' Annales Universitatis Saraviensis 1 (1986), 1--40.
+\item K. Ribet, ``On modular representations of $\mathrm{Gal}(\overline{\mathbb{Q}}/\mathbb{Q})$ arising from modular forms,'' Inventiones Mathematicae 100 (1990), 431--476.
+\item B. Mazur, ``Deforming Galois representations,'' in ``Galois Groups over $\mathbb{Q}$,'' Springer, 1989, 385--437.
+\item J. Silverman, ``The Arithmetic of Elliptic Curves,'' Springer, 1986.
+\item S. Singh, ``Fermat's Enigma,'' Walker \& Company, 1997.
+\item H. Darmon, F. Diamond, and R. Taylor, ``Fermat's last theorem,'' in ``Current Developments in Mathematics 1995,'' International Press, 1996.
+\item G. Cornell, J. H. Silverman, and G. Stevens (eds.), ``Modular Forms and Fermat's Last Theorem,'' Springer, 1997.
+\item N. Koblitz, ``Elliptic Curve Cryptography,'' Springer, 1998.
+\item L. C. Washington, ``Elliptic Curves: Number Theory and Cryptography,'' CRC Press, 2008.
+\item B. Mazur, ``An introduction to the deformation theory of Galois representations,'' in ``Modular Forms and Fermat's Last Theorem,'' Springer, 1997.
+\item M. Harris and R. Taylor, ``The Geometry and Cohomology\index{Cohomology} of Some Simple Shimura Varieties,'' Princeton University Press, 2001.
+\item M. A. Tsfasman, S. G. Vl\u{a}du\c{t}, and T. Zink, ``Modular curves, Shimura curves, and Goppa codes,'' in ``Arithmetic Geometry,'' Springer, 1994.
+\item C. Khare and J.-P. Wintenberger, ``Serre's modularity conjecture I,'' Inventiones Mathematicae 176 (2009), 485--504.
+\item M. Kisin, ``Modularity of 2-adic Barsotti--Tate representations,'' Inventiones Mathematicae 178 (2009), 587--634.
+\item V. Kolyvagin, ``Euler systems,'' in ``The Grothendieck Festschrift,'' Birkh\"auser, 1990.
+\item B. Gross and D. Zagier, ``Heegner points and derivatives of $L$-series,'' Inventiones Mathematicae 84 (1986), 225--320.
+\item J. Coates and A. Wiles, ``On $p$-adic $L$-functions and elliptic units,'' Journal of the Australian Mathematical Society 26 (1978), 1--25.
+\item E. Kani and W. Scharlau (eds.), ``Number Theory and Algebraic Geometry,'' Cambridge University Press, 2000.
+\item S. Gelbart, ``An elementary introduction to the Langlands program,'' Bulletin of the AMS 10 (1984), 177--219.
+\item F. Diamond and J. Shurman, ``A First Course in Modular Forms,'' Springer, 2005.
+\end{enumerate}

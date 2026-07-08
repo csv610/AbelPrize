@@ -1,0 +1,290 @@
+\chapter{Mikhail Gromov (2009)}
+
+\section{Biographical Sketch}
+
+Mikhail Leonidovich Gromov was born on 23 December 1943 in Boksitogorsk, Russia. He studied at Leningrad State University, where he completed his PhD in 1969 under the supervision of Vladimir Rokhlin. He held positions at the Steklov Institute in Leningrad, Stony Brook University (New York), the University of Paris-Sud, and the Institut des Hautes \'Etudes Scientifiques (IH\'ES) near Paris, where he has been a permanent professor since 1982. Gromov has received numerous honors, including the Abel Prize in 2009, the Wolf Prize in 1993, the Balzan Prize in 1999, the Crafoord Prize in 2009, and the International Prize in 2004.
+
+Gromov is one of the most original mathematicians of the modern era. His work is characterized by extraordinary breadth and depth, touching virtually every area of geometry and topology. He has the rare ability to see deep connections between seemingly unrelated areas of mathematics and to create entirely new fields when existing tools prove insufficient.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Gromov Do?}
+
+Imagine you have a piece of string. On a flat table, the shortest path between two points is a straight line. But what if the table is curved---like the surface of a saddle or a sphere? The shortest paths curve too, and the study of these curved paths is called \emph{geometry}.
+
+Mikhail Gromov transformed geometry by asking a radical question: what happens if we stop looking at specific shapes and instead look at all possible shapes at once? He developed ways to measure the ``shape'' of families of geometric objects, leading to discoveries that connect geometry to group theory, analysis, and topology.
+
+\subsection{Why Does It Matter?}
+
+Gromov's work shows that geometry is not just about measuring distances on specific surfaces. It is about understanding the possible shapes of the universe itself. His ideas have influenced:
+\begin{itemize}
+\item The study of the large-scale structure of the universe
+\item The behavior of gases and fluids at the molecular level
+\item The theory of computation and information
+\item The mathematics of data analysis (manifold learning, dimensionality reduction)
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{Riemannian Geometry}
+
+Riemannian geometry, founded by Bernhard Riemann in 1854, studies manifolds equipped with a metric---a way of measuring distances and angles. The curvature of a Riemannian manifold measures how it deviates from being flat. Positive curvature means the geometry is sphere-like; negative curvature means it is saddle-like.
+
+By the 1960s, much was known about manifolds with constant curvature, but the geometry of manifolds with varying curvature was poorly understood. The central problem was: what constraints does the topology of a manifold place on the metrics it can support?
+
+\subsection{The H\"uckel--Gromov Revolution}
+
+Gromov introduced a series of revolutionary ideas that transformed Riemannian geometry:
+\begin{itemize}
+\item \textbf{Geometric inequalities}: relating volume, diameter, and curvature.
+\item \textbf{Gromov--Hausdorff convergence}: a notion of when one metric space converges to another.
+\item \textbf{Symplectic geometry}: Gromov's theory of pseudoholomorphic curves revolutionized the study of symplectic manifolds.
+\end{itemize}
+
+\section{Deep Insight into the Problem}
+
+\subsection{Gromov's Boundedness Theorem}
+
+One of Gromov's earliest major results: for a given dimension and lower bound on Ricci curvature, there are only finitely many possible topological types of manifolds that can support such a metric, up to a certain scale. This finiteness theorem showed that curvature imposes profound constraints on topology.
+
+The proof introduced a technique called \emph{geometric measure theory} into Riemannian geometry, using ideas from the calculus of variations to study minimal surfaces and their properties. The key idea is to construct an almost isometric embedding of the manifold into a Euclidean space of controlled dimension, then use the finiteness of the combinatorial types of convex polyhedra.
+
+\subsection{Gromov--Hausdorff Convergence}
+
+The Gromov--Hausdorff metric measures how far two compact metric spaces are from being isometric. Two spaces are close in the Gromov--Hausdorff metric if they can be embedded in a common space in such a way that their Hausdorff distance is small.
+
+Gromov used this notion to prove a compactness theorem: any sequence of manifolds with bounded diameter and bounded Ricci curvature has a convergent subsequence. The limit may be a singular metric space, not a smooth manifold. This allowed the study of degenerations of Riemannian manifolds and opened up the geometry of non-smooth spaces.
+
+The compactness theorem states: let $(M_i, g_i)$ be a sequence of compact $n$-dimensional Riemannian manifolds with $\mathrm{Ric}_{g_i} \geq (n-1)H$ and $\mathrm{diam}(M_i) \leq D$. Then there exists a subsequence $(M_{i_j}, g_{i_j})$ that converges in the Gromov--Hausdorff metric to a compact metric space $(X, d_X)$.
+
+\subsection{Hyperbolic Groups and Geometric Group Theory}
+
+Gromov introduced the concept of \emph{hyperbolic groups}---finitely generated groups whose Cayley graphs are hyperbolic metric spaces. This brought ideas from Riemannian geometry into group theory, creating the field of \emph{geometric group theory}.
+
+A group $G$ with generating set $S$ is $\delta$-hyperbolic if its Cayley graph $\Gamma(G,S)$ is $\delta$-hyperbolic as a metric space: for any geodesic triangle, each side is contained in the $\delta$-neighborhood of the union of the other two sides.
+
+A hyperbolic group exhibits exponential growth and has infinitely many elements, yet its large-scale geometry is negatively curved. Examples include:
+\begin{itemize}
+\item The fundamental groups of compact negatively curved manifolds.
+\item Free groups $F_n$ (these are 0-hyperbolic).
+\item Free products of finite groups.
+\item Most finitely presented groups with a single relation (by the work of Gromov and others).
+\end{itemize}
+
+\subsection{Pseudoholomorphic Curves}
+
+Gromov's theory of pseudoholomorphic curves (1985) revolutionized symplectic geometry. A pseudoholomorphic curve is a map $u: (\Sigma, j) \to (M, J)$ from a Riemann surface to a symplectic manifold that satisfies the Cauchy--Riemann equations:
+\[
+J \circ du = du \circ j,
+\]
+with respect to a compatible almost complex structure $J$.
+
+The key insight: pseudoholomorphic curves behave much like minimal surfaces, and their moduli spaces can be used to define symplectic invariants (Gromov--Witten invariants) that count the number of such curves.
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{Riemannian Geometry}
+
+\begin{itemize}
+\item \textbf{Almost Flat Manifolds}: Gromov showed that manifolds with diameter bounded and curvature arbitrarily close to zero are, up to finite covers, nilmanifolds. The proof used a delicate averaging argument combined with the theory of nilpotent Lie groups\index{Lie groups}.
+\item \textbf{The Betti Number Theorem}: For a manifold with bounded curvature and diameter, the sum of the Betti numbers is bounded by a constant depending only on the dimension and the bounds. This was proved using a heat kernel estimate and the work of Bochner and Yau.
+\item \textbf{Minimal Volume}: Gromov introduced the concept of minimal volume: the infimum of the volume of a manifold over all metrics with bounded curvature. He showed that the minimal volume is related to simplicial volume and other topological invariants.
+\item \textbf{The Filling Radius and Systolic Geometry}: Gromov introduced the filling radius of a Riemannian manifold and proved fundamental inequalities relating it to volume. This led to the development of systolic geometry.
+\end{itemize}
+
+\subsection{Symplectic Geometry}
+
+The theory of pseudoholomorphic curves transformed symplectic geometry:
+\begin{itemize}
+\item \textbf{Gromov Non-Squeezing Theorem}: A ball of radius $R$ in $\mathbb{R}^{2n}$ cannot be symplectically embedded into a cylinder of radius $r < R$. This was the first truly non-trivial result in symplectic topology, showing that symplectic geometry is rigid, not floppy.
+\item \textbf{Gromov--Witten Invariants}: Virtual counts of pseudoholomorphic curves, which are fundamental to mirror symmetry and string theory. The Gromov--Witten invariants are defined by:
+\[
+GW_{g,\beta}^M = \int_{[\overline{\mathcal{M}}_{g,n}(M,\beta)]^{\text{vir}}} \mathrm{ev}^*(\alpha_1 \otimes \cdots \otimes \alpha_n),
+\]
+where $\overline{\mathcal{M}}_{g,n}(M,\beta)$ is the moduli space of stable maps.
+\item \textbf{Floer Homology\index{Homology theory}}: Gromov's ideas directly inspired Floer's development of Floer homology\index{Homology theory}, a central tool in low-dimensional topology and symplectic geometry.
+\item \textbf{The Arnold Conjecture}: Gromov's methods provided the foundation for proving the Arnold conjecture on fixed points of Hamiltonian diffeomorphisms.
+\end{itemize}
+
+\subsection{Geometric Group Theory}
+
+Gromov's work in group theory:
+\begin{itemize}
+\item \textbf{Gromov's Theorem on Polynomial Growth}: A finitely generated group has polynomial growth if and only if it is virtually nilpotent. This deep result connects the geometry of groups to their algebraic structure. The proof uses the Gromov--Hausdorff convergence of rescaled Cayley graphs to construct a limiting homogeneous space.
+\item \textbf{Hyperbolic Groups}: Gromov characterized negatively curved groups in terms of the thin triangle condition on their Cayley graphs. Hyperbolic groups have solvable word problem, geodesic problem, and conjugacy problem. The boundary of a hyperbolic group is a topological space that encodes the large-scale geometry of the group.
+\item \textbf{Random Groups}: Gromov studied generic finitely presented groups with a fixed number of relations, showing that most such groups are hyperbolic (with probability approaching 1 as the length of relations increases). This result uses the theory of small cancellation and geometric analysis of the Cayley complex.
+\item \textbf{Fillings and Dehn Functions}: Gromov studied the isoperimetric properties of groups, connecting the Dehn function (the minimal area needed to fill a loop) to the geometry of the group's Cayley complex.
+\end{itemize}
+
+\subsection{Partial Differential Relations and the $h$-Principle}
+
+Gromov developed the \emph{$h$-principle} (homotopy\index{Homotopy groups} principle), which gives conditions under which a partial differential relation can be deformed to a genuine solution. The $h$-principle explains why certain PDEs have many solutions (e.g., the existence of immersions of manifolds) and provides a general framework for constructing them.
+
+The $h$-principle has been applied to:
+\begin{itemize}
+\item Immersion and embedding problems in differential topology. The Nash--Kuiper theorem (that any short embedding can be deformed to an isometric embedding) is an example of the $h$-principle.
+\item The study of symplectic and contact structures. The existence of contact structures on odd-dimensional manifolds follows from the $h$-principle.
+\item The theory of isometric embeddings of Riemannian manifolds, including the Nash embedding theorem.
+\end{itemize}
+
+\subsection{Simplicial Volume and the Gromov Norm}
+
+Gromov introduced the simplicial volume $\|M\|$ of a manifold, which measures the minimal total mass of a rational chain representing the fundamental class. Key results:
+\begin{itemize}
+\item For a negatively curved manifold, $\|M\| > 0$. This gives a topological obstruction to negative curvature.
+\item For a product of manifolds, $\|M \times N\| = c \cdot \|M\| \cdot \|N\|$.
+\item The simplicial volume is related to the minimal volume and the volume entropy.
+\end{itemize}
+
+\subsection{The Gromov--Lawson Theorem on Scalar Curvature}
+
+Gromov and Lawson proved a fundamental obstruction to the existence of metrics of positive scalar curvature: if a spin manifold $M$ has a metric of positive scalar curvature, then the $\widehat{A}$-genus of $M$ must vanish. This result connects differential geometry to index theory and has deep implications for the classification of manifolds with positive scalar curvature.
+
+\section{Impact of the Discovery}
+
+\subsection{Impact on Mathematics}
+
+Gromov's work has transformed multiple fields:
+\begin{itemize}
+\item \textbf{Geometry}: Gromov's ideas reshaped Riemannian geometry, introducing a quantitative, variational approach. His compactness theorems and geometric inequalities are now standard tools.
+\item \textbf{Symplectic Topology}: The theory of pseudoholomorphic curves is the foundation of modern symplectic geometry. Gromov--Witten invariants, Floer homology\index{Homology theory}, and contact homology all trace their origins to Gromov's 1985 paper.
+\item \textbf{Group Theory}: Geometric group theory, which Gromov founded, is now a central part of modern group theory. The study of hyperbolic groups, CAT(0) spaces, and growth of groups all stem from Gromov's work.
+\item \textbf{Topology}: Gromov's work on the $h$-principle and his contributions to the theory of foliations and characteristic classes have had a lasting impact on differential topology.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+\begin{itemize}
+\item \textbf{Symplectic Geometry in Physics}: Symplectic geometry is the mathematical foundation of Hamiltonian mechanics. Gromov's pseudoholomorphic curves are used in the study of Hamiltonian dynamics and the Arnold conjecture.
+\item \textbf{Mirror Symmetry}: Gromov--Witten invariants are central to mirror symmetry, which relates complex geometry to symplectic geometry. The counting of rational curves in Calabi--Yau manifolds uses Gromov's methods.
+\item \textbf{General Relativity}: Gromov's work on metrics with positive scalar curvature has applications to the study of spacetime geometry in general relativity.
+\end{itemize}
+
+\subsection{Impact on Computer Science}
+
+\begin{itemize}
+\item \textbf{Manifold Learning}: Gromov--Hausdorff distance is used in manifold learning and dimensionality reduction. Algorithms for computing distances between metric spaces use Gromov's ideas.
+\item \textbf{Shape Analysis}: The comparison of shapes using Gromov--Hausdorff distance is used in computer vision and graphics.
+\item \textbf{Group Theory in Cryptography}: The theory of hyperbolic groups, with their solvable word problem, has been proposed as a foundation for certain cryptographic protocols.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{The Geometry of Moduli Spaces}
+
+Gromov's ideas continue to influence the study of moduli spaces:
+\begin{itemize}
+\item \textbf{Teichm\"uller Theory}: The Weil--Petersson metric on Teichm\"uller space has properties that are studied using Gromov's methods. The Teichm\"uller space $\mathcal{T}_g$ is a metric space that parametrizes complex structures on a surface of genus $g$.
+\item \textbf{Moduli of Curves}: The moduli space of Riemann surfaces $\mathcal{M}_g$ has a rich geometry that is studied using techniques from Gromov's work.
+\item \textbf{Metric Geometry of Moduli Spaces}: The study of the coarse geometry of moduli spaces of Riemannian metrics uses Gromov--Hausdorff convergence and compactness theorems.
+\end{itemize}
+
+\subsection{Geometric Analysis}
+
+The field of geometric analysis, which Gromov helped create, continues to flourish:
+\begin{itemize}
+\item \textbf{Ricci Flow}: Perelman's proof of the Poincar\'e conjecture used geometric analysis methods that build on Gromov's compactness theorems. The Ricci flow with surgery requires careful control of the geometry of the evolving manifold.
+\item \textbf{Scalar Curvature}: The study of metrics with positive scalar curvature continues to use Gromov's ideas, including his work on the $\widehat{A}$-genus and obstructions.
+\item \textbf{Mean Curvature Flow}: The analysis of singularities in mean curvature flow uses Gromov's compactness methods and the theory of geometric measure theory.
+\end{itemize}
+
+\subsection{Gromov's Latest Work}
+
+Gromov continues to produce groundbreaking work:
+\begin{itemize}
+\item \textbf{The Meaning of Proofs}: Gromov has written on the nature of mathematical proofs and their relationship to computation and information. He explores how the complexity of proofs relates to computational complexity.
+\item \textbf{Metric Structures and Algorithms}: Gromov has explored connections between metric geometry and computational complexity, including the study of metric spaces with low distortion embeddings.
+\item \textbf{Biological and Cognitive Structures}: In recent years, Gromov has written about the mathematical structures underlying biology and cognition, exploring how geometry and dynamics relate to information processing in biological systems.
+\item \textbf{The Gromov--Piatetski-Shapiro Construction}: Together with Piatetski-Shapiro, Gromov constructed non-arithmetic lattices in semisimple Lie groups\index{Lie groups}, showing that many lattices are not arithmetic.
+\end{itemize}
+
+\subsection{Dimension Theory and Uniform Embeddings}
+
+Gromov's work on the large-scale geometry of metric spaces led to new results in dimension theory:
+\begin{itemize}
+\item The Gromov--Dranishnikov theorem on the dimension of the boundary of hyperbolic groups.
+\item The theory of asymptotic dimension, which measures the large-scale geometric complexity of groups.
+\item Uniform embeddings of metric spaces into Hilbert space and the Novikov conjecture.
+\end{itemize}
+
+\subsection{Isoperimetric Inequalities and the Geometry of Groups}
+
+The study of isoperimetric inequalities in groups, initiated by Gromov, remains active:
+\begin{itemize}
+\item The Dehn function of a group measures the complexity of the word problem.
+\item Gromov showed that the Dehn function of a hyperbolic group is linear.
+\item The study of isoperimetric inequalities for higher-dimensional filling problems uses Gromov's ideas.
+\end{itemize}
+
+\section{Conclusion}
+
+Mikhail Gromov is one of the most original and influential mathematicians of the twentieth and twenty-first centuries. His work has transformed Riemannian geometry, created symplectic topology, founded geometric group theory, and revolutionized the study of partial differential relations.
+
+The Abel Prize citation recognized Gromov ``for his revolutionary contributions to geometry.'' This brief statement encompasses a body of work that has reshaped not just geometry, but large parts of modern mathematics. His theories---the $h$-principle, pseudoholomorphic curves, hyperbolic groups, and Gromov--Hausdorff convergence---have become foundational tools used by mathematicians worldwide.
+
+What sets Gromov apart is his ability to see connections where others see only disparate fields, and his willingness to create entirely new mathematical languages when existing ones are inadequate. His influence will continue to be felt for generations to come.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Gromov is famous for his highly unconventional, non-linear thinking. He once remarked that he preferred to find new proofs for already-proven theorems rather than solve open problems, because re-proving known facts forced him to think in completely new ways.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``A soft, flexible geometry where topological shapes can be bent and squeezed, yet still retain rigid, fundamental boundaries.''
+
+\subsection{Mathematical Lineage}
+Advised by Vladimir Rokhlin, who was advised by Abram Plesner.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Hyperbolic groups and symplectic invariants are used in robot motion planning (to navigate multi-dimensional configuration spaces), shape matching in computer graphics, and embedding hierarchical networks.
+
+\subsection{Algorithms and Numerical Implementations}
+The Gromov-Wasserstein distance algorithm is used in optimal transport and machine learning for cross-domain matching, and Poincaré hyperbolic embedding algorithms represent tree-structured datasets in PyTorch.
+
+\section{The Research Frontier}
+Applications of Gromov's symplectic non-squeezing theorem to Hamiltonian dynamics, and the geometry of random groups in geometric group theory.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item State Gromov's non-squeezing theorem and explain why it is referred to as the 'symplectic camel.'
+  \item Define a hyperbolic group in the sense of Gromov and explain the thin triangle condition.
+  \item Explain the difference between a holomorphic curve and a pseudoholomorphic curve on a symplectic manifold.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item M. Gromov, \emph{Metric Structures for Riemannian and Non-Riemannian Spaces}, Birkh\"auser.
+  \item Dusa McDuff and Dietmar Salamon, \emph{Introduction to Symplectic Topology}, Oxford University Press.
+\end{itemize}
+
+\section*{Bibliography}
+
+\begin{enumerate}
+\item M. Gromov, ``Groups of polynomial growth and expanding maps,'' Publications Math\'ematiques de l'IH\'ES 53 (1981), 53--73.
+\item M. Gromov, ``Metric Structures for Riemannian and Non-Riemannian Spaces,'' Birkh\"auser, 1999.
+\item M. Gromov, ``Partial Differential Relations,'' Springer, 1986.
+\item M. Gromov, ``Pseudoholomorphic curves in symplectic manifolds,'' Inventiones Mathematicae 82 (1985), 307--347.
+\item M. Gromov, ``Hyperbolic groups,'' in ``Essays in Group Theory,'' Springer, 1987, 75--263.
+\item M. Gromov, ``Structures m\'etriques pour les vari\'et\'es riemanniennes,'' CEDIC, 1981.
+\item J. Lafontaine, ``Mikha\"il Gromov,'' Gazette des Math\'ematiciens 2009.
+\item M. Berger, ``Riemannian geometry during the second half of the twentieth century,'' Jahresbericht der DMV 100 (1998), 45--79.
+\item M. Gromov and H. B. Lawson, ``Positive scalar curvature and the Dirac operator,'' Publications Math\'ematiques de l'IH\'ES 58 (1983), 83--196.
+\item M. Gromov, ``Volume and bounded cohomology\index{Cohomology},'' Publications Math\'ematiques de l'IH\'ES 56 (1982), 5--99.
+\item M. Gromov, ``Filling Riemannian manifolds,'' Journal of Differential Geometry 18 (1983), 1--147.
+\item M. Gromov and I. Piatetski-Shapiro, ``Non-arithmetic groups in Lobachevsky spaces,'' Publications Math\'ematiques de l'IH\'ES 66 (1987), 93--103.
+\item Y. Eliashberg and N. Mishachev, ``Introduction to the $h$-Principle,'' AMS, 2002.
+\item D. McDuff and D. Salamon, ``$J$-holomorphic Curves and Symplectic Topology,'' AMS, 2012.
+\item E. Ghys and P. de la Harpe (eds.), ``Sur les groupes hyperboliques d'apr\`es Mikhael Gromov,'' Birkh\"auser, 1990.
+\item M. Bridson and A. Haefliger, ``Metric Spaces of Non-Positive Curvature,'' Springer, 1999.
+\item P. de la Harpe, ``Topics in Geometric Group Theory,'' University of Chicago Press, 2000.
+\item M. Gromov, ``Spaces and questions,'' in ``Visions in Mathematics,'' Birkh\"auser, 2000.
+\item M. Gromov, ``Six lectures on geometric group theory,'' in ``The Abel Prize 2009,'' Springer, 2010.
+\item J. Cheeger and T. Colding, ``On the structure of spaces with Ricci curvature bounded below I--III,'' Journal of Differential Geometry 46 (1997), 406--480.
+\item M. Gromov, ``How does a mathematician prove a theorem?'' in ``The Abel Prize 2009,'' Springer, 2010.
+\item A. Connes, ``Noncommutative Geometry,'' Academic Press, 1994.
+\item M. Berger, ``A Panoramic View of Riemannian Geometry,'' Springer, 2003.
+\item S. Gallot, D. Hulin, and J. Lafontaine, ``Riemannian Geometry,'' Springer, 2004.
+\item M. Gromov, ``Quantitative homotopy\index{Homotopy groups} theory,'' in ``Prospects in Mathematics,'' Birkh\"auser, 1999.
+\end{enumerate}

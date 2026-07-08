@@ -1,0 +1,400 @@
+\chapter{Robert Langlands (2018)}
+
+\section{Biographical Sketch}
+
+Robert Phelan Langlands was born on 6 October 1936 in New Westminster, British Columbia, Canada. He studied at the University of British Columbia, where he earned his BA in 1957, and Yale University, where he completed his PhD in 1961 under the supervision of Cassius Ionescu-Tulcea. His early work on the spectral theory of automorphic forms immediately established him as one of the most original mathematicians of his generation.
+
+Langlands held positions at Princeton University (1964--1972) and the Institute for Advanced Study in Princeton (1972--2007), where he is now professor emeritus. He has received numerous honors, including the Abel Prize in 2018, the Wolf Prize in Mathematics in 1996, the Nemmers Prize in 1994, and the Shaw Prize in 2007.
+
+Langlands' mathematical career is unusual in its trajectory. His earliest work was in functional analysis and the theory of Lie groups\index{Lie groups}, but in 1967 he wrote a famous 17-page letter to Andr\'e Weil that completely redirected his career and, ultimately, the course of number theory. The letter outlined what became known as the Langlands program---a sweeping vision connecting number theory, representation theory, and algebraic geometry.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Langlands Do?}
+
+Mathematics has two great streams: number theory (the study of integers, prime numbers, and Diophantine equations) and harmonic analysis (the study of symmetry, waves, and group representations). For most of history, these streams ran separately.
+
+In 1967, Robert Langlands wrote a famous 17-page letter to Andr\'e Weil, outlining a series of conjectures that suggested these two streams are deeply connected. He proposed what is now called the \emph{Langlands program}---a sweeping vision that connects number theory, representation theory, and algebraic geometry.
+
+\subsection{Why Does It Matter?}
+
+The Langlands program is:
+\begin{itemize}
+\item One of the most ambitious and influential research programs in the history of mathematics.
+\item Often called the ``grand unified theory of mathematics'' because it connects so many different fields.
+\item Essential for understanding the deep structure of the Langlands correspondence, which has applications to everything from the proof of Fermat's Last Theorem\index{Fermat's Last Theorem} to cryptography.
+\item Connected to theoretical physics through the geometric Langlands program.
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{Class Field Theory}
+
+Class field theory, developed by Hilbert, Takagi, Artin, and Hasse between 1890 and 1940, describes all abelian extensions of number fields. The Artin reciprocity law gives a bijection between abelian Galois representations (one-dimensional representations of the Galois group) and Hecke characters (automorphic forms for $GL_1$).
+
+The central discovery of class field theory is that the abelianization of the absolute Galois group $\operatorname{Gal}(\overline{K}/K)^{\text{ab}}$ is isomorphic to the idele class group $K^\times \backslash \mathbb{A}_K^\times$. This isomorphism is given by the Artin reciprocity map:
+\[
+\operatorname{Art}_K: K^\times \backslash \mathbb{A}_K^\times \xrightarrow{\cong} \operatorname{Gal}(\overline{K}/K)^{\text{ab}}.
+\]
+
+Through this isomorphism, one-dimensional representations of the Galois group correspond to characters of the idele class group---which are precisely Hecke characters. This is the $n=1$ case of the Langlands correspondence.
+
+\subsection{Non-Abelian Extensions}
+
+The central question: what replaces class field theory for non-abelian Galois extensions? If $\operatorname{Gal}(\overline{K}/K) \to GL_n(\mathbb{C})$ is an $n$-dimensional representation of the Galois group, what automorphic object should it correspond to?
+
+The answer was not obvious. The idele class group is abelian, so it cannot capture non-abelian Galois representations. The proper generalization turns out to be the space of automorphic forms on $GL_n(\mathbb{A}_K)$, which are functions on $GL_n(K) \backslash GL_n(\mathbb{A}_K)$ that satisfy certain differential equations and growth conditions.
+
+\subsection{Modular Forms and Elliptic Curves\index{Elliptic curves}}
+
+The connection between modular forms (automorphic forms for $GL_2$) and elliptic curves\index{Elliptic curves} (which give two-dimensional Galois representations) provided a prototype. Eichler and Shimura (1950s) showed that the $L$-function of a modular form matches the $L$-function of an elliptic curve\index{Elliptic curves}.
+
+More precisely, to each modular form $f$ of weight $k$ and level $N$, Eichler and Shimura associated a two-dimensional Galois representation $\rho_f: \operatorname{Gal}(\overline{\mathbb{Q}}/\mathbb{Q}) \to GL_2(\overline{\mathbb{Q}}_\ell)$ such that for almost all primes $p$:
+\[
+\det(1 - \rho_f(\operatorname{Frob}_p) p^{-s}) = 1 - a_p(f) p^{-s} + p^{k-1-2s},
+\]
+where $a_p(f)$ is the $p$-th Fourier coefficient of $f$.
+
+This provided the template for what a non-abelian reciprocity law should look like.
+
+\subsection{The Work of Harish-Chandra}
+
+Harish-Chandra's work on the representation theory of semisimple Lie groups\index{Lie groups} was essential for the Langlands program. He classified the irreducible unitary representations of real reductive groups and developed the theory of $(\mathfrak{g}, K)$-modules, which provide the algebraic framework for automorphic representations.
+
+Harish-Chandra also made deep contributions to harmonic analysis on $p$-adic groups, establishing the foundations on which the local Langlands correspondence is built.
+
+\section{Deep Insight into the Problem}
+
+\subsection{The Langlands Correspondence}
+
+Langlands conjectured a bijection between:
+\[
+\begin{array}{ccc}
+\text{$n$-dimensional representations of} & \longleftrightarrow & \text{Cuspidal automorphic representations} \\
+\operatorname{Gal}(\overline{K}/K) & \longleftrightarrow & \text{of } GL_n(\mathbb{A}_K)
+\end{array}
+\]
+
+The correspondence should preserve $L$-functions: the $L$-function of the Galois representation equals the $L$-function of the automorphic representation.
+
+For $n=1$, this recovers class field theory: one-dimensional Galois representations correspond to Hecke characters (automorphic forms for $GL_1$). For $n=2$, it connects modular forms and elliptic curves. For higher $n$, it predicts connections between $n$-dimensional Galois representations and automorphic forms for $GL_n$.
+
+\subsection{The $L$-Group}
+
+Langlands introduced the concept of the $L$-group ${}^L G$, a complex Lie group\index{Lie groups} associated to any reductive algebraic group $G$ over $K$. The $L$-group is a semidirect product:
+\[
+{}^L G = \widehat{G}(\mathbb{C}) \rtimes \operatorname{Gal}(\overline{K}/K),
+\]
+where $\widehat{G}$ is the Langlands dual group (defined by the root system of $G$).
+
+The dual group is defined by the root data of $G$: if $G$ has root system $\Phi$ with coroots $\Phi^\vee$, then $\widehat{G}$ has root system $\Phi^\vee$ with coroots $\Phi$. This duality interchanges:
+\begin{itemize}
+\item Borel subgroups of $G$ with Borel subgroups of $\widehat{G}$.
+\item Maximal tori of $G$ with maximal tori of $\widehat{G}$.
+\item The Weyl group of $G$ with the Weyl group of $\widehat{G}$.
+\end{itemize}
+
+Examples of Langlands dual pairs:
+\begin{itemize}
+\item $GL_n$ is self-dual: $\widehat{GL_n} = GL_n$.
+\item $SL_n$ is dual to $PGL_n$: $\widehat{SL_n} = PGL_n$ and $\widehat{PGL_n} = SL_n$.
+\item $SO_{2n+1}$ is dual to $Sp_{2n}$: $\widehat{SO_{2n+1}} = Sp_{2n}$ and $\widehat{Sp_{2n}} = SO_{2n+1}$.
+\item $SO_{2n}$ is self-dual: $\widehat{SO_{2n}} = SO_{2n}$.
+\item $E_8$ is self-dual, $E_7$ is dual to $E_7$, $E_6$ is dual to $E_6$.
+\end{itemize}
+
+The $L$-group captures the internal symmetries of the group and its dual. For $GL_n$, the dual group is $GL_n(\mathbb{C})$ and the $L$-group is $GL_n(\mathbb{C}) \rtimes \operatorname{Gal}(\overline{K}/K)$.
+
+\subsection{The Functoriality Conjecture}
+
+The functoriality conjecture is Langlands' most general and far-reaching conjecture. It predicts that for any homomorphism of $L$-groups ${}^L G \to {}^L H$, there is a corresponding transfer of automorphic forms from $G$ to $H$.
+
+This conjecture includes many important results as special cases:
+\begin{itemize}
+\item The Langlands correspondence for $GL_n$.
+\item Base change and automorphic induction.
+\item The existence of symmetric power $L$-functions.
+\item The functoriality of $L$-packets.
+\end{itemize}
+
+If true, the functoriality conjecture would provide a complete description of the structure of automorphic representations and their $L$-functions.
+
+\subsection{Eisenstein Series and Spectral Decomposition}
+
+Langlands developed the theory of Eisenstein series and the spectral decomposition of $L^2(G(K)\backslash G(\mathbb{A}_K))$. The Langlands spectral theory provides the analytic foundation for the entire program.
+
+Eisenstein series are defined by summing a function over the orbits of a parabolic subgroup:
+\[
+E(g, s, \Phi) = \sum_{\gamma \in P(K) \backslash G(K)} \Phi(\gamma g) e^{\langle s + \rho, H_P(\gamma g) \rangle},
+\]
+where $\Phi$ is a Schwartz function on $G(\mathbb{A}_K)$, $P$ is a parabolic subgroup, $\rho$ is the half-sum of positive roots, and $H_P$ is the Harish-Chandra height function.
+
+The constant term of an Eisenstein series leads to the theory of intertwining operators, which control the analytic continuation and functional equations of Eisenstein series. These operators satisfy the functional equation:
+\[
+M(w', w, s) M(w, s) = M(w'w, s),
+\]
+which reflects the braid relations of the Weyl group.
+
+\subsection{The Arthur--Selberg Trace Formula}
+
+The trace formula states that for a suitable test function $f$ on $G(\mathbb{A})$:
+\[
+\sum_{\pi} \operatorname{tr} \pi(f) = \sum_{\gamma} J_\gamma(f),
+\]
+where the left side is a sum over automorphic representations (the spectral side) and the right side is a sum over conjugacy classes (the geometric side).
+
+Comparing trace formulas for different groups yields deep results on the Langlands correspondence. The trace formula is essential for:
+\begin{itemize}
+\item Proving cases of the Langlands functoriality conjecture.
+\item Classifying automorphic representations of classical groups.
+\item Establishing the existence of endoscopy and the fundamental lemma.
+\end{itemize}
+
+The stable trace formula, developed by Arthur, refines the trace formula by grouping terms into stable conjugacy classes, which are the natural objects for the Langlands correspondence.
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{The Langlands Program}
+
+The Langlands program is perhaps the largest single research program in modern mathematics. Key results include:
+\begin{itemize}
+\item \textbf{The Langlands Correspondence for $GL_n$}: Proved by Harris--Taylor (2001), Henniart (2000), and Scholze (2013). The correspondence for $GL_n$ over local fields relates irreducible admissible representations of $GL_n(K)$ to $n$-dimensional representations of the Weil--Deligne group.
+\item \textbf{The Fundamental Lemma}: Proved by Ng\^o B\v{a}o Ch\^au (2008), essential for the trace formula. The fundamental lemma compares orbital integrals on different groups, which arise in the comparison of trace formulas.
+\item \textbf{The Ramanujan--Petersson Conjecture}: Proved by Deligne (1974) as a consequence of the Weil conjectures. The conjecture states that the Fourier coefficients of a cuspidal modular form satisfy $|a_p| \leq 2p^{(k-1)/2}$.
+\item \textbf{The Sato--Tate Conjecture}: Proved by Clozel, Harris, Shepherd-Barron, and Taylor (2008). The conjecture describes the distribution of the eigenvalues of Frobenius for an elliptic curve without complex multiplication.
+\item \textbf{The Modularity Theorem}: Wiles (1995), Taylor--Wiles (1995), Breuil--Conrad--Diamond--Taylor (2001). Every elliptic curve over $\mathbb{Q}$ is modular: its $L$-function is the $L$-function of a modular form.
+\end{itemize}
+
+\subsection{The Trace Formula}
+
+The Arthur--Selberg trace formula, which Langlands helped develop, is a powerful tool for studying automorphic representations. The stable trace formula and the fundamental lemma are essential for the Langlands correspondence.
+
+The fundamental lemma, proved by Ng\^o, compares orbital integrals on a group $G$ with orbital integrals on its endoscopic groups $H$. It is the key ingredient in the stabilization of the trace formula.
+
+\subsection{Canonical Lifting and Base Change}
+
+Langlands developed the theory of base change, which transfers automorphic forms between a number field and its finite extensions. The theory of cyclic base change for $GL_n$ was proved by Arthur and Clozel.
+
+Base change is a special case of the functoriality conjecture, corresponding to the map:
+\[
+{}^L GL_n(\mathbb{C}) \rtimes \operatorname{Gal}(\overline{K}/K) \to {}^L GL_n(\mathbb{C}) \rtimes \operatorname{Gal}(\overline{K}/E)
+\]
+induced by the inclusion $\operatorname{Gal}(\overline{K}/E) \hookrightarrow \operatorname{Gal}(\overline{K}/K)$ for a finite extension $E/K$.
+
+\subsection{The Local Langlands Correspondence}
+
+The local Langlands correspondence relates representations of $p$-adic groups to Galois representations. For $GL_n$, it is a bijection:
+\[
+\left\{
+\begin{array}{c}
+\text{irreducible admissible} \\
+\text{representations of } GL_n(K)
+\end{array}
+\right\} \longleftrightarrow \left\{
+\begin{array}{c}
+n\text{-dimensional representations} \\
+\text{of the Weil--Deligne group } W_K
+\end{array}
+\right\}.
+\]
+
+The correspondence preserves invariants:
+\begin{itemize}
+\item The conductor of the representation equals the conductor of the Galois representation.
+\item The $L$-factors and $\epsilon$-factors match.
+\item The local Langlands correspondence is compatible with global automorphic induction.
+\end{itemize}
+
+\subsection{The Geometric Langlands Program}
+
+The geometric Langlands program, proposed by Drinfeld (1980) and developed by Beilinson, Drinfeld, Laumon, Gaitsgory, and others, replaces number fields with function fields of algebraic curves. It connects automorphic sheaves\index{Sheaf theory} to Hecke eigensheaves on the moduli space of bundles:
+
+\[
+\begin{array}{ccc}
+\text{Hecke eigensheaves} & \longleftrightarrow & \text{$\mathcal{D}$-modules on $\operatorname{Bun}_G$} \\
+\text{(automorphic forms)} & \longleftrightarrow & \text{Galois representations}
+\end{array}
+\]
+
+The geometric Langlands program has deep connections to conformal field theory and the theory of vertex algebras:
+\begin{itemize}
+\item The geometric Satake equivalence relates the spherical Hecke algebra to the representation theory of the Langlands dual group.
+\item The theory of opers (operators) provides the geometric analog of automorphic $L$-functions.
+\item The geometric Langlands program is equivalent to the existence of a certain conformal field theory with Kac--Moody symmetry.
+\end{itemize}
+
+\section{Impact of the Discovery}
+
+\subsection{Impact on Mathematics}
+
+The Langlands program has reshaped number theory, representation theory, and algebraic geometry. It is the central organizing framework for modern number theory. Key impacts include:
+\begin{itemize}
+\item \textbf{Number Theory}: The Langlands correspondence connects Galois representations to automorphic forms, yielding applications to the Birch and Swinnerton-Dyer conjecture, the Sato--Tate conjecture, and Fermat's Last Theorem\index{Fermat's Last Theorem}.
+\item \textbf{Representation Theory}: The local Langlands correspondence relates representations of $p$-adic groups to Galois representations, unifying the study of admissible representations.
+\item \textbf{Algebraic Geometry}: The geometric Langlands program uses techniques from algebraic geometry to study moduli spaces of bundles and the theory of $\mathcal{D}$-modules.
+\item \textbf{Harmonic Analysis}: The theory of Eisenstein series and the trace formula has transformed harmonic analysis on symmetric spaces.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+The geometric Langlands program connects to supersymmetric gauge theories and string theory:
+\begin{itemize}
+\item Kapustin and Witten (2007) showed that the geometric Langlands correspondence arises from electric-magnetic duality in $N=4$ supersymmetric Yang--Mills theory. The $S$-duality of this theory interchanges the gauge group $G$ with its Langlands dual $\widehat{G}$.
+\item The Langlands program appears in the study of mirror symmetry and the holographic principle.
+\item The $S$-duality of gauge theories corresponds to the Langlands duality of $L$-groups.
+\item The geometric Langlands correspondence provides a mathematical framework for understanding the correspondence between Higgs bundles and local systems (the Hitchin fibration).
+\item The theory of boundary conditions in supersymmetric gauge theory corresponds to Hecke eigensheaves in the geometric Langlands program.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{$p$-adic Langlands Program}
+
+The $p$-adic Langlands program, developed by Colmez, Fontaine, Emerton, and others, studies $p$-adic representations of absolute Galois groups and their relationship to $p$-adic automorphic forms. The $p$-adic local Langlands correspondence for $GL_2(\mathbb{Q}_p)$ has been established by Colmez and Paskunas.
+
+Key aspects include:
+\begin{itemize}
+\item The theory of $p$-adic Banach space representations of $p$-adic groups.
+\item The $p$-adic Langlands correspondence for $GL_2(\mathbb{Q}_p)$, which uses Fontaine's theory of $(\varphi, \Gamma)$-modules.
+\item The relationship between $p$-adic automorphic forms and $p$-adic families of Galois representations (the eigencurve of Coleman and Mazur).
+\end{itemize}
+
+\subsection{Perfectoid\index{Perfectoid spaces} Methods}
+
+Scholze's perfectoid spaces\index{Perfectoid spaces} provide new tools for studying $p$-adic Galois representations and the local Langlands correspondence. The Fargues--Fontaine curve and the theory of diamonds have been used to prove new cases of the local Langlands correspondence.
+
+Perfectoid spaces\index{Perfectoid spaces} are a class of $p$-adic analytic spaces introduced by Scholze that have the remarkable property that they are ``perfect'' in the sense that the $p$-th power map is an isomorphism on the structure sheaf\index{Sheaf theory}. The Fargues--Fontaine curve is a fundamental object in $p$-adic Hodge theory\index{Hodge theory} that parameterizes all $p$-adic Galois representations.
+
+\subsection{Derived Geometric Langlands}
+
+The derived geometric Langlands program, developed by Gaitsgory and Raskin, extends the geometric correspondence to derived categories of sheaves\index{Sheaf theory} on the moduli space of bundles. This program uses the theory of ind-coherent sheaves and the geometric Satake correspondence.
+
+The key insight is that the moduli space of bundles $\operatorname{Bun}_G$ is a derived algebraic stack, and the geometric Langlands correspondence should be formulated in terms of derived categories of sheaves. This formulation makes precise the relationship between $\mathcal{D}$-modules and quasicoherent sheaves under the Langlands duality.
+
+\subsection{The Global Langlands Correspondence}
+
+The global Langlands correspondence for $GL_n$ over number fields, proved by Harris--Taylor and Henniart, is being extended to other groups. The work of Arthur on the classification of automorphic representations of classical groups uses the trace formula and the fundamental lemma.
+
+Arthur's classification theorem for classical groups $SO_{2n+1}$, $Sp_{2n}$, and $SO_{2n}$ provides a description of all automorphic representations of these groups in terms of automorphic representations of $GL_n$. The theorem uses:
+\begin{itemize}
+\item The stable trace formula for classical groups.
+\item The fundamental lemma, proved by Ng\^o.
+\item The endoscopy theory of Langlands and Shelstad.
+\end{itemize}
+
+\subsection{Connections to Quantum Field Theory}
+
+Recent work by Ben-Zvi, Costello, and others connects the Langlands program to the theory of topological field theories, factorization algebras, and the geometric Langlands program for quantum groups.
+
+The connection between the geometric Langlands program and quantum field theory has been particularly fruitful:
+\begin{itemize}
+\item The work of Kapustin and Witten on $N=4$ supersymmetric Yang--Mills theory provided a physical interpretation of the geometric Langlands correspondence.
+\item The theory of boundary vertex algebras in gauge theory leads to the construction of Hecke eigensheaves.
+\item The geometric Langlands correspondence for quantum groups is related to the theory of integrable systems.
+\end{itemize}
+
+\subsection{The Beyond Endoscopy Program}
+
+The beyond endoscopy program, proposed by Langlands, aims to prove the functoriality conjecture by studying the trace formula in a more refined way. The idea is to use stable trace formulas and the theory of endoscopy to isolate the contributions of specific automorphic representations.
+
+The beyond endoscopy program uses:
+\begin{itemize}
+\item The analysis of families of $L$-functions.
+\item The theory of stable trace formulas.
+\item The use of the Voronoi formula and other analytic tools.
+\end{itemize}
+
+\subsection{The Categorical Langlands Program}
+
+The categorical Langlands program, developed by Gaitsgory, Lurie, and others, formulates the Langlands correspondence in terms of higher category theory. This program uses:
+\begin{itemize}
+\item The theory of derived algebraic geometry.
+\item The theory of $\infty$-categories and $\infty$-stacks.
+\item The geometric Satake correspondence in the derived setting.
+\end{itemize}
+
+The categorical Langlands program aims to prove the geometric Langlands correspondence in full generality, including for all reductive groups and all algebraic curves.
+
+\subsection{Applications to Cryptography}
+
+The Langlands program has connections to cryptography through the theory of isogenies of elliptic curves and the theory of $L$-functions:
+\begin{itemize}
+\item The security of elliptic curve cryptography relies on the difficulty of the elliptic curve discrete logarithm problem, which is related to the structure of the Tate--Shafarevich group.
+\item The theory of isogeny\index{Isogeny-based cryptography}-based cryptography uses the Langlands correspondence for $GL_2$ to study the endomorphism rings of elliptic curves.
+\end{itemize}
+
+\section{Conclusion}
+
+Robert Langlands created one of the most ambitious and influential research programs in the history of mathematics. His conjectures have guided number theory for over fifty years and continue to drive research across mathematics and mathematical physics.
+
+The Langlands program exemplifies the power of deep structural insight in mathematics. Langlands saw connections where others saw only disparate phenomena, and his vision has transformed our understanding of the mathematical universe.
+
+The program continues to evolve and expand, with new connections being discovered to $p$-adic geometry, derived algebraic geometry, quantum field theory, and beyond. It remains one of the most active and exciting areas of mathematical research.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Langlands wrote his famous 17-page letter outlining the Langlands program to Andr\'e Weil in 1967. He was so nervous about it that he wrote: 'If you are willing to read it as pure speculation, I would appreciate that; if not, I am sure you have a wastebasket handy.'
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``A grand unified theory of mathematics linking number theory (Galois representations) to harmonic analysis (automorphic forms).''
+
+\subsection{Mathematical Lineage}
+Advised by Cassius Ionescu-Tulcea.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Langlands dualities are closely related to S-duality and mirror symmetry in string theory and supersymmetric quantum gauge theories in mathematical physics.
+
+\subsection{Algorithms and Numerical Implementations}
+Numerical L-function calculators (like Rubinstein's lcalc package) compute value tables and zeros of high-rank automorphic L-functions using spectral data.
+
+\section{The Research Frontier}
+The geometric Langlands correspondence and its deep connections to quantum field theory (specifically S-duality in gauge theories) and string theory.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Formulate the Langlands reciprocity conjecture linking n-dimensional Galois representations to automorphic representations of $GL_n(\mathbb{A})$.
+  \item Define the ring of adeles $\mathbb{A}$ for a number field and explain why it is the natural domain for automorphic forms.
+  \item Describe the L-group $^LG$ of a reductive group $G$ and explain its role in the Langlands functoriality conjecture.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Stephen Gelbart, \emph{An Elementary Introduction to the Langlands Program}, Bulletin of the AMS 10 (1984).
+  \item Edward Frenkel, \emph{Love and Math: The Heart of Hidden Reality}, Basic Books (a highly conceptual introduction).
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item R. P. Langlands, ``Problems in the theory of automorphic forms,'' in ``Lectures in Modern Analysis and Applications III,'' Springer, 1970, 18--61.
+\item R. P. Langlands, ``Euler Products,'' Yale University Press, 1971.
+\item R. P. Langlands, ``On the functional equations satisfied by Eisenstein series,'' Springer, 1976.
+\item R. P. Langlands, ``Letter to Andr\'e Weil,'' 1967 (reprinted in ``The Langlands Program,'' American Mathematical Society, 2016).
+\item A. Borel, ``Automorphic forms on $SL_2(\mathbb{R})$,'' Cambridge University Press, 1997.
+\item J. Arthur, ``The trace formula in invariant form,'' Annals of Mathematics 114 (1981), 1--74.
+\item L. Clozel, ``G\'eom\'etrie alg\'ebrique et g\'eom\'etrie analytique des formes automorphes,'' Publications Math\'ematiques de l'IH\'ES 104 (2006), 1--101.
+\item P. Deligne, ``La conjecture de Weil I,'' Publications Math\'ematiques de l'IH\'ES 43 (1974), 273--307.
+\item M. Harris and R. Taylor, ``The Geometry and Cohomology\index{Cohomology} of Some Simple Shimura Varieties,'' Princeton University Press, 2001.
+\item A. Wiles, ``Modular elliptic curves and Fermat's last theorem\index{Fermat's Last Theorem},'' Annals of Mathematics 141 (1995), 443--551.
+\item Ng\^o B. C., ``Le lemme fondamental pour les alg\`ebres de Lie,'' Publications Math\'ematiques de l'IH\'ES 111 (2010), 1--169.
+\item P. Scholze, ``The local Langlands correspondence for $GL_n$ over $p$-adic fields,'' Inventiones Mathematicae 192 (2013), 663--715.
+\item V. Drinfeld, ``Langlands' conjecture for $GL_2$ over function fields,'' in ``Proceedings of the ICM 1986.''
+\item A. Kapustin and E. Witten, ``Electric-magnetic duality and the geometric Langlands program,'' Communications in Number Theory and Physics 1 (2007), 1--236.
+\item E. Frenkel, ``Lectures on the Langlands program and conformal field theory,'' in ``Frontiers in Number Theory, Physics, and Geometry II,'' Springer, 2007.
+\item J. Arthur, ``The endoscopic classification of representations: orthogonal and symplectic groups,'' American Mathematical Society, 2013.
+\item G. Henniart, ``Une preuve simple des conjectures de Langlands pour $GL_n$ sur un corps $p$-adique,'' Inventiones Mathematicae 139 (2000), 439--455.
+\item L. Clozel, M. Harris, and R. Taylor, ``Automorphy for some $\ell$-adic lifts of automorphic mod $\ell$ Galois representations,'' Publications Math\'ematiques de l'IH\'ES 108 (2008), 1--181.
+\item P. Colmez, ``Repr\'esentations de $GL_2(\mathbb{Q}_p)$ et $(\varphi, \Gamma)$-modules,'' Ast\'erisque 330 (2010), 281--509.
+\item D. Gaitsgory, ``Outline of the proof of the geometric Langlands conjecture for $GL_2$,'' Ast\'erisque 370 (2015), 1--112.
+\item D. Gaitsgory and N. Rozenblyum, ``A study in derived algebraic geometry,'' American Mathematical Society, 2017.
+\item E. Witten, ``Gauge theory and the geometric Langlands program,'' in ``The Langlands Program,'' American Mathematical Society, 2016.
+\item R. P. Langlands, ``The theory of automorphic representations,'' in ``Proceedings of the ICM 1970.''
+\item J. Arthur, ``An introduction to the trace formula,'' in ``Harmonic Analysis, the Trace Formula, and Shimura Varieties,'' American Mathematical Society, 2005.
+\item B. C. Ng\^o, ``Le lemme fondamental pour les alg\`ebres de Lie,'' Publications Math\'ematiques de l'IH\'ES 111 (2010), 1--169.
+\item L. Fargues and P. Scholze, ``Geometrization of the local Langlands correspondence,'' arXiv:2102.13459 (2021).
+\item P. Scholze and J. Weinstein, ``Berkeley lectures on $p$-adic geometry,'' Princeton University Press, 2020.
+\item D. Ben-Zvi and D. Nadler, ``The character theory of a complex group,'' arXiv:0904.1247 (2009).
+\item K. Costello and M. Yamazaki, ``Gauge theory and integrability, III,'' arXiv:1908.02289 (2019).
+\end{enumerate}

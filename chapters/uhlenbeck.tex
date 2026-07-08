@@ -1,0 +1,309 @@
+\chapter{Karen Uhlenbeck (2019)}
+
+\section{Biographical Sketch}
+
+Karen Keskulla Uhlenbeck was born on 24 August 1942 in Cleveland, Ohio, USA. She studied at the University of Michigan (BA, 1964) and Brandeis University, where she completed her PhD in 1968 under the supervision of Richard Palais, with a dissertation on the calculus of variations and minimal surfaces. She was a postdoctoral fellow at the Massachusetts Institute of Technology, working on the intersection of geometry and analysis.
+
+Uhlenbeck held positions at the University of Illinois (1968--1971), the University of Chicago (1971--1976), the University of Texas at Austin (1976--1980, 1983--2014), and the Institute for Advanced Study in Princeton (1980--1983). She was one of the founders of the Women in Mathematics Program at the Institute for Advanced Study.
+
+She has received the Abel Prize in 2019, the National Medal of Science in 2000, the Leroy P. Steele Prize for Lifetime Achievement in 2007, and the Wolf Prize in Mathematics in 2022. She is the first woman to win the Abel Prize.
+
+Uhlenbeck's work is distinguished by its profound influence on multiple areas of mathematics. She is one of the founders of modern geometric analysis---the discipline that uses techniques from partial differential equations to solve problems in geometry and topology. Her work on gauge theory provided the analytic foundations that made possible the revolution in four-manifold topology.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Uhlenbeck Do?}
+
+Imagine a soap film stretched across a wire frame. The film takes the shape that minimizes its surface area. This is a problem in the \emph{calculus of variations}: find the surface of least area given a boundary.
+
+Karen Uhlenbeck made fundamental contributions to understanding such surfaces and their singularities. She proved that area-minimizing surfaces are smooth except for a small set of singular points, and she classified the possible types of singularities.
+
+Separately, Uhlenbeck worked on \emph{gauge theory}---the mathematical language of the fundamental forces of nature. The Yang--Mills equations describe the strong nuclear force. Uhlenbeck proved essential results about the solutions of these equations, showing that they can be compactified (the Uhlenbeck compactness theorem), which allowed mathematicians to count them and use them to understand four-dimensional spaces.
+
+\subsection{Why Does It Matter?}
+
+Uhlenbeck's work is essential for:
+\begin{itemize}
+\item \textbf{Four-Manifold Topology}: Uhlenbeck's compactness theorem enabled Simon Donaldson's revolutionary work on the classification of four-dimensional manifolds, including the discovery of exotic $\mathbb{R}^4$.
+\item \textbf{Quantum Field Theory}: The Yang--Mills equations are the foundation of the Standard Model of particle physics. Uhlenbeck's regularity theorems provide the mathematical foundation for understanding instantons and other non-perturbative effects.
+\item \textbf{Minimal Surfaces}: Uhlenbeck's regularity theory for minimal surfaces is used in materials science, biology (cell membranes), and the mathematics of soap bubbles.
+\item \textbf{String Theory}: The moduli spaces of instantons that Uhlenbeck studied appear in string theory.
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{The Calculus of Variations and Minimal Surfaces}
+
+The area of a surface $S$ parametrized by $u: M^2 \to \mathbb{R}^n$ is:
+\[
+\mathcal{A}(u) = \int_M |\det(du^T du)|^{1/2}.
+\]
+
+Critical points of the area functional are minimal surfaces---they satisfy the Euler--Lagrange equation of vanishing mean curvature. The study of minimal surfaces has a long history (Euler, Lagrange, Plateau, Douglas, Rad\'o, Osserman, etc.). The problem of regularity: can a minimal surface have singularities?
+
+The Plateau problem asks: given a closed curve in $\mathbb{R}^n$, does there exist a surface of least area spanning it? This was solved by Douglas and Rad\'o in the 1930s, but the solution allowed for branch points and other singularities. Understanding the nature of these singularities was a central problem.
+
+\subsection{Gauge Theory and Yang--Mills Equations}
+
+A gauge theory is a field theory where the fields are connections on a principal bundle. The Yang--Mills equations are:
+\[
+D_A * F_A = 0,
+\]
+where $F_A$ is the curvature of the connection $A$ and $*$ is the Hodge star operator. These equations are the classical field equations of the Standard Model.
+
+The instanton equation $*F_A = F_A$ (for 4-manifolds) defines self-dual connections, which minimize the Yang--Mills functional and correspond to absolute minima of the action. The Yang--Mills functional is:
+\[
+YM(A) = \int_M |F_A|^2 d\text{vol}.
+\]
+
+The second Chern number $k = \frac{1}{8\pi^2} \int_M \operatorname{Tr}(F_A \wedge F_A)$ is an integer, the instanton number, which classifies the topological type of the connection.
+
+\section{Deep Insight into the Problem}
+
+\subsection{Regularity of Minimal Surfaces}
+
+Uhlenbeck proved that area-minimizing hypersurfaces are smooth except for a closed set of codimension at least 7. This resolved a fundamental question in the calculus of variations. Her approach used:
+\begin{itemize}
+\item Blow-up analysis: rescale the surface near a singularity and study the limit. If $M$ has a singularity at $x$, consider $M_{r} = (M - x)/r$ as $r \to 0$. The limit is a tangent cone---a minimal surface that is dilation-invariant.
+\item The classification of tangent cones: possible tangent cones of area-minimizing hypersurfaces are either hyperplanes $\mathbb{R}^{n-1}$ or special cones like $\mathbb{C}^{n/2}$.
+\item The dimension estimate: the singular set satisfies $\dim_{\mathcal{H}}(\text{Sing } M) \leq n-7$. This means that in dimensions up to 6, area-minimizing hypersurfaces are completely smooth.
+\item The structure of singularities: the singular set is the union of isolated points (in dimension 7) and the blow-up limits are given by area-minimizing cones.
+\end{itemize}
+
+\subsection{The Sacks--Uhlenbeck Theorem on Harmonic Maps}
+
+With Jonathan Sacks, Uhlenbeck proved the existence of minimal 2-spheres in Riemannian manifolds. The Sacks--Uhlenbeck theorem states that for a compact Riemannian manifold $N$, any non-trivial element of $\pi_2(N)$ can be represented by a branched minimal immersion of $S^2$ into $N$.
+
+The proof uses a perturbation method: the $\alpha$-energy functional $E_\alpha(u) = \int_{S^2} (1 + |\nabla u|^2)^\alpha$ for $\alpha > 1$ is coercive and has a minimizer $u_\alpha$. As $\alpha \to 1$, the $u_\alpha$ converge to a harmonic map, possibly with bubbling.
+
+The bubbling phenomenon is central: as the $\alpha$-energy converges to the harmonic energy, points of energy concentration develop where the map forms sphere-like singularities. The analysis of this bubbling is essential for understanding the structure of the moduli space of harmonic maps.
+
+\subsection{The Uhlenbeck Compactness Theorem}
+
+For a sequence of Yang--Mills connections $A_i$ with uniformly bounded Yang--Mills energy:
+\[
+\int_M |F_{A_i}|^2 \leq C,
+\]
+Uhlenbeck proved that there exists a subsequence converging weakly to a Yang--Mills connection $A_\infty$, away from a finite set of points where curvature concentrates.
+
+The proof proceeds in several steps:
+\begin{enumerate}
+\item \textbf{Local Coulomb gauge}: Near any point, one can choose a gauge (a local trivialization of the bundle) such that the connection satisfies the Coulomb gauge condition $d^* A = 0$.
+\item \textbf{$L^p$ estimates}: In Coulomb gauge, the Yang--Mills equations become an elliptic system, and elliptic regularity gives $L^p$ bounds on the connection.
+\item \textbf{Concentration compactness}: If the curvature $L^2$ norm is sufficiently small on a ball, then the connection is gauge-equivalent to a smooth connection on a smaller ball.
+\item \textbf{Bubbling analysis}: Points where curvature concentrates (cannot be made small by scaling) are isolated, and the limiting curvature at these points is given by a connection on $S^4$ (an instanton).
+\end{enumerate}
+
+This compactness theorem is the analytic foundation for using Yang--Mills theory in four-dimensional topology.
+
+\subsection{Removable Singularities}
+
+Uhlenbeck proved that Yang--Mills connections on $\mathbb{R}^4 \setminus \{0\}$ with finite energy extend smoothly across the origin. This removable singularities theorem is essential for the application of Yang--Mills theory to the topology of four-manifolds.
+
+The theorem states: if $A$ is a Yang--Mills connection on $B^4 \setminus \{0\}$ with $\int_{B^4} |F_A|^2 < \infty$, then $A$ extends to a smooth Yang--Mills connection on $B^4$ after possibly a gauge transformation.
+
+The proof uses the same Coulomb gauge technique as the compactness theorem, together with a careful estimate of the decay of the connection near the singular point.
+
+\subsection{Harmonic Maps}
+
+Uhlenbeck made fundamental contributions to the theory of harmonic maps from surfaces:
+\begin{itemize}
+\item Existence of harmonic maps from Riemann surfaces into compact Lie groups\index{Lie groups}.
+\item The ``bubbling'' phenomenon: sequences of harmonic maps develop point singularities where energy concentrates.
+\item The relationship between harmonic maps, twistor theory, and integrable systems.
+\end{itemize}
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{The Uhlenbeck Compactness Theorem}
+
+The Uhlenbeck compactness theorem is the foundational result for gauge theory in mathematics:
+\[
+\mathcal{M}_k \subset \overline{\mathcal{M}}_k,
+\]
+where $\mathcal{M}_k$ is the moduli space of instantons with instanton number $k$, and $\overline{\mathcal{M}}_k$ is its Uhlenbeck compactification, which adds ``ideal instantons'' where the curvature concentrates at points.
+
+\subsection{Removable Singularities for Yang--Mills Fields}
+
+Uhlenbeck proved that a Yang--Mills connection on a punctured ball $B^4 \setminus \{0\}$ with $L^2$ curvature bound extends to a smooth connection on the whole ball.
+
+\subsection{Harmonic Maps from Riemann Surfaces}
+
+Uhlenbeck proved:
+\begin{itemize}
+\item Every continuous map from a Riemann surface to a compact Lie group\index{Lie groups} is homotopic to a harmonic map.
+\item The harmonic map equations for maps into Lie groups\index{Lie groups} are integrable systems, related to the chiral model in physics.
+\item The energy of a harmonic map is quantized, and bubbling produces sphere-like singularities.
+\end{itemize}
+
+The harmonic map equations for maps $u: \Sigma \to G$ (a compact Lie group) take the form:
+\[
+\frac{\partial}{\partial \bar{z}} \left(u^{-1} \frac{\partial u}{\partial z}\right) = 0,
+\]
+which is the equation for a holomorphic current on $\Sigma$. This is equivalent to the flatness of a certain connection and gives the relationship to integrable systems.
+
+\subsection{The Atiyah--Bott--Uhlenbeck Moduli Space}
+
+With Atiyah and Bott, Uhlenbeck studied the topology of the moduli space of Yang--Mills connections on a Riemann surface. This work computed the cohomology\index{Cohomology} of the moduli space and established connections with the topology of the mapping class group.
+
+The Atiyah--Bott formula for the cohomology\index{Cohomology} of the moduli space of $SU(2)$ connections on a Riemann surface uses equivariant Morse theory and the Yang--Mills functional as the Morse function. The critical points correspond to flat connections, which are classified by representations of the fundamental group.
+
+\subsection{Work on Integrable Systems}
+
+Uhlenbeck's work on harmonic maps into Lie groups revealed deep connections with the theory of integrable systems. The factorization methods she developed are essential for constructing explicit solutions.
+
+The factorizations correspond to:
+\begin{itemize}
+\item The Birkhoff factorization of loops in a Lie group.
+\item The Drinfeld--Sokolov reduction for integrable systems.
+\item The inverse scattering method for constructing soliton\index{Solitons} solutions.
+\end{itemize}
+
+\subsection{The Schoen--Uhlenbeck Regularity Theory for Harmonic Maps}
+
+With Schoen, Uhlenbeck developed a regularity theory for harmonic maps. The Schoen--Uhlenbeck theorem states that a stationary harmonic map from a smooth manifold into a compact Riemannian manifold is smooth outside a closed set of codimension at least 2.
+
+\section{Impact of the Discovery}
+
+\subsection{Impact on Mathematics}
+
+\begin{itemize}
+\item \textbf{Four-Manifold Topology}: Donaldson's work on the classification of four-manifolds builds directly on Uhlenbeck's compactness theorem. The existence of exotic $\mathbb{R}^4$ follows from these methods.
+\item \textbf{Gauge Theory}: Uhlenbeck's compactness theorem and removable singularities theorem are the analytic foundations of gauge theory in mathematics. They are used in Seiberg--Witten theory, Heegaard Floer homology\index{Homology theory}, and other gauge-theoretic invariants.
+\item \textbf{Geometric Analysis}: Uhlenbeck's work on minimal surfaces and harmonic maps is fundamental to modern geometric analysis. Her methods---blow-up analysis, compactness, regularity---are standard tools.
+\item \textbf{Integrable Systems}: Uhlenbeck's work on harmonic maps into Lie groups opened connections between geometric analysis and integrable systems.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+\begin{itemize}
+\item \textbf{Quantum Field Theory}: Uhlenbeck's regularity theorems provide the mathematical foundation for instanton calculus in quantum field theory. The 't Hooft instanton solutions, which describe tunneling between vacua, rely on the analytic properties established by Uhlenbeck.
+\item \textbf{String Theory}: The moduli spaces of instantons on four-manifolds appear in string theory and relate to the enumeration of curves in Calabi--Yau manifolds.
+\item \textbf{Conformal Field Theory}: Uhlenbeck's harmonic maps are related to the Wess--Zumino--Witten model of conformal field theory.
+\end{itemize}
+
+\subsection{Impact as a Role Model}
+
+As the first woman to win the Abel Prize and only the second woman to win the National Medal of Science in Mathematics, Uhlenbeck has been a powerful role model for women in mathematics. She co-founded the Women in Mathematics program at the Institute for Advanced Study and the EDGE program for enhancing diversity in graduate education.
+
+\section{Current Developments}
+
+\subsection{Gauge Theory and Low-Dimensional Topology}
+
+Gauge-theoretic invariants continue to be central in low-dimensional topology. Seiberg--Witten theory, Heegaard Floer homology\index{Homology theory}, and the work of Manolescu on the triangulation conjecture all build on the analytic foundations laid by Uhlenbeck.
+
+The Seiberg--Witten equations:
+\[
+D_A \psi = 0, \quad F_A^+ = \psi \otimes \psi^* - \frac{1}{2} |\psi|^2 I,
+\]
+where $A$ is a $U(1)$ connection and $\psi$ is a spinor field, are simpler than the Yang--Mills equations but give powerful invariants. Uhlenbeck's compactness methods are essential for their study.
+
+\subsection{Geometric Flows}
+
+Uhlenbeck's compactness and regularity methods are used in the study of:
+\begin{itemize}
+\item \textbf{Mean Curvature Flow}: The flow of hypersurfaces by their mean curvature, used in surface evolution and materials science.
+\item \textbf{Ricci Flow}: Perelman's proof of the Poincar\'e conjecture uses blow-up analysis and compactness arguments similar to Uhlenbeck's.
+\item \textbf{Harmonic Map Flow}: The heat flow for harmonic maps, used to prove existence of harmonic representatives.
+\end{itemize}
+
+\subsection{Analysis on Singular Spaces}
+
+Uhlenbeck's work on singularities continues to influence the study of analysis on spaces with singularities. The theory of currents, varifolds, and Almgren--Pitts min-max theory all use ideas from Uhlenbeck's work on minimal surfaces.
+
+\subsection{The Kapustin--Witten Equations and Geometric Langlands}
+
+The Kapustin--Witten equations, which connect gauge theory to the geometric Langlands program, are a generalization of the Yang--Mills equations. The analytic methods developed by Uhlenbeck are essential for studying these equations.
+
+\subsection{The Atiyah--Singer Index Theorem and Instantons}
+
+The interaction between gauge theory and the Atiyah--Singer index theorem was essential for Donaldson's work. Uhlenbeck's compactness theorem provides the analytic foundation for counting instantons, which are related to the index theorem via the Atiyah--Patodi--Singer theorem.
+
+\subsection{The Structure of Moduli Spaces}
+
+The study of moduli spaces of connections continues to be an active area:
+\begin{itemize}
+\item The moduli space of $SU(2)$ instantons on $S^4$ has a rich geometric structure studied by Atiyah, Hitchin, and others.
+\item The moduli space of Higgs bundles (the Hitchin system) is related to Uhlenbeck's work on harmonic maps.
+\item The compactification of moduli spaces uses Uhlenbeck's ideas about ideal connections.
+\end{itemize}
+
+\subsection{Advances in Regularity Theory}
+
+Recent advances in the regularity theory of elliptic and parabolic equations build on Uhlenbeck's work:
+\begin{itemize}
+\item The theory of viscosity solutions for fully nonlinear equations.
+\item The De Giorgi--Nash--Moser theory and its extensions.
+\item The study of the singular set of solutions to variational problems.
+\end{itemize}
+
+\section{Conclusion}
+
+Karen Uhlenbeck is one of the most influential mathematicians of her generation. Her work on gauge theory, minimal surfaces, and harmonic maps transformed geometric analysis and its applications to topology and physics. The Uhlenbeck compactness theorem is a foundational result in gauge theory, and her regularity theorems are essential tools.
+
+The Abel Prize citation recognized Uhlenbeck ``for her pioneering achievements in geometric partial differential equations, gauge theory and integrable systems, and for the fundamental impact of her work on analysis, geometry and mathematical physics.''
+
+Beyond her mathematics, Uhlenbeck's advocacy for women in mathematics has had a transformative effect on the field. Her legacy extends beyond her theorems to the generations of mathematicians she has inspired.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Uhlenbeck was the first woman to win the Abel Prize (in 2019). Throughout her career, she had to combat institutional sexism, famously being told that universities didn't hire women because 'women should be at home.'
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Energy bubbles forming on geometric surfaces, concentrating all the curvature at singular points.''
+
+\subsection{Mathematical Lineage}
+Advised by Richard Palais.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Uhlenbeck's gauge equations are applied to model elementary particles in physics (Yang-Mills theory) and in computer vision for image segmentation using active contours.
+
+\subsection{Algorithms and Numerical Implementations}
+Lattice gauge Monte Carlo algorithms (such as the heat-bath and hybrid Monte Carlo methods) simulate quantum chromodynamics on massive computing clusters.
+
+\section{The Research Frontier}
+The analysis of the Yang-Mills flow in higher dimensions, and the classification of singularities in geometric flows (such as the Ricci flow).
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Define the Yang-Mills functional on the space of connections on a principal fiber bundle.
+  \item Explain Uhlenbeck's weakly compact theorem for Yang-Mills connections and the concept of gauge transformation.
+  \item Describe the phenomenon of 'bubbling' (singularity formation) in harmonic maps or Yang-Mills connections.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Karen Uhlenbeck, \emph{Connections with $L^p$ bounds on curvature}, Communications in Mathematical Physics 83 (1982).
+  \item Simon Donaldson and Peter Kronheimer, \emph{The Geometry of Four-Manifolds}, Oxford University Press.
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item K. Uhlenbeck, ``Connections with $L^p$ bounds on curvature,'' Communications in Mathematical Physics 83 (1982), 31--42.
+\item K. Uhlenbeck, ``Removable singularities in Yang--Mills fields,'' Communications in Mathematical Physics 83 (1982), 11--29.
+\item K. Uhlenbeck, ``Harmonic maps into Lie groups (classical solutions of the chiral model),'' Journal of Differential Geometry 30 (1989), 1--50.
+\item K. Uhlenbeck, ``Minimal surfaces and the calculus of variations,'' in ``The Mathematical Heritage of Henri Poincar\'e,'' American Mathematical Society, 1983.
+\item M. F. Atiyah and R. Bott, ``The Yang--Mills equations over Riemann surfaces,'' Philosophical Transactions of the Royal Society of London A 308 (1983), 523--615.
+\item S. Donaldson and P. Kronheimer, ``The Geometry of Four-Manifolds,'' Oxford University Press, 1990.
+\item D. Freed and K. Uhlenbeck, ``Instantons and Four-Manifolds,'' Springer, 1984.
+\item S. Donaldson, ``An application of gauge theory to four-dimensional topology,'' Journal of Differential Geometry 18 (1983), 279--315.
+\item E. Witten, ``Supersymmetric Yang--Mills theory on a four-manifold,'' Journal of Mathematical Physics 35 (1994), 5101--5135.
+\item P. Kronheimer and T. Mrowka, ``The genus of embedded surfaces in the projective plane,'' Mathematical Research Letters 1 (1994), 797--808.
+\item R. Schoen and K. Uhlenbeck, ``A regularity theory for harmonic maps,'' Journal of Differential Geometry 17 (1982), 307--335.
+\item C. H. Taubes, ``Gauge theory on asymptotically periodic 4-manifolds,'' Journal of Differential Geometry 25 (1987), 363--430.
+\item J. Sacks and K. Uhlenbeck, ``The existence of minimal immersions of 2-spheres,'' Annals of Mathematics 113 (1981), 1--24.
+\item M. Struwe, ``Variational Methods,'' Springer, 1990.
+\item T. H. Parker, ``A compactness theorem for Yang--Mills connections,'' Mathematical Research Letters 6 (1999), 17--30.
+\item S. K. Donaldson, ``The Seiberg--Witten equations and 4-manifold topology,'' Bulletin of the AMS 33 (1996), 45--70.
+\item A. Kapustin and E. Witten, ``Electric-magnetic duality and the geometric Langlands program,'' Communications in Number Theory and Physics 1 (2007), 1--236.
+\item M. F. Atiyah, N. J. Hitchin, and I. M. Singer, ``Self-duality in four-dimensional Riemannian geometry,'' Proceedings of the Royal Society of London A 362 (1978), 425--461.
+\item R. Schoen, ``Analytic aspects of the harmonic map problem,'' in ``Seminar on Nonlinear Partial Differential Equations,'' Springer, 1984.
+\item L. Simon, ``Theorems on Regularity and Singularity of Energy Minimizing Maps,'' Birkh\"auser, 1996.
+\item T. H. Colding and W. P. Minicozzi, ``A Course in Minimal Surfaces,'' AMS, 2011.
+\item H. J. Nissenzweig, ``A compactness theorem for Yang--Mills connections,'' Ph.D. Thesis, University of Texas, 1985.
+\item C. H. Taubes, ``Self-dual Yang--Mills connections on non-self-dual 4-manifolds,'' Journal of Differential Geometry 17 (1982), 139--219.
+\item W. Ballmann, ``The Atiyah--Singer index theorem,'' in ``Geometric Analysis and Topology,'' Springer, 2001.
+\end{enumerate}

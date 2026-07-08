@@ -1,0 +1,345 @@
+\chapter{Pierre Deligne (2013)}
+
+\section{Biographical Sketch}
+
+Pierre Deligne was born on 3 October 1944 in Etterbeek, Belgium. He studied at the Universit\'e Libre de Bruxelles, where he completed his PhD in 1968 under the supervision of Alexander Grothendieck. He held positions at the Institut des Hautes \'Etudes Scientifiques (IH\'ES) near Paris (1968--1986) and the Institute for Advanced Study in Princeton (1986--2014). Deligne received the Abel Prize in 2013, the Fields Medal in 1978, the Crafoord Prize in 1988, and the Wolf Prize in 2008.
+
+Deligne is one of Grothendieck's most brilliant students and the natural heir to his vast program in algebraic geometry. Where Grothendieck built the cathedral of schemes and topoi, Deligne discovered how to use these tools to solve concrete problems that had resisted all previous approaches.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Deligne Do?}
+
+Imagine you have an equation like $y^2 = x^3 - x$ that defines a curve. If you count the number of solutions to this equation modulo different prime numbers, you get a sequence of numbers:
+\[
+p = 2, 3, 5, 7, 11, 13, \ldots
+\]
+\[
+N_p = 2, 3, 7, 3, 11, 7, \ldots
+\]
+
+These numbers seem random, but they are governed by deep patterns. In 1949, Andr\'e Weil conjectured that such counting functions are determined by the topology of the curve---specifically, by the number of ``holes'' in the complex surface defined by the equation.
+
+Pierre Deligne proved the Weil conjectures in 1973, a feat that many considered impossible. He showed that the number of solutions to equations over finite fields can be expressed in terms of the topology of the corresponding complex algebraic variety. This connection between arithmetic and geometry is one of the deepest insights in modern mathematics.
+
+\subsection{Why Does It Matter?}
+
+The Weil conjectures and Deligne's proof:
+\begin{itemize}
+\item Unified number theory and algebraic geometry.
+\item Created the theory of $\ell$-adic cohomology\index{Cohomology}, essential for modern arithmetic.
+\item Connected to the Langlands program, mathematical physics, and cryptography.
+\item Provided tools for understanding everything from error-correcting codes to quantum gravity.
+\end{itemize}
+
+
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \draw[thick, abelgray] (-2,0) -- (2,0);
+  \draw[thick, abelgray] (0,-2) -- (0,2);
+  \draw[thick, abelgray, dashed] (0,0) circle (1.5);
+  \node[above right] at (1.1,1.1) {Unit Circle $|z|=1$};
+  \fill[abelred] (1.06, 1.06) circle (0.1) node[above right] {$\alpha_1$};
+  \fill[abelred] (1.06, -1.06) circle (0.1) node[below right] {$\alpha_2$};
+  \fill[abelred] (-1.5, 0) circle (0.1) node[above left] {$\alpha_3$};
+  \node[below left] at (0,0) {$0$};
+\end{tikzpicture}
+\end{center}
+
+\section{The Origin of the Problem}
+
+\subsection{Riemann's Zeta Function}
+
+Riemann's zeta function $\zeta(s) = \sum_{n=1}^\infty n^{-s}$ encodes information about prime numbers. The Riemann hypothesis states that its nontrivial zeros lie on the line $\Re(s) = 1/2$.
+
+\subsection{The Weil Conjectures}
+
+For a smooth projective variety $X$ over a finite field $\mathbb{F}_q$, the zeta function is:
+\[
+Z(X, t) = \exp\left(\sum_{m=1}^\infty \frac{N_m}{m} t^m\right),
+\]
+where $N_m$ is the number of points of $X$ over $\mathbb{F}_{q^m}$.
+
+Weil conjectured:
+\begin{enumerate}
+\item Rationality: $Z(X, t)$ is a rational function.
+\item Functional equation: $Z(X, 1/(q^n t)) = \pm q^{n\chi/2} t^\chi Z(X, t)$.
+\item Riemann hypothesis: The zeros of $Z(X, t)$ lie on $|t| = q^{-k/2}$ for some integers $k$.
+\item Betti numbers: The degrees of the factors of $Z(X, t)$ are the Betti numbers of $X$ as a complex manifold.
+\end{enumerate}
+
+\subsection{The Hasse--Weil Bound for Curves}
+
+Weil himself proved the conjectures for curves (one-dimensional varieties) in the 1940s. For a smooth projective curve $C$ of genus $g$ over $\mathbb{F}_q$, the zeta function is:
+\[
+Z(C, t) = \frac{P_1(t)}{(1-t)(1-qt)},
+\]
+where $P_1(t) = 1 + \sum_{i=1}^{2g} a_i t^{2g} + q^g t^{2g}$.
+
+The Riemann hypothesis for curves states that the roots of $P_1(t)$ have absolute value $q^{-1/2}$. Equivalently:
+\[
+|C(\mathbb{F}_{q^m}) - (q^m + 1)| \leq 2g q^{m/2}.
+\]
+
+This bound has explicit applications: for example, it provides bounds for the number of solutions to equations over finite fields and is used in the construction of algebraic-geometric codes (Goppa codes).
+
+\section{Deep Insight into the Problem}
+
+\subsection{$\ell$-adic Cohomology\index{Cohomology}}
+
+Grothendieck and his school developed $\ell$-adic cohomology\index{Cohomology} as a Weil cohomology theory for algebraic varieties over arbitrary fields. For a prime $\ell \neq p$, the $\ell$-adic cohomology groups $H^i(X_{\overline{\mathbb{F}}_q}, \mathbb{Q}_\ell)$ are finite-dimensional $\mathbb{Q}_\ell$-vector spaces with an action of the Frobenius endomorphism $F$.
+
+The Lefschetz trace formula expresses the number of fixed points of Frobenius as:
+\[
+\#X(\mathbb{F}_{q^m}) = \sum_{i=0}^{2n} (-1)^i \operatorname{Tr}(F^m, H^i).
+\]
+
+\subsection{The Four Weil Conjectures}
+
+Weil's four conjectures for a smooth projective variety $X$ of dimension $n$ over $\mathbb{F}_q$:
+\begin{enumerate}
+\item \textbf{Rationality}: $Z(X, t) = \frac{P_1(t) \cdots P_{2n-1}(t)}{P_0(t) \cdots P_{2n}(t)}$ where $P_i(t) \in \mathbb{Z}[t]$.
+\item \textbf{Functional equation}: $Z(X, 1/(q^n t)) = \pm q^{n\chi/2} t^\chi Z(X, t)$.
+\item \textbf{Riemann hypothesis}: The roots of $P_i(t)$ have absolute value $q^{-i/2}$.
+\item \textbf{Betti numbers}: $\deg P_i(t) = b_i(X)$, the $i$th Betti number of $X(\mathbb{C})$.
+\end{enumerate}
+
+Grothendieck and his school proved (1) and (2) using $\ell$-adic cohomology. Deligne proved (3) and (4).
+
+\subsection{Deligne's Strategy for the Riemann Hypothesis}
+
+Deligne's proof of the Riemann hypothesis for smooth projective varieties over finite fields uses a series of brilliant innovations:
+\begin{itemize}
+\item \textbf{Lefschetz pencils}: Consider a one-parameter family of hyperplane sections $X_t$ of $X$. The cohomology of $X$ is related to the cohomology of the $X_t$ and the singular fibers via the Leray spectral sequence\index{Spectral sequences}.
+\item \textbf{The hard Lefschetz theorem}: For a hyperplane section $Y \subset X$, the map $L^k: H^{n-k}(X) \to H^{n+k}(X)$ given by cup product with $[Y]^k$ is an isomorphism.
+\item \textbf{The Hodge--Riemann bilinear relations}: On the primitive cohomology $P^{n-k}(X)$, the Hermitian form $\langle \alpha, \beta \rangle = i^{p-q} (-1)^{k} \int_X \alpha \cup \overline{\beta} \cup L^k$ is definite.
+\item \textbf{Weil--Deligne bound}: For an exponential sum $\sum_{x \in \mathbb{F}_{q^m}} \psi(f(x))$ where $\psi$ is an additive character and $f$ is a polynomial, the bound follows from the Riemann hypothesis for curves: $|\sum_x \psi(f(x))| \leq (d-1) q^{m/2}$.
+\end{itemize}
+
+\subsection{The Key Estimate}
+
+Deligne's key estimate: for any integer $k$:
+\[
+|q^{-mk/2} \operatorname{Tr}(F^m, H^k(X))| \leq b_k(X) q^{mk/2},
+\]
+where $b_k(X)$ is the $k$th Betti number. This is equivalent to the statement that the eigenvalues of Frobenius on $H^k(X)$ have absolute value $q^{k/2}$.
+
+\subsection{The Proof in Outline}
+
+The proof proceeds through induction on the dimension of $X$:
+\begin{enumerate}
+\item \textbf{Base case (curves)}: The Riemann hypothesis for curves was already proved by Weil using the theory of the Jacobian variety.
+\item \textbf{Inductive step}: For a variety $X$ of dimension $n$, consider a Lefschetz pencil $\{X_t\}_{t \in \mathbb{P}^1}$ of hyperplane sections of $X$. The cohomology of $X$ relates to the cohomology of the $X_t$ and the cohomology of the singular fibers via the Leray spectral sequence\index{Spectral sequences}.
+\item \textbf{The hard Lefschetz theorem}: The operator $L$ acts on the cohomology of $X$, and the primitive decomposition shows that the cohomology of $X$ is determined by the primitive cohomology at the middle level.
+\item \textbf{The Hodge--Riemann bilinear relations}: These give a positivity condition for the intersection form on primitive cohomology, which translates into the required bound on the eigenvalues of Frobenius.
+\end{enumerate}
+
+\subsection{Weil II}
+
+The second paper on the Weil conjectures (Weil II) extends the results to arbitrary sheaves\index{Sheaf theory} (not just the constant sheaf\index{Sheaf theory}). Deligne proves the theory of weights: for a sheaf\index{Sheaf theory} $\mathcal{F}$ on $X$ that is pure of weight $w$, the eigenvalues of Frobenius on the stalk $\mathcal{F}_x$ have absolute value $q^{w/2}$. This theory is essential for:
+\begin{itemize}
+\item The proof of the Ramanujan--Petersson conjecture.
+\item The construction of $\ell$-adic representations attached to automorphic forms.
+\item The theory of perverse sheaves and the decomposition theorem.
+\end{itemize}
+
+\subsection{Mixed Hodge Structures}
+
+Deligne realized that the same ideas could be applied to singular varieties and non-complete varieties. The result was the theory of mixed Hodge structures, which gives a Hodge decomposition for any algebraic variety (not necessarily smooth or projective).
+
+A mixed Hodge structure on $H^k(X, \mathbb{Q})$ consists of:
+\begin{itemize}
+\item An increasing weight filtration $W_\bullet$: $0 \subset W_0 \subset W_1 \subset \cdots \subset W_{2k} = H^k(X, \mathbb{Q})$.
+\item A decreasing Hodge filtration $F^\bullet$ on $H^k(X, \mathbb{C})$.
+\item The condition that on each graded piece $\operatorname{Gr}^W_m H^k(X, \mathbb{Q})$, the filtration $F^\bullet$ induces a pure Hodge structure of weight $m$.
+\end{itemize}
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{The Weil Conjectures (Full Proof)}
+
+Deligne's proof of the remaining Weil conjectures:
+\begin{itemize}
+\item Proved the Riemann hypothesis for all smooth projective varieties.
+\item Established the full theory of weights in $\ell$-adic cohomology.
+\item Introduced the concept of ``mixed'' sheaves and the theory of perverse sheaves.
+\end{itemize}
+
+\subsection{The Proof of the Ramanujan--Petersson Conjecture}
+
+Deligne proved the Ramanujan--Petersson conjecture for modular forms of weight $k \geq 2$ by relating the Fourier coefficients of modular forms to the eigenvalues of Frobenius on certain $\ell$-adic sheaves. For a modular form $f(z) = \sum_{n=1}^\infty a_n q^n$, the conjecture states that:
+\[
+|a_p| \leq 2 p^{(k-1)/2}
+\]
+for primes $p$.
+
+Using the theory of $\ell$-adic cohomology and the work of Kuga, Sato, and Shimura, Deligne realized that the $a_p$ are traces of Frobenius on the cohomology of certain varieties (Kuga--Sato varieties), and the bound follows from the Riemann hypothesis for these varieties.
+
+\subsection{Hodge Theory\index{Hodge theory}}
+
+Deligne's work on Hodge theory\index{Hodge theory} includes:
+\begin{itemize}
+\item The theory of mixed Hodge structures, which gives a Hodge decomposition for singular varieties. For any algebraic variety $X$, the cohomology groups $H^k(X, \mathbb{Q})$ carry a canonical mixed Hodge structure with a weight filtration and a Hodge filtration.
+\item The degeneration of the Hodge--de Rham spectral sequence\index{Spectral sequences} at $E_1$ for smooth projective varieties, building on work of Kodaira and Spencer.
+\item The construction of the canonical mixed Hodge structure on the cohomology of algebraic varieties using simplicial resolutions and the theory of hypercohomology.
+\end{itemize}
+
+\subsection{The Deligne--Mumford Theorem}
+
+With Mumford, Deligne proved that the moduli space $\mathcal{M}_g$ of curves of genus $g$ is irreducible. This uses the theory of stable curves (Deligne--Mumford compactification) and an irreducibility argument for the moduli space of principally polarized abelian varieties\index{Abelian varieties}.
+
+The Deligne--Mumford compactification $\overline{\mathcal{M}}_g$ adds stable curves (curves with nodal singularities and finite automorphism group) to the moduli space. This compactification is a smooth proper Deligne--Mumford stack, and its boundary has a simple combinatorial structure.
+
+\subsection{Perverse Sheaves and the Decomposition Theorem}
+
+With Beilinson and Bernstein, Deligne developed the theory of perverse sheaves, which are a category of complexes of sheaves on algebraic varieties satisfying certain support conditions. The decomposition theorem of Beilinson--Bernstein--Deligne--Gabber states that the pushforward of a perverse sheaf under a proper morphism splits as a direct sum of shifted perverse sheaves.
+
+The decomposition theorem has profound applications:
+\begin{itemize}
+\item It explains the structure of the cohomology of the moduli space of curves.
+\item It gives the geometric Satake correspondence in representation theory.
+\item It underlies the theory of character sheaves and the Springer correspondence.
+\end{itemize}
+
+\subsection{Deligne's Work on Abelian Varieties\index{Abelian varieties}}
+
+Deligne made important contributions to the theory of abelian varieties\index{Abelian varieties}:
+\begin{itemize}
+\item The Deligne--Shintani lifting, which constructs extensions of abelian varieties.
+\item The theory of absolute Hodge cycles, which are algebraic cycles in the product of an abelian variety with itself that are defined over the algebraic closure of $\mathbb{Q}$.
+\item The proof of the Tate conjecture for abelian varieties over finite fields (with Milne and others).
+\end{itemize}
+
+\section{Impact of the Discovery}
+
+\subsection{Impact on Mathematics}
+
+\begin{itemize}
+\item \textbf{Arithmetic Geometry}: The Weil conjectures and $\ell$-adic cohomology are foundational for modern arithmetic geometry.
+\item \textbf{Number Theory}: Deligne's results are essential for the Langlands program and the study of automorphic forms. The proof of the Ramanujan--Petersson conjecture is a cornerstone of modern number theory.
+\item \textbf{Algebraic Geometry}: Mixed Hodge structures and perverse sheaves transformed algebraic geometry. They provide essential tools for understanding the topology of algebraic varieties.
+\item \textbf{Representation Theory}: Deligne's work on the Weil conjectures led to the construction of representations of finite groups of Lie type via the theory of character sheaves.
+\item \textbf{Moduli Theory}: The Deligne--Mumford compactification is the foundational object for the study of moduli spaces of curves.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+\begin{itemize}
+\item \textbf{Mirror Symmetry}: Deligne's Hodge theory\index{Hodge theory} is central to mirror symmetry and Calabi--Yau geometry. The variation of Hodge structures underlies the mirror symmetry conjecture.
+\item \textbf{Quantum Field Theory}: The theory of motives and Deligne's cohomology have applications to Feynman integrals and periods.
+\item \textbf{String Theory}: The geometry of moduli spaces, studied by Deligne, is essential for string theory compactifications.
+\end{itemize}
+
+\subsection{Impact on Technology}
+
+\begin{itemize}
+\item \textbf{Cryptography}: The arithmetic of elliptic curves\index{Elliptic curves} and abelian varieties, built on Deligne's foundations, is used in cryptography.
+\item \textbf{Coding Theory}: Algebraic-geometric codes (Goppa codes) use the theory of curves over finite fields and the Hasse--Weil bound.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{The Langlands Program}
+
+The geometric Langlands program builds on Deligne's work on $\ell$-adic cohomology and the Weil conjectures. The work of Arinkin, Gaitsgory, and others on the geometric Langlands correspondence uses the theory of perverse sheaves and the decomposition theorem.
+
+\subsection{Motives}
+
+Deligne's theory of mixed Hodge structures is central to the theory of motives, which seeks to unify the various cohomology theories of algebraic varieties. Voevodsky's theory of mixed motives and the theory of Chow motives build on Deligne's foundations. The Tate conjecture, which relates algebraic cycles to Galois representations, is one of the central open problems in the theory of motives.
+
+\subsection{Perverse Sheaves and Representation Theory}
+
+The theory of perverse sheaves, developed by Beilinson--Bernstein--Deligne, is central to geometric representation theory. The Springer correspondence, the geometric Satake correspondence, and the theory of character sheaves all use perverse sheaves.
+
+\subsection{Perfectoid Spaces\index{Perfectoid spaces} and $p$-adic Geometry}
+
+Scholze's perfectoid spaces\index{Perfectoid spaces}, which have revolutionized $p$-adic geometry, build on Deligne's foundations in $\ell$-adic cohomology and the theory of weights. The theory of diamonds and the Fargues--Fontaine curve use Deligne's concept of weights to study $p$-adic Galois representations.
+
+\subsection{Algebraic Cycles and the Standard Conjectures}
+
+The standard conjectures on algebraic cycles, formulated by Grothendieck, remain central open problems. They would imply:
+\begin{itemize}
+\item The Riemann hypothesis for all smooth projective varieties over finite fields (already proved by Deligne).
+\item The Hodge conjecture and the Tate conjecture.
+\item The structure of the category of motives.
+\end{itemize}
+
+\subsection{The Moduli Space of Curves}
+
+The Deligne--Mumford compactification continues to be studied extensively:
+\begin{itemize}
+\item The cohomology of $\overline{\mathcal{M}}_{g,n}$ is computed using the theory of stable graphs and the tautological ring.
+\item The intersection theory on $\overline{\mathcal{M}}_{g,n}$ is governed by Witten's conjecture (proved by Kontsevich).
+\item The structure of the tautological ring is a central object of study.
+\end{itemize}
+
+\subsection{Deligne's Conjecture on the Structure of Mixed Hodge Structures}
+
+Deligne's conjecture on the structure of mixed Hodge structures relates them to the theory of periods and motives. The conjecture states that the period matrix of a mixed Hodge structure is determined by the structure of the underlying algebraic variety.
+
+\section{Conclusion}
+
+Pierre Deligne's proof of the Weil conjectures is one of the greatest achievements of twentieth-century mathematics. His work created the modern foundations of arithmetic geometry and connected number theory, algebraic geometry, and topology in ways that were previously unimaginable.
+
+The tools Deligne developed---$\ell$-adic cohomology, mixed Hodge structures, perverse sheaves, and the theory of weights---are now essential parts of the mathematician's toolkit. They have found applications throughout mathematics and physics, from the Langlands program to mirror symmetry.
+
+Deligne's career exemplifies the power of the Grothendieck program in algebraic geometry. He took the abstract machinery developed by Grothendieck and his school and used it to solve concrete problems that had resisted all previous approaches. His proof of the Weil conjectures showed that Grothendieck's vision was not just structurally beautiful but also practically powerful.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Deligne solved the final Weil conjecture, which had stumped Grothendieck himself. His proof used modular forms in a way that surprised Grothendieck, showing Deligne's independence and mathematical maturity.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``A bridge that counts the number of points on algebraic curves over finite fields using the eigenvalues of Frobenius operators.''
+
+\subsection{Mathematical Lineage}
+Advised by Alexander Grothendieck and Jean-Pierre Serre.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Deligne's bounds on Weil conjectures are applied to design algebraic geometry error-correcting codes (AG codes) and in analyzing security parameters for elliptic curve\index{Elliptic curves} cryptosystems.
+
+\subsection{Algorithms and Numerical Implementations}
+Decoding algorithms for Goppa codes and AG codes (such as the Berlekamp-Massey-Sakata algorithm) utilize Deligne's algebraic bounds to correct transmission errors.
+
+\section{The Research Frontier}
+The construction of a full theory of motives (as envisioned by Grothendieck) to unify all cohomology theories in algebraic geometry.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item State the three Weil conjectures and explain which one corresponds to the analogue of the Riemann Hypothesis.
+  \item Describe the concept of a mixed Hodge structure on the cohomology of a singular or non-compact algebraic variety.
+  \item Explain how the 'etale cohomology theory of Grothendieck is used to prove the Weil conjectures.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item P. Deligne, \emph{La conjecture de Weil: I}, Publications Math\'ematiques de l'IH\'ES 43 (1974).
+  \item James S. Milne, \emph{Lectures on \'Etale Cohomology} (available online).
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item P. Deligne, ``La conjecture de Weil I,'' Publications Math\'ematiques de l'IH\'ES 43 (1974), 273--307.
+\item P. Deligne, ``La conjecture de Weil II,'' Publications Math\'ematiques de l'IH\'ES 52 (1980), 137--252.
+\item P. Deligne, ``Th\'eorie de Hodge I--III,'' Publications Math\'ematiques de l'IH\'ES 40 (1971), 5--57; 44 (1974), 5--77; ICM 1970.
+\item P. Deligne and D. Mumford, ``The irreducibility of the space of curves of given genus,'' Publications Math\'ematiques de l'IH\'ES 36 (1969), 75--109.
+\item P. Deligne, ``Formes modulaires et repr\'esentations $\ell$-adiques,'' S\'eminaire Bourbaki 355 (1971), 139--172.
+\item P. Deligne, ``S\'eminaire de G\'eom\'etrie Alg\'ebrique du Bois Marie 4$^1/_2$: Cohomologie $\ell$-adique et fonctions $L$,'' Springer, 1977.
+\item A. Weil, ``Numbers of solutions of equations in finite fields,'' Bulletin of the American Mathematical Society 55 (1949), 497--508.
+\item A. Grothendieck, ``Standard conjectures on algebraic cycles,'' in ``Algebraic Geometry,'' Oxford University Press, 1969, 193--199.
+\item R. Kiehl and R. Weissauer, ``Weil Conjectures, Perverse Sheaves and l'adic Fourier Transform,'' Springer, 2001.
+\item J. S. Milne, ``Lectures on \'Etale Cohomology,'' 1998 (available online).
+\item P. Deligne, ``La conjecture de Ramanujan--Petersson,'' in ``Modular Forms in One Variable IV,'' Springer, 1977.
+\item P. Deligne, ``La conjecture de Weil pour les surfaces $K3$,'' Inventiones Mathematicae 15 (1972), 206--226.
+\item A. Beilinson, J. Bernstein, and P. Deligne, ``Faisceaux pervers,'' Ast\'erisque 100 (1982), 5--171.
+\item P. Deligne, ``Hodge cycles on abelian varieties,'' in ``Hodge Cycles, Motives, and Shimura Varieties,'' Springer, 1982.
+\item P. Deligne and J. S. Milne, ``Tannakian categories,'' in ``Hodge Cycles, Motives, and Shimura Varieties,'' Springer, 1982.
+\item V. Voevodsky, ``Motivic cohomology with $\mathbb{Z}/2$-coefficients,'' Publications Math\'ematiques de l'IH\'ES 98 (2003), 59--104.
+\item L. Saavedra Rivano, ``Cat\'egories Tannakiennes,'' Springer, 1972.
+\item N. M. Katz, ``An overview of Deligne's proof of the Riemann hypothesis for varieties over finite fields,'' in ``Mathematical Developments Arising from Hilbert Problems,'' AMS, 1976.
+\item C. Soule, ``Deligne's proof of the Weil conjectures,'' in ``The Abel Prize 2013,'' Springer, 2014.
+\item S. Zucker, ``Hodge theory and algebraic varieties,'' Bulletin of the AMS 6 (1982), 115--148.
+\end{enumerate}

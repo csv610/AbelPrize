@@ -1,0 +1,450 @@
+\chapter{Yves Meyer (2017)}
+
+\section{Biographical Sketch}
+
+Yves Meyer was born on 19 July 1939 in Paris, France. He studied at the \'Ecole Normale Sup\'erieure (ENS) in Paris, where he earned his degree in 1960, and the University of Strasbourg, where he completed his PhD in 1966 under the supervision of Jean-Pierre Kahane. His early work on number theory and Fourier analysis established him as a gifted analyst.
+
+Meyer held positions at the University of Paris-Sud in Orsay (1966--1980), the \'Ecole Polytechnique (1980--1986), and the University of Paris-Dauphine (1986--2004). He has received the Abel Prize in 2017, the Gauss Prize in 2010, and the Carl Friedrich Gauss Medal in 2010.
+
+Meyer's career can be divided into two distinct phases. In the first phase (1960s--1970s), he made deep contributions to harmonic analysis, particularly the theory of Calder\'on--Zygmund operators and the study of singular integrals. In the second phase (1980s--present), he developed the theory of wavelets\index{Wavelets}, which transformed signal processing and applied mathematics.
+
+The transition between these phases is itself a remarkable story. Meyer learned about wavelets\index{Wavelets} from Alex Grossmann and Jean Morlet, who had discovered them independently in the context of seismic data analysis. Meyer immediately recognized the mathematical significance of their discovery and set out to place the theory on a rigorous foundation.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Meyer Do?}
+
+When you digitize an image or a sound, you need to represent it efficiently. The traditional method---Fourier analysis---uses sine waves of different frequencies. But sine waves are infinitely long, and they struggle to capture localized features like edges.
+
+Yves Meyer developed the theory of \emph{wavelets\index{Wavelets}}---mathematical functions that are localized both in space and in frequency. A wavelet is like a ``little wave'' that can be stretched and shifted to match patterns in data at different scales. With wavelets, you can zoom in on fine details (like the edge of a cat's ear in a photograph) and zoom out to see large-scale structures (like the overall shape of the cat) using the same mathematical language.
+
+\subsection{Why Does It Matter?}
+
+Wavelets are everywhere in modern technology:
+\begin{itemize}
+\item JPEG 2000 image compression uses the Cohen--Daubechies--Feauveau wavelet.
+\item The FBI fingerprint database uses wavelet-based compression.
+\item Medical imaging (MRI, CT scans) uses wavelets for denoising and reconstruction.
+\item Seismic data processing uses wavelets to identify underground structures.
+\item Audio compression and denoising use wavelets.
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{The Limitations of Fourier Analysis}
+
+Fourier analysis represents a function $f$ as a sum of complex exponentials:
+\[
+f(x) = \sum_{n=-\infty}^{\infty} \hat f(n) e^{2\pi i n x},
+\]
+or, in the continuous case:
+\[
+\hat f(\xi) = \int_{-\infty}^{\infty} f(x) e^{-2\pi i x\xi} dx.
+\]
+
+While this representation is extremely powerful, it has a fundamental limitation: each exponential $e^{2\pi i n x}$ extends over the entire real line. A local change in $f$ (like a sharp edge) affects all Fourier coefficients, and conversely, a set of Fourier coefficients determines the function globally.
+
+The windowed Fourier transform (Gabor transform) provides some localization, but it has a fixed resolution: once the window size is chosen, the resolution is the same at all frequencies. This is the Heisenberg uncertainty principle in signal analysis: there is a fundamental tradeoff between time resolution and frequency resolution.
+
+\subsection{The Heisenberg Uncertainty Principle in Signal Analysis}
+
+The Heisenberg uncertainty principle for time-frequency analysis states that for any function $f$ with $\int |f(x)|^2 dx = 1$:
+\[
+\sigma_t \sigma_\omega \geq \frac{1}{2},
+\]
+where $\sigma_t^2 = \int (x - \mu_t)^2 |f(x)|^2 dx$ and $\sigma_\omega^2 = \int (\omega - \mu_\omega)^2 |\hat f(\omega)|^2 d\omega$.
+
+This means that no function can be simultaneously well-localized in both time and frequency. The Gaussian function achieves equality, and the Gabor transform uses a Gaussian window to achieve optimal joint localization for a fixed scale.
+
+However, the Gabor transform still has a significant limitation: it uses a fixed window size, which means that high-frequency features (which are typically short-lived) and low-frequency features (which persist) are not both captured optimally.
+
+\subsection{The Need for Multiscale Analysis}
+
+Many interesting signals---natural images, seismic recordings, financial time series---contain features at many different scales. A single resolution cannot capture all of them effectively. The wavelet transform overcomes this limitation by using scaled versions of a single mother wavelet:
+\[
+\psi_{j,k}(x) = 2^{j/2} \psi(2^j x - k).
+\]
+
+The scale parameter $j$ controls the frequency resolution: large $j$ gives high frequency resolution (zoom in), while small $j$ gives low frequency resolution (zoom out). The translation parameter $k$ controls the time localization.
+
+\section{Deep Insight into the Problem}
+
+\subsection{The Morlet Wavelet}
+
+Before Meyer's work, Jean Morlet, a geophysicist working for Elf Aquitaine, had discovered wavelets empirically in the context of seismic data analysis. Morlet was analyzing seismic reflections to identify oil and gas deposits underground. He found that the traditional Fourier methods were inadequate because the seismic signals contain both very short events (reflections from thin layers) and very long ones (deep geological structures).
+
+Morlet's wavelet was a complex exponential modulated by a Gaussian:
+\[
+\psi(t) = e^{i\omega_0 t} e^{-t^2/2},
+\]
+which is often called the Morlet wavelet or Gabor wavelet. Morlet collaborated with the physicist Alex Grossmann to develop the mathematical theory, and they invited Meyer to help them place the theory on rigorous foundations.
+
+\subsection{Multiresolution Analysis}
+
+Meyer's fundamental insight was the concept of \emph{multiresolution analysis} (MRA), which he developed in collaboration with St\'ephane Mallat. An MRA is a nested sequence of approximation spaces $V_j \subset L^2(\mathbb{R})$ satisfying:
+\[
+\cdots \subset V_{-1} \subset V_0 \subset V_1 \subset V_2 \subset \cdots
+\]
+with the properties:
+\begin{itemize}
+\item $\bigcap_{j} V_j = \{0\}$, $\overline{\bigcup_j V_j} = L^2(\mathbb{R})$.
+\item $f(x) \in V_j \iff f(2x) \in V_{j+1}$.
+\item $f(x) \in V_0 \iff f(x-n) \in V_0$ for all $n \in \mathbb{Z}$.
+\item There exists a scaling function $\phi \in V_0$ such that $\{\phi(x-n) : n \in \mathbb{Z}\}$ is a Riesz basis of $V_0$.
+\end{itemize}
+
+The MRA framework provides a systematic method for constructing wavelets. The key idea is that the wavelet $\psi$ spans the difference between successive approximation spaces:
+\[
+W_j = V_{j+1} \ominus V_j,
+\]
+and the set $\{\psi_{j,k}(x) = 2^{j/2} \psi(2^j x - k) : j, k \in \mathbb{Z}\}$ forms an orthonormal basis for $L^2(\mathbb{R})$.
+
+\subsection{The Meyer Wavelet}
+
+Meyer constructed the first smooth wavelet function $\psi$ that is $C^\infty$ and has compact support in the frequency domain. The Meyer wavelet is:
+\[
+\hat\psi(\omega) = 
+\begin{cases}
+\sin\left(\frac{\pi}{2} \nu\left(\frac{3|\omega|}{2\pi} - 1\right)\right) & \frac{2\pi}{3} \leq |\omega| \leq \frac{4\pi}{3}, \\
+\cos\left(\frac{\pi}{2} \nu\left(\frac{3|\omega|}{4\pi} - 1\right)\right) & \frac{4\pi}{3} \leq |\omega| \leq \frac{8\pi}{3}, \\
+0 & \text{otherwise},
+\end{cases}
+\]
+where $\nu$ is a smooth function with $\nu(x) = 0$ for $x \leq 0$ and $\nu(x) = 1$ for $x \geq 1$.
+
+The Meyer wavelet has several important properties:
+\begin{itemize}
+\item Infinite smoothness ($C^\infty$), unlike the earlier Haar wavelet which is discontinuous.
+\item Compact support in frequency, giving excellent band-limitation.
+\item Orthonormal shifts and dilations form a basis of $L^2(\mathbb{R})$.
+\item Vanishing moments of all orders: $\int x^k \psi(x) dx = 0$ for all $k$.
+\end{itemize}
+
+The construction uses a ``window function'' $\nu$ that smoothly transitions from 0 to 1. A common choice is:
+\[
+\nu(x) = 
+\begin{cases}
+0 & x \leq 0, \\
+1 & x \geq 1, \\
+\frac{1}{e^{1/x} + e^{1/(1-x)}} & 0 < x < 1.
+\end{cases}
+\]
+
+\subsection{From Wavelets to Filter Banks}
+
+The wavelet transform can be implemented efficiently using filter banks. The decomposition algorithm (Mallat algorithm) computes the wavelet coefficients using:
+\begin{enumerate}
+\item Convolution with a low-pass filter $H$ and a high-pass filter $G$.
+\item Downsampling by 2.
+\item Iterating on the low-pass output.
+\end{enumerate}
+
+The reconstruction algorithm reverses this process using the synthesis filters $\tilde H$ and $\tilde G$.
+
+The filters are related to the scaling function and wavelet by:
+\[
+\phi(x) = \sqrt{2} \sum_n h_n \phi(2x - n), \quad
+\psi(x) = \sqrt{2} \sum_n g_n \phi(2x - n),
+\]
+where $h_n = \sqrt{2} \langle \phi_{1,0}, \phi_{0,n} \rangle$ are the low-pass filter coefficients and $g_n = (-1)^n h_{N-1-n}$ are the high-pass filter coefficients (for a filter of length $N$).
+
+\subsection{The Quadrature Mirror Filter Condition}
+
+The filters $H$ and $G$ satisfy the quadrature mirror filter condition:
+\[
+|H(\omega)|^2 + |H(\omega + \pi)|^2 = 1, \quad
+G(\omega) = e^{-i\omega} \overline{H(\omega + \pi)}.
+\]
+
+This condition ensures perfect reconstruction: the original signal can be exactly recovered from its wavelet coefficients, up to a delay.
+
+For finite impulse response (FIR) filters, the condition becomes:
+\[
+\sum_n h_n h_{n+2k} = \delta_{k,0},
+\]
+which is the orthogonality condition for the scaling function coefficients.
+
+\subsection{Daubechies Wavelets}
+
+Building on Meyer's theoretical framework, Ingrid Daubechies constructed compactly supported orthogonal wavelets. The Daubechies wavelets are the first family of wavelets that are:
+\begin{itemize}
+\item Orthogonal.
+\item Compactly supported (finite length filters).
+\item Smooth (continuous derivatives up to a certain order).
+\end{itemize}
+
+The Daubechies wavelets of order $N$ have $N$ vanishing moments and support of length $2N$. The Haar wavelet is the Daubechies wavelet of order 1.
+
+Daubechies' construction uses the theory of orthogonal polynomials and the spectral factorization of the quadrature mirror filter. The filter coefficients are determined by:
+\[
+|H(\omega)|^2 = \cos^{2N}(\omega/2) \cdot P(\sin^2(\omega/2)),
+\]
+where $P$ is a polynomial chosen so that $|H|^2$ is a valid low-pass filter. The polynomial $P$ is given by:
+\[
+P(y) = \sum_{k=0}^{N-1} \binom{N-1+k}{k} y^k + y^N R(1/2 - y),
+\]
+where $R$ is an odd polynomial chosen to ensure positivity.
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{Multiresolution Analysis}
+
+The MRA framework, developed by Mallat and Meyer (1986), provides a systematic method for constructing wavelets. It includes:
+\begin{itemize}
+\item The scaling function $\phi$ and the wavelet $\psi$.
+\item The two-scale equations: $\phi(x) = \sum_n h_n \phi(2x - n)$, $\psi(x) = \sum_n g_n \phi(2x - n)$.
+\item The quadrature mirror filter condition: $|H(\omega)|^2 + |H(\omega + \pi)|^2 = 1$.
+\item The decomposition and reconstruction algorithms for computing wavelet transforms.
+\end{itemize}
+
+\subsection{Orthonormal Wavelet Bases}
+
+Meyer showed how to construct orthonormal bases of $L^2(\mathbb{R})$ consisting of wavelets:
+\[
+\psi_{j,k}(x) = 2^{j/2} \psi(2^j x - k), \quad j, k \in \mathbb{Z}.
+\]
+
+Every function $f \in L^2(\mathbb{R})$ can be written as:
+\[
+f(x) = \sum_{j,k} \langle f, \psi_{j,k} \rangle \psi_{j,k}(x).
+\]
+
+\subsection{Biorthogonal Wavelets}
+
+Meyer, with Cohen and Daubechies, developed biorthogonal wavelets, which use different wavelets for decomposition and reconstruction:
+\begin{itemize}
+\item Analysis wavelet $\tilde\psi$ for computing coefficients.
+\item Synthesis wavelet $\psi$ for reconstructing the signal.
+\item Biorthogonality condition: $\langle \psi_{j,k}, \tilde\psi_{j',k'} \rangle = \delta_{jj'}\delta_{kk'}$.
+\end{itemize}
+
+Biorthogonal wavelets offer several advantages over orthogonal wavelets:
+\begin{itemize}
+\item Symmetric filters are possible (orthogonal wavelets cannot be symmetric except for the Haar wavelet).
+\item Linear phase response, important for image processing to avoid phase distortion.
+\item Better tradeoff between smoothness and support length.
+\end{itemize}
+
+The Cohen--Daubechies--Feauveau 9/7 wavelet pair is the most widely used biorthogonal wavelet. It has 9 and 7 filter taps for decomposition and reconstruction respectively, and is used in JPEG 2000.
+
+\subsection{Wavelet Packets and Best Basis}
+
+With Coifman, Meyer developed wavelet packets, which provide a library of orthonormal bases for $L^2(\mathbb{R})$. The best basis algorithm selects the optimal basis from this library for a given signal.
+
+Wavelet packets generalize the wavelet decomposition by also subdividing the high-frequency channels. The result is a rich library of bases, each corresponding to a different way of tiling the time-frequency plane. The best basis algorithm, based on entropy minimization, selects the basis that gives the most compact representation of a given signal.
+
+\subsection{The Calder\'on--Zygmund Theory}
+
+Meyer made fundamental contributions to the Calder\'on--Zygmund theory of singular integrals. He showed that the wavelet representation provides a natural framework for studying Calder\'on--Zygmund operators.
+
+A Calder\'on--Zygmund operator is an integral operator of the form:
+\[
+Tf(x) = \int K(x,y) f(y) dy,
+\]
+where the kernel $K$ satisfies:
+\begin{itemize}
+\item $|K(x,y)| \leq C/|x-y|^n$ (size condition).
+\item $|\nabla_x K(x,y)| + |\nabla_y K(x,y)| \leq C/|x-y|^{n+1}$ (smoothness condition).
+\end{itemize}
+
+Meyer showed that in a wavelet basis, Calder\'on--Zygmund operators are nearly diagonal: the off-diagonal entries decay exponentially with the distance between the wavelet indices. This gives a powerful tool for analyzing the boundedness and spectral properties of these operators.
+
+\subsection{Wavelet Characterization of Function Spaces}
+
+Meyer wavelet characterizations of function spaces:
+\begin{itemize}
+\item A function $f$ belongs to the Sobolev space $H^s(\mathbb{R}^n)$ if and only if:
+\[
+\sum_{j,k} 2^{2js} |\langle f, \psi_{j,k} \rangle|^2 < \infty.
+\]
+\item A function $f$ belongs to the Besov space $B^s_{p,q}(\mathbb{R}^n)$ if and only if:
+\[
+\left(\sum_j 2^{j(s + n/2 - n/p)q} \left(\sum_k |\langle f, \psi_{j,k} \rangle|^p\right)^{q/p}\right)^{1/q} < \infty.
+\]
+\item A function $f$ belongs to the Triebel--Lizorkin space $F^s_{p,q}(\mathbb{R}^n)$ if and only if:
+\[
+\left\|\left(\sum_j 2^{jsq} \left(\sum_k |\langle f, \psi_{j,k} \rangle| \chi_{j,k}\right)^q\right)^{1/q}\right\|_p < \infty.
+\]
+\end{itemize}
+
+These characterizations show that wavelets provide a universal basis for a wide range of function spaces.
+
+\subsection{The T(1) Theorem}
+
+Meyer contributed to the proof of the $T(1)$ theorem, which characterizes the boundedness of Calder\'on--Zygmund operators. The theorem states that a Calder\'on--Zygmund operator $T$ is bounded on $L^2$ if and only if $T(1) \in BMO$ and $T^*(1) \in BMO$.
+
+\section{Impact of the Discovery in Science and Technology}
+
+\subsection{Impact on Mathematics}
+
+\begin{itemize}
+\item \textbf{Harmonic Analysis}: Wavelets provide new orthonormal bases for $L^2(\mathbb{R}^n)$ with excellent time-frequency localization.
+\item \textbf{Function Spaces}: Wavelets characterize many function spaces, including Sobolev spaces, Besov spaces, and Triebel--Lizorkin spaces.
+\item \textbf{Operator Theory}: Wavelets diagonalize certain classes of Calder\'on--Zygmund operators.
+\item \textbf{Approximation Theory}: Wavelet approximation is optimal for functions with pointwise singularities. The approximation rate for a function with an isolated singularity is $O(N^{-s})$ for $s$ determined by the smoothness of $f$ away from the singularity, which is far better than Fourier approximation.
+\end{itemize}
+
+\subsection{Impact on Technology}
+
+\begin{itemize}
+\item \textbf{Image Compression}: JPEG 2000 uses the Cohen--Daubechies--Feauveau (CDF) 9/7 wavelet for lossy compression and the CDF 5/3 wavelet for lossless compression. Wavelet compression at high ratios produces fewer artifacts than DCT-based JPEG.
+\item \textbf{FBI Fingerprints}: The FBI's fingerprint database uses wavelet-based compression at a ratio of 15:1. The WSQ (Wavelet Scalar Quantization) standard was adopted in 1993.
+\item \textbf{Medical Imaging}: Wavelets are used for denoising MRI and CT images, reducing radiation exposure while maintaining image quality. Wavelet-based compression of medical images allows efficient storage and transmission.
+\item \textbf{Seismic Processing}: Wavelets are used to identify underground structures and locate oil and gas deposits. The original Morlet wavelet was designed for this purpose.
+\item \textbf{Audio Processing}: MPEG-4 audio uses wavelet-based coding. Wavelet packet decompositions are used for audio compression and noise reduction.
+\item \textbf{Astronomy}: Wavelets are used for analyzing astronomical images, detecting faint objects, and studying cosmic microwave background radiation.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{Geometric Wavelets}
+
+Wavelets adapted to the geometry of manifolds include diffusion wavelets (Coifman, Lafon), spherelets (Narcowich, Ward), and curvelets (Cand\`es, Donoho). These are used for analyzing data on spheres, graphs, and manifolds.
+
+Curvelets are particularly effective for representing images with edges. A curvelet is a wavelet-like function that is highly anisotropic: it is elongated in one direction and narrow in the orthogonal direction. This allows curvelets to represent edges efficiently, with approximation rates of $O(N^{-2})$ for piecewise $C^2$ images, compared to $O(N^{-1})$ for wavelets.
+
+\subsection{Wavelet Scattering Networks}
+
+The wavelet scattering transform (Mallat, Bruna) provides invariant representations for machine learning. It uses a cascade of wavelet transforms and modulus nonlinearities to build features invariant to translations, rotations, and deformations.
+
+The scattering transform is defined as:
+\[
+S_J[f] = \left\{ S_J^{(0)}[f], S_J^{(1)}[f], S_J^{(2)}[f], \ldots \right\},
+\]
+where:
+\[
+S_J^{(0)}[f](u) = f \star \phi_J(u), \quad
+S_J^{(1)}[f](\lambda_1, u) = |f \star \psi_{\lambda_1}| \star \phi_J(u),
+\]
+and for higher orders:
+\[
+S_J^{(m)}[f](\lambda_1, \ldots, \lambda_m, u) = \left| \left| f \star \psi_{\lambda_1} \right| \star \psi_{\lambda_2} \right| \cdots \star \psi_{\lambda_m} \star \phi_J.
+\]
+
+Scattering networks achieve state-of-the-art results in texture discrimination, music classification, and audio analysis. They are also provably stable to small deformations, which is important for classification tasks.
+
+\subsection{Compressed Sensing}
+
+Wavelets provide the sparse representations essential for compressed sensing (Cand\`es, Romberg, Tao, Donoho). The key idea: if a signal has a sparse representation in a wavelet basis, it can be accurately recovered from far fewer measurements than the Nyquist--Shannon sampling rate.
+
+Mathematically, if $x \in \mathbb{R}^n$ has a sparse representation $x = \Psi \alpha$ in a wavelet basis $\Psi$, and $y = \Phi x$ is a set of $m$ random measurements, then $x$ can be recovered by solving:
+\[
+\min_{\alpha} \|\alpha\|_1 \quad \text{subject to} \quad \Phi \Psi \alpha = y,
+\]
+provided $m \geq C k \log(n/k)$, where $k$ is the sparsity of $\alpha$.
+
+\subsection{Deep Learning and Wavelets}
+
+Wavelet-based neural networks incorporate wavelet transforms as learnable layers. The wavelet packet transform has been used as a building block in deep learning architectures for audio and image processing.
+
+The combination of wavelets and neural networks offers several advantages:
+\begin{itemize}
+\item Wavelet layers provide built-in multiscale analysis.
+\item The sparsity of wavelet representations can reduce the number of parameters.
+\item Wavelets can be used as activation functions or as regularizers.
+\end{itemize}
+
+\subsection{Earth and Climate Science}
+
+Wavelets are used in climate data analysis for studying El Ni\~no patterns, temperature variations, and ice core data. The ability to analyze signals at multiple scales makes wavelets ideal for studying the complex, multi-scale phenomena in climate science.
+
+Specific applications include:
+\begin{itemize}
+\item Analysis of El Ni\~no Southern Oscillation (ENSO) time series, where wavelet analysis reveals the changing frequency and intensity of El Ni\~no events.
+\item Detection of trends and abrupt changes in global temperature records.
+\item Analysis of ice core data to study past climate variations.
+\end{itemize}
+
+\subsection{Bioinformatics and Genomics}
+
+Wavelet analysis is used in genomics to identify patterns in DNA sequences, detect copy number variations, and analyze gene expression data. The multi-scale nature of wavelets matches the hierarchical structure of genomic data.
+
+Applications include:
+\begin{itemize}
+\item Detection of transcription factor binding sites using wavelet-based pattern matching.
+\item Analysis of chromatin structure using wavelet transforms of Hi-C data.
+\item Classification of cancer subtypes using wavelet-based features from gene expression data.
+\end{itemize}
+
+\subsection{Wavelet Denoising and the Donoho--Johnstone Framework}
+
+Wavelet thresholding for denoising, developed by Donoho and Johnstone, is one of the most important practical applications of wavelets. The procedure is:
+\begin{enumerate}
+\item Compute the wavelet transform of the noisy signal.
+\item Apply soft or hard thresholding to the wavelet coefficients.
+\item Reconstruct the signal from the thresholded coefficients.
+\end{enumerate}
+
+The universal threshold is $\lambda = \sigma \sqrt{2\log N}$, where $\sigma$ is the noise level and $N$ is the signal length. This threshold is optimal in the minimax sense for a wide class of function spaces.
+
+\section{Conclusion}
+
+Yves Meyer created the mathematical theory of wavelets and multiresolution analysis, transforming signal processing and data analysis. His work has had an enormous impact on technology and continues to drive new developments in machine learning and data science.
+
+The wavelet transform is a beautiful example of how deep mathematical ideas can lead to practical technology. The theory draws on harmonic analysis, functional analysis, and approximation theory, yet it has found applications in virtually every field that deals with digital signals and images.
+
+Meyer's contributions to Calder\'on--Zygmund theory are equally profound. His work on the $T(1)$ theorem and the wavelet characterization of function spaces has permanently changed the landscape of harmonic analysis.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Meyer discovered the Meyer wavelet while standing in a queue at a photocopy machine. He saw a paper on wavelets, realized he could construct an orthonormal wavelet basis, and wrote it down.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Decomposing a complex signal or image into a series of localized, oscillating wavelets of different scales.''
+
+\subsection{Mathematical Lineage}
+Advised by Jean-Pierre Kahane.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Wavelet theory is used in image and video compression (the JPEG 2000 standard uses biorthogonal wavelets), seismic data analysis, and denoising medical MRI images.
+
+\subsection{Algorithms and Numerical Implementations}
+The Discrete Wavelet Transform (DWT) and Fast Wavelet Transform (FWT) algorithms (such as Mallat's pyramid algorithm) perform multiresolution signal analysis in $O(N)$ time.
+
+\section{The Research Frontier}
+Developing wavelets and frame operators on non-Euclidean manifolds, and mathematical modeling of deep convolutional neural networks using scattering transforms.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Define a multiresolution analysis (MRA) of $L^2(\mathbb{R})$ and explain how it is used to construct an orthonormal wavelet basis.
+  \item State the difference between the Fourier transform and the Continuous Wavelet Transform in terms of time-frequency localization.
+  \item What is a quasicrystal and how does Meyer's mathematical theory of model sets explain their diffraction properties?
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Yves Meyer, \emph{Wavelets and Operators}, Cambridge University Press.
+  \item Ingrid Daubechies, \emph{Ten Lectures on Wavelets}, SIAM.
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item Y. Meyer, ``Wavelets and Operators,'' Cambridge University Press, 1992.
+\item Y. Meyer, ``Wavelets: Algorithms and Applications,'' SIAM, 1993.
+\item Y. Meyer, ``Ondelettes et op\'erateurs I--III,'' Hermann, 1990.
+\item S. Mallat, ``A Wavelet Tour of Signal Processing,'' Academic Press, 1999.
+\item I. Daubechies, ``Ten Lectures on Wavelets,'' SIAM, 1992.
+\item A. Cohen, I. Daubechies, and J.-C. Feauveau, ``Biorthogonal bases of compactly supported wavelets,'' Communications on Pure and Applied Mathematics 45 (1992), 485--560.
+\item R. R. Coifman and M. V. Wickerhauser, ``Entropy-based algorithms for best basis selection,'' IEEE Transactions on Information Theory 38 (1992), 713--718.
+\item J. Morlet, G. Arens, E. Fourgeau, and D. Giard, ``Wave propagation and sampling theory,'' Geophysics 47 (1982), 203--236.
+\item A. Grossmann and J. Morlet, ``Decomposition of Hardy functions into square integrable wavelets of constant shape,'' SIAM Journal on Mathematical Analysis 15 (1984), 723--736.
+\item S. Mallat, ``Multiresolution approximations and wavelet orthonormal bases of $L^2(\mathbb{R})$,'' Transactions of the American Mathematical Society 315 (1989), 69--87.
+\item Y. Meyer and R. R. Coifman, ``Wavelets: Calder\'on--Zygmund and Multilinear Operators,'' Cambridge University Press, 1997.
+\item D. L. Donoho and I. M. Johnstone, ``Ideal spatial adaptation by wavelet shrinkage,'' Biometrika 81 (1994), 425--455.
+\item E. J. Cand\`es and D. L. Donoho, ``New tight frames of curvelets and optimal representations of objects with piecewise $C^2$ singularities,'' Communications on Pure and Applied Mathematics 57 (2004), 219--266.
+\item J. Bruna and S. Mallat, ``Invariant scattering convolution networks,'' IEEE Transactions on Pattern Analysis and Machine Intelligence 35 (2013), 1872--1886.
+\item M. Unser, ``Sampling -- 50 years after Shannon,'' Proceedings of the IEEE 88 (2000), 569--587.
+\item S. Mallat, ``Multiresolution analysis and wavelets,'' Transactions of the American Mathematical Society 315 (1989), 69--87.
+\item I. Daubechies, ``Orthonormal bases of compactly supported wavelets,'' Communications on Pure and Applied Mathematics 41 (1988), 909--996.
+\item G. David and J.-L. Journ\'e, ``A boundedness criterion for generalized Calder\'on--Zygmund operators,'' Annals of Mathematics 120 (1984), 371--397.
+\item R. R. Coifman, Y. Meyer, and M. V. Wickerhauser, ``Wavelet analysis and signal processing,'' in ``Wavelets and Their Applications,'' Jones and Bartlett, 1992.
+\item D. L. Donoho, ``De-noising by soft-thresholding,'' IEEE Transactions on Information Theory 41 (1995), 613--627.
+\item E. J. Cand\`es and T. Tao, ``Near-optimal signal recovery from random projections: Universal encoding strategies?'' IEEE Transactions on Information Theory 52 (2006), 5406--5425.
+\item J. Bruna and S. Mallat, ``Multiscale scattering for audio classification,'' in ``Proceedings of ISMIR 2011.''
+\item R. Coifman and M. Maggioni, ``Diffusion wavelets,'' Applied and Computational Harmonic Analysis 21 (2006), 53--94.
+\item E. J. Cand\`es and D. L. Donoho, ``Ridgelets: a key to higher-dimensional intermittency?'' Philosophical Transactions of the Royal Society A 357 (1999), 2495--2509.
+\item M. Frazier, B. Jawerth, and G. Weiss, ``Littlewood--Paley Theory and the Study of Function Spaces,'' AMS, 1991.
+\end{enumerate}

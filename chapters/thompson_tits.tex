@@ -1,0 +1,277 @@
+\chapter{John G. Thompson \& Jacques Tits (2008)}
+
+\section{Biographical Sketches}
+
+
+
+\subsection{John Griggs Thompson}
+
+John Thompson was born on 13 October 1932 in Ottawa, Kansas, USA. He studied at Yale University and the University of Chicago, where he completed his PhD in 1959 under the supervision of Saunders Mac Lane. He held positions at the University of Chicago, the University of Cambridge, and the University of Florida. Thompson received the Abel Prize (jointly with Tits) in 2008, the Fields Medal in 1970, the Wolf Prize in 1992, and the Steele Prize in 2000.
+
+\subsection{Jacques Tits}
+
+Jacques Tits was born on 12 August 1930 in Uccle, Belgium. He studied at the Universit\'e Libre de Bruxelles, where he earned his PhD in 1954. He held positions at the Universit\'e Libre de Bruxelles, the University of Bonn, and the Coll\`ege de France. Tits received the Abel Prize (jointly with Thompson) in 2008, the Wolf Prize in 1993, and the Cantor Medal in 1996.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Thompson and Tits Do?}
+
+Imagine you have a collection of shapes---triangles, squares, pentagons---and you want to understand all the ways you can rotate and reflect them so they land back on themselves. For a square, there are 8 such motions: 4 rotations and 4 reflections. For a regular pentagon, there are 10. This collection of motions is called a \emph{symmetry group}.
+
+Now imagine the ultimate challenge: classify all possible symmetry groups, in any number of dimensions, with any number of elements. This is the problem of classifying \emph{finite simple groups}---the atomic building blocks of all finite symmetry groups. Thompson and Tits played central roles in this monumental achievement.
+
+\paragraph{Thompson's Contribution:} Thompson proved that all finite simple groups have a particular structure known as the "odd order theorem"---more precisely, every finite group of odd order is solvable. This was the first major step toward the classification. He also discovered several new families of sporadic simple groups.
+
+\paragraph{Tits' Contribution:} Tits created the theory of \emph{Buildings\index{Tits buildings}}, a geometric structure that encodes the symmetries of exceptional Lie groups\index{Lie groups}. This theory allowed mathematicians to understand the deep geometry underlying groups that had previously seemed abstract and mysterious.
+
+\subsection{Why Does It Matter?}
+
+Symmetry groups are everywhere in mathematics and physics:
+
+\begin{itemize}
+\item They describe the structure of molecules in chemistry.
+\item They are the foundation of particle physics (the Standard Model).
+\item They are used in cryptography to secure communications.
+\item They describe the symmetries of crystal structures.
+\item They appear in art, architecture, and music.
+\end{itemize}
+
+The classification of finite simple groups is one of the greatest intellectual achievements of all time, comparable to the classification of chemical elements in the periodic table.
+
+\section{The Origin of the Problem}
+
+\subsection{Group Theory and Symmetry}
+
+Group theory was born in the early nineteenth century through the work of Galois, Abel, Cauchy, and others. A \emph{group} is a set equipped with an associative binary operation, an identity element, and inverses. Groups capture the abstract notion of symmetry.
+
+A group is \emph{simple} if it has no nontrivial normal subgroups---it cannot be decomposed into smaller pieces. Simple groups are the atoms of group theory: every finite group can be built from simple groups by repeated extensions (the Jordan--H\"older theorem).
+
+\subsection{The Search for Simple Groups}
+
+By the 1950s, mathematicians had identified several infinite families of finite simple groups:
+
+\begin{itemize}
+\item \textbf{Cyclic groups} $\mathbb{Z}_p$ of prime order.
+\item \textbf{Alternating groups} $A_n$ for $n \geq 5$.
+\item \textbf{Groups of Lie type}: families of matrix groups over finite fields, including $PSL(n, q)$, $PSp(2n, q)$, and the exceptional groups $G_2(q)$, $F_4(q)$, $E_6(q)$, $E_7(q)$, $E_8(q)$.
+\end{itemize}
+
+In addition, a handful of "sporadic" simple groups had been discovered, including the Mathieu groups $M_{11}$, $M_{12}$, $M_{22}$, $M_{23}$, $M_{24}$.
+
+\subsection{The Classification Problem}
+
+The central problem was: are there any more finite simple groups beyond these families? And can we prove that the list is complete?
+
+This became known as the \emph{classification of finite simple groups} (CFSG), one of the most ambitious projects in the history of mathematics. The complete classification was announced in 1983 (with final corrections in 2004). It states that every finite simple group is:
+
+\begin{enumerate}
+\item A cyclic group of prime order;
+\item An alternating group $A_n$ ($n \geq 5$);
+\item A group of Lie type (including the Tits group);
+\item One of 26 sporadic groups.
+\end{enumerate}
+
+\section{Deep Insight into the Problem}
+
+\subsection{Thompson's Odd Order Theorem}
+
+Thompson's PhD thesis, written under the direction of Saunders Mac Lane, contained the germ of his most famous result. Working with Walter Feit, Thompson proved in 1963 that every finite group of odd order is solvable. This result, published as a 255-page paper in the Pacific Journal of Mathematics, is one of the longest and most important papers in the history of group theory.
+
+\paragraph{The Feit--Thompson Theorem:} Every finite group of odd order is solvable. Equivalently, every non-abelian finite simple group has even order.
+
+This theorem has profound consequences. It immediately implies that the smallest non-abelian simple group must have even order, and it launched the classification program by establishing that the structure of simple groups is tightly constrained.
+
+\subsection{Thompson's N-Group Theory}
+
+Thompson developed the theory of \emph{N-groups}---finite groups in which every proper subgroup is solvable. He classified all simple N-groups in a monumental series of papers, showing that they are exactly the minimal simple groups (those whose proper subgroups are all solvable).
+
+This work provided the foundation for the classification by reducing the general problem to the analysis of specific configurations.
+
+\subsection{Tits' Buildings\index{Tits buildings}}
+
+Jacques Tits introduced the concept of a \emph{building} in the 1960s. A building is a simplicial complex that encodes the structure of a group of Lie type. It consists of:
+\begin{itemize}
+\item \textbf{Apartments}: Subcomplexes isomorphic to the Coxeter complex of a Weyl group.
+\item \textbf{Chambers}: Maximal simplices in the building.
+\item \textbf{Gallery Connections}: A system of adjacency between chambers.
+\end{itemize}
+
+Buildings provide a geometric realization of the BN-pair structure of a group of Lie type. The building of $SL(n, q)$, for example, is the flag complex of subspaces of $\mathbb{F}_q^n$.
+
+\subsection{Tits' Geometries and the Tits Group}
+
+Tits discovered a new sporadic simple group during his work on geometries over finite fields. The \emph{Tits group} $^2F_4(2)'$ is a simple group of order 17,971,200 that arises from the geometry of the Ree groups $^2F_4(q)$.
+
+More generally, Tits showed that many of the sporadic groups discovered by Fischer, Janko, Conway, and others are related to geometries that can be understood using his building theory.
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{The Feit--Thompson Theorem}
+
+The Feit--Thompson theorem (also called the Odd Order Theorem) is one of the deepest results in finite group theory. Its proof introduced several revolutionary techniques:
+
+\begin{itemize}
+\item \textbf{Character Theory}: The proof made extensive use of modular character theory, developed by Brauer. Thompson's "character-theoretic" approach to group theory became a standard method.
+
+\item \textbf{Local Analysis}: The proof analyzed the structure of centralizers of involutions (elements of order 2), initiating the "local" approach to group classification.
+
+\item \textbf{Signalizer Functors}: Thompson's concept of signalizer functors, which track the structure of subgroups commuting with elements of prime order, became a central tool in the classification.
+\end{itemize}
+
+\subsection{Thompson's Sporadic Groups}
+
+Thompson discovered several sporadic simple groups:
+\begin{itemize}
+\item \textbf{Thompson's sporadic group Th}: A group of order 90,745,943,887,872,000, also called the \emph{Thompson group}.
+\item \textbf{The Harada--Norton group HN}: Discovered by Thompson in collaboration with Harada and Norton.
+\end{itemize}
+
+\subsection{Thompson Series and Moonshine}
+
+Thompson discovered connections between finite simple groups and modular forms that anticipated the monstrous moonshine phenomenon. The \emph{Thompson series} are modular functions associated to conjugacy classes of the Monster group.
+
+\subsection{The Theory of Buildings}
+
+Tits' theory of buildings is a monumental achievement:
+
+\begin{itemize}
+\item \textbf{Spherical Buildings}: Associated to isotropic algebraic groups over fields, these are the most important class. The classification of spherical buildings of rank at least 3 is a landmark result.
+
+\item \textbf{Affine Buildings}: Associated to algebraic groups over local fields, these buildings are fundamental in the study of $p$-adic groups and the Langlands program.
+
+\item \textbf{Twin Buildings}: Tits introduced twin buildings as a geometric framework for Kac--Moody groups.
+\end{itemize}
+
+\subsection{The Tits Alternative}
+
+A fundamental result in geometric group theory, the Tits alternative states that every finitely generated linear group either contains a non-abelian free subgroup or is virtually solvable. This dichotomy has profound consequences for the structure of linear groups and their geometry.
+
+\subsection{The Classification of Groups of Lie Type}
+
+Tits' work on groups generated by root subgroups (the "BN-pair" axioms) provided a uniform approach to all groups of Lie type. His classification of irreducible spherical buildings of rank at least 3 gave an alternative proof of the classification of simple algebraic groups over arbitrary fields.
+
+\section{Impact of the Discovery in Science and Technology}
+
+\subsection{Impact on Mathematics}
+
+The work of Thompson and Tits transformed group theory and its connections:
+
+\begin{itemize}
+\item \textbf{Finite Group Theory}: The classification of finite simple groups, to which both contributed centrally, is one of the greatest achievements of twentieth-century mathematics.
+
+\item \textbf{Geometric Group Theory}: Tits' work on buildings and the Tits alternative laid foundations for geometric group theory, which studies groups through their actions on metric spaces.
+
+\item \textbf{Representation Theory}: Thompson's character-theoretic methods and Tits' geometric approach to representations have shaped modern representation theory.
+
+\item \textbf{Algebraic Geometry}: The theory of buildings is essential for understanding algebraic groups over arbitrary fields and their geometry.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+\begin{itemize}
+\item \textbf{Particle Physics}: The classification of simple groups explains the symmetry groups of fundamental interactions. The Standard Model's gauge group $SU(3) \times SU(2) \times U(1)$ is a product of simple groups and abelian factors.
+
+\item \textbf{String Theory}: Exceptional groups, including $E_8$ which is related to Tits' building theory, appear in string theory and M-theory.
+
+\item \textbf{Condensed Matter Physics}: Symmetry groups are used to classify phases of matter, and the classification of simple groups provides the complete list of possible symmetry types.
+\end{itemize}
+
+\subsection{Impact on Technology}
+
+\begin{itemize}
+\item \textbf{Cryptography}: Group theory is used in cryptography, including the use of group structures in elliptic curve\index{Elliptic curves} cryptography and lattice-based cryptography.
+
+\item \textbf{Coding Theory}: Group-theoretic codes, including group codes and Reed--Muller codes, use the classification of simple groups.
+
+\item \textbf{Quantum Computing}: The theory of quantum error-correcting codes uses group theory, and the classification of simple groups provides constraints on possible code structures.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{The Second-Generation Classification}
+
+Work continues on simplifying and verifying the classification of finite simple groups:
+
+\begin{itemize}
+\item \textbf{The GLS Project}: Gorenstein, Lyons, and Solomon are writing a series of volumes providing a complete and unified proof of the classification.
+
+\item \textbf{Aschbacher's Contributions}: Aschbacher has made major contributions to simplifying portions of the classification proof.
+
+\item \textbf{Computer Verification}: Formal verification of parts of the classification using proof assistants is an ongoing project.
+\end{itemize}
+
+\subsection{Buildings and the Langlands Program}
+
+Tits' buildings play a central role in the Langlands program:
+
+\begin{itemize}
+\item \textbf{$p$-adic Groups}: The theory of buildings is essential for studying representations of $p$-adic groups and the local Langlands correspondence.
+
+\item \textbf{Rapoport--Zink Spaces}: These spaces, which parametrize $p$-adic period domains, are studied using building theory.
+
+\item \textbf{Geometric Satake}: The geometric Satake correspondence, which is central to the geometric Langlands program, involves the affine Grassmannian, which is related to the building of the loop group.
+\end{itemize}
+
+\subsection{Monstrous Moonshine}
+
+The connection between finite simple groups and modular forms that Thompson pioneered continues to be an active area:
+
+\begin{itemize}
+\item \textbf{Moonshine Beyond the Monster}: Extensions of moonshine to other groups, including the Mathieu group $M_{24}$ and the Conway group, have been discovered.
+
+\item \textbf{Physical Moonshine}: Connections between moonshine and string theory, including the K3 sigma model, are an active research area.
+\end{itemize}
+
+\section{Conclusion}
+
+John Thompson and Jacques Tits transformed our understanding of symmetry. Thompson's work on the odd order theorem and the classification of simple groups, together with Tits' geometric theory of buildings, provided the conceptual framework for one of the greatest intellectual achievements in the history of mathematics: the complete classification of finite simple groups.
+
+The Abel Prize citation recognized Thompson and Tits "for their profound achievements in algebra and in particular for shaping modern group theory." This captures only a fraction of their impact: their work has shaped not just algebra, but geometry, representation theory, number theory, and mathematical physics.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Thompson's Feit-Thompson proof (establishing the Odd Order Theorem) was 255 pages long, occupying an entire issue of the Pacific Journal of Mathematics. At the time, this was completely unprecedented, breaking the convention of short papers and paving the way for the classification of finite simple groups.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Classifying the fundamental building blocks of all algebraic symmetry, and constructing the geometric 'skeletons' that support them.''
+
+\subsection{Mathematical Lineage}
+Thompson was advised by Saunders Mac Lane (co-founder of category theory). Tits was advised by Georges Lema\^itre (the physicist who proposed the Big Bang theory).
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Group theory and buildings are used in crystallography (analyzing atomic configurations), structural chemistry (molecular symmetries), and in coding theory for designing algebraic error-correcting codes.
+
+\subsection{Algorithms and Numerical Implementations}
+Coset enumeration algorithms (such as the Todd-Coxeter algorithm) and the Schreier-Sims algorithm for permutation groups (implemented in computer algebra systems like GAP and Magma) are used to compute simple group representations.
+
+\section{The Research Frontier}
+Completing the second-generation proof of the Classification of Finite Simple Groups, and investigating the geometry of buildings associated to infinite-dimensional Kac-Moody groups.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Explain the significance of the Feit-Thompson Odd Order Theorem in the classification of finite simple groups.
+  \item Define a Tits building and describe its structure in terms of apartments and chambers.
+  \item What is a BN-pair (or Tits system) and how does it give rise to a building?
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Michael Aschbacher, \emph{The Finite Simple Groups}, Cambridge University Press.
+  \item Jacques Tits, \emph{Buildings of Spherical Type and Finite BN-Pairs}, Lecture Notes in Mathematics, Springer.
+\end{itemize}
+
+\section*{Bibliography}
+
+\begin{enumerate}
+\item W. Feit and J. G. Thompson, "Solvability of groups of odd order," Pacific Journal of Mathematics 13 (1963), 775--1029.
+\item J. G. Thompson, "A simple group of order 90,745,943,887,872,000" (with R. M. Guralnick), in preparation.
+\item J. Tits, "Buildings of Spherical Type and Finite BN-Pairs," Springer, 1974.
+\item J. Tits, "Th\'eorie des groupes," Annuaire du Coll\`ege de France 1980--1990.
+\item D. Gorenstein, "Finite Simple Groups: An Introduction to Their Classification," Plenum, 1982.
+\item M. Aschbacher, "The Classification of Finite Simple Groups," American Mathematical Society, 2004.
+\item A. Borel and J. Tits, "Groupes r\'eductifs," Publications Math\'ematiques de l'IH\'ES 27 (1965), 55--151.
+\item J. Tits, "Le probl\`eme des mots dans les groupes de Coxeter," Symposia Mathematica 1 (1969), 175--185.
+\end{enumerate}

@@ -1,0 +1,285 @@
+\chapter{Gerd Faltings (2026)}
+
+\section{Biographical Sketch}
+
+
+
+Gerd Faltings was born on 28 July 1954 in Gelsenkirchen, Germany. He studied at the University of M\"unster, where he completed his PhD in 1978 under the supervision of Hans-Joachim Nastold, with a dissertation on the local duality of formal schemes. After a period at the University of Wuppertal, he spent several years at Princeton University (1982--1985) before returning to Germany as a director at the Max Planck Institute for Mathematics in Bonn, a position he held for over three decades.
+
+Faltings received the Fields Medal at the International Congress of Mathematicians in Berkeley in 1986, at the age of 32, for his proof of the Mordell conjecture. He has since received the Gottfried Wilhelm Leibniz Prize (1996), the Shaw Prize in Mathematical Sciences (2015), and the Abel Prize (2026).
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Faltings Do?}
+
+In 1637, Pierre de Fermat claimed that the equation $x^n + y^n = z^n$ has no positive integer solutions when $n > 2$. This became the most famous unsolved problem in mathematics.
+
+In 1922, the British mathematician Louis Mordell made a different but related conjecture. He asked: given a polynomial equation in two variables that defines a curve with at least two holes (genus $\geq 2$), how many rational solutions does it have? His conjecture: at most finitely many.
+
+This was not about Fermat's equation specifically, but about a whole family of equations. Mordell's conjecture was considered by many to be even deeper and more consequential than Fermat's Last Theorem\index{Fermat's Last Theorem}. Gerd Faltings proved it in 1983, at the age of 29.
+
+\subsection{Why Does It Matter?}
+
+Faltings' proof of the Mordell conjecture:
+\begin{itemize}
+\item Showed that most Diophantine equations have only finitely many rational solutions, fundamentally changing our understanding of when integer solutions exist.
+\item Created the modern theory of arithmetic geometry, building deep bridges between number theory, algebraic geometry, and complex analysis.
+\item Was a direct precursor to Andrew Wiles' proof of Fermat's Last Theorem\index{Fermat's Last Theorem} a decade later.
+\item Transformed the study of abelian varieties\index{Abelian varieties}---higher-dimensional analogs of elliptic curves\index{Elliptic curves}---over number fields.
+\end{itemize}
+
+\subsection{The Big Picture}
+
+At the deepest level, Faltings' work reveals that the arithmetic of a geometric object (the rational points on a curve) is controlled by the object's topology (its genus) and its geometry (its structure as an algebraic variety). This unity between arithmetic, geometry, and topology is one of the deepest themes of modern mathematics.
+
+\section{The Origin of the Problem}
+
+\subsection{The Mordell Conjecture}
+
+Let $C$ be a smooth projective curve of genus $g$ defined over a number field $K$. The set $C(K)$ of $K$-rational points on $C$ is the set of solutions to the defining equations with coordinates in $K$.
+
+The Mordell conjecture (1922) states:
+\[
+g \geq 2 \ \Longrightarrow\ C(K) \text{ is finite}.
+\]
+
+This is in stark contrast to the cases $g = 0$ (where $C(K)$ may be infinite or empty) and $g = 1$ (where $C(K)$ may be infinite when it is nonempty, by the Mordell--Weil theorem).
+
+\subsection{The Work of Weil and the Mordell--Weil Theorem}
+
+Andr\'e Weil had generalized Mordell's theorem on elliptic curves\index{Elliptic curves} to abelian varieties\index{Abelian varieties}: for an abelian variety\index{Abelian varieties} $A$ over a number field $K$, the group $A(K)$ is finitely generated. This is the Mordell--Weil theorem (1928). It provided the group-theoretic framework for studying rational points.
+
+\subsection{The Shafarevich Conjecture}
+
+The Mordell conjecture was known to follow from another conjecture, the Shafarevich conjecture: given a number field $K$, an integer $g \geq 1$, and a finite set $S$ of places of $K$, there are only finitely many isomorphism classes of abelian varieties of dimension $g$ over $K$ with good reduction outside $S$.
+
+\subsection{Hilbert and Irreducibility}
+
+Earlier approaches to the Mordell conjecture used Hilbert's irreducibility theorem and the theory of heights. But these methods could only prove finiteness for curves of very high genus, not for all $g \geq 2$.
+
+\section{Deep Insight into the Problem}
+
+\subsection{Faltings' Strategy}
+
+Faltings' proof of the Mordell conjecture proceeds by proving three interconnected results:
+
+\begin{enumerate}
+\item \textbf{The Shafarevich conjecture}: Finiteness of abelian varieties of fixed dimension with good reduction outside a fixed finite set of places.
+\item \textbf{The Tate conjecture for abelian varieties over number fields}: The $\ell$-adic representation attached to an abelian variety is semisimple, and the endomorphism algebra of the abelian variety is the commutant of the Galois action.
+\item \textbf{The Mordell conjecture}: Finiteness of rational points on curves of genus $g \geq 2$.
+\end{enumerate}
+
+\subsection{Cohomological Methods}
+
+Faltings' proof uses $\ell$-adic \'etale cohomology\index{Cohomology} in an essential way. The $\ell$-adic Tate module $T_\ell(A)$ of an abelian variety $A$ carries a Galois representation:
+\[
+\rho_{A,\ell}: \operatorname{Gal}(\overline{K}/K) \to \operatorname{Aut}(T_\ell(A)).
+\]
+
+The central idea: the Shafarevich conjecture can be reformulated in terms of the finiteness of certain Galois representations with prescribed ramification.
+
+\subsection{Heights and Moduli Spaces}
+
+Faltings introduced a new notion of height for abelian varieties---now called the \emph{Faltings height}---which measures the arithmetic complexity of an abelian variety. The Faltings height $h_F(A)$ is defined using Arakelov geometry, integrating over the moduli space of abelian varieties with a natural metric.
+
+The key property: there are only finitely many abelian varieties of bounded Faltings height and fixed dimension and polarization.
+
+\subsection{Arakelov Geometry}
+
+Arakelov geometry provides a compactification of the arithmetic theory by adding information at the infinite places. Faltings developed the analytic theory of Arakelov geometry, including:
+\begin{itemize}
+\item The theory of Green functions on arithmetic surfaces.
+\item The arithmetic Riemann--Roch theorem.
+\item The Faltings--Riemann--Roch theorem for arithmetic surfaces.
+\end{itemize}
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{Proof of the Mordell Conjecture}
+
+Faltings' theorem (often called Faltings' theorem or the Mordell--Faltings theorem) states:
+
+\textbf{Theorem (Faltings, 1983):} Let $C$ be a smooth projective curve of genus $g \geq 2$ over a number field $K$. Then $C(K)$ is finite.
+
+The proof, published in a 48-page paper "Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern" (Finiteness theorems for abelian varieties over number fields), is remarkable for its conciseness given the depth of the results. It appeared in Inventiones Mathematicae in 1983.
+
+\subsection{The Faltings Height}
+
+The Faltings height $h_F(A)$ of an abelian variety $A$ of dimension $g$ is defined as:
+\[
+h_F(A) = \frac{1}{[K:\mathbb{Q}]} \deg(\omega_A),
+\]
+where $\omega_A$ is the sheaf\index{Sheaf theory} of relative differentials on the minimal regular model of $A$ over $\operatorname{Spec} \mathcal{O}_K$, equipped with the Arakelov metric at the infinite places.
+
+The Faltings height has the crucial property that it is bounded from below on the moduli space $\mathcal{A}_g$ of principally polarized abelian varieties.
+
+\subsection{The Tate Conjecture for Abelian Varieties}
+
+The Tate conjecture (proved by Faltings for abelian varieties over number fields) states:
+\begin{itemize}
+\item The Galois representation on $V_\ell(A) = T_\ell(A) \otimes_{\mathbb{Z}_\ell} \mathbb{Q}_\ell$ is semisimple.
+\item The natural map:
+\[
+\operatorname{End}_K(A) \otimes \mathbb{Q}_\ell \to \operatorname{End}_{\operatorname{Gal}(\overline{K}/K)}(V_\ell(A))
+\]
+is an isomorphism.
+\end{itemize}
+
+This result is essential for the proof of the Shafarevich conjecture, as it allows the study of abelian varieties through their Galois representations.
+
+\subsection{The Shafarevich Conjecture for Abelian Varieties}
+
+The Shafarevich conjecture (proved by Faltings) states: for a number field $K$, an integer $g \geq 1$, and a finite set $S$ of places of $K$, there are only finitely many isomorphism classes of abelian varieties of dimension $g$ over $K$ with good reduction outside $S$.
+
+\subsection{Arakelov Geometry and the Arithmetic Riemann--Roch Theorem}
+
+Faltings developed the theory of Arakelov intersection theory and proved the arithmetic Riemann--Roch theorem:
+\[
+\chi(\mathcal{F}) = \int_{\overline{X}} \operatorname{ch}(\mathcal{F}) \cdot \widehat{\operatorname{Td}}(T_{\overline{X}}).
+\]
+
+This theorem is essential for computing the Faltings height and for the study of modular curves and their Jacobians.
+
+\subsection{$p$-adic Hodge Theory\index{Hodge theory} and the Fontaine--Faltings Theorem}
+
+With Jean-Marc Fontaine, Faltings proved a comparison theorem between $p$-adic \'etale cohomology\index{Cohomology} and de Rham cohomology\index{Cohomology} for proper smooth varieties over $p$-adic fields. The Fontaine--Faltings theorem (also called the $p$-adic comparison theorem) states:
+\[
+H^i_{\text{\'et}}(X_{\overline{K}}, \mathbb{Q}_p) \otimes_{\mathbb{Q}_p} B_{\text{dR}} \cong H^i_{\text{dR}}(X/K) \otimes_K B_{\text{dR}},
+\]
+where $B_{\text{dR}}$ is Fontaine's ring of $p$-adic periods.
+
+This result is fundamental for modern $p$-adic Hodge theory\index{Hodge theory} and has been generalized by Scholze, Kedlaya, and others.
+
+\section{Impact of the Discovery in Science and Technology}
+
+\subsection{Impact on Mathematics}
+
+Faltings' theorem transformed arithmetic geometry:
+
+\begin{itemize}
+\item \textbf{Diophantine Geometry}: The proof of the Mordell conjecture opened the door to the modern theory of rational points. Vojta, Bombieri, and others developed new methods for studying the distribution of rational points on varieties.
+
+\item \textbf{Abelian Varieties}: Faltings' work on the Tate conjecture and the Shafarevich conjecture transformed the study of abelian varieties over number fields. The Faltings height is now a standard tool.
+
+\item \textbf{Arakelov Geometry}: Faltings' development of Arakelov geometry created a new subfield of arithmetic geometry, with applications to the study of modular curves, heights, and Riemann--Roch theorems.
+
+\item \textbf{Modular Forms}: Faltings' methods are essential for the study of modular forms and the proof of the modularity theorem (Wiles, Taylor, Breuil, Conrad, Diamond).
+
+\item \textbf{$p$-adic Hodge Theory\index{Hodge theory}}: The Fontaine--Faltings comparison theorem is fundamental for modern $p$-adic geometry, including the theory of perfectoid spaces\index{Perfectoid spaces} (Scholze) and $p$-adic automorphic forms.
+\end{itemize}
+
+\subsection{Impact on Number Theory}
+
+Faltings' theorem had immediate and profound implications for number theory:
+\begin{itemize}
+\item It provided the first general finiteness result for solutions to Diophantine equations.
+\item It answered a sixty-year-old conjecture, giving confidence that other deep conjectures in number theory (the Langlands program, the BSD conjecture) might be approachable.
+\item It established $\ell$-adic cohomology and Galois representations as the essential tools for modern number theory.
+\end{itemize}
+
+\subsection{Impact on Cryptography}
+
+While Faltings' theorem does not have direct cryptographic applications, the arithmetic of abelian varieties over finite fields---which Faltings' work helped illuminate---is the foundation of:
+\begin{itemize}
+\item Elliptic curve\index{Elliptic curves} cryptography (ECC).
+\item Hyperelliptic curve cryptography (HECC).
+\item Pairing-based cryptography (identity-based encryption).
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{The Lang Program and Rational Points on Varieties}
+
+The work of Lang and Vojta has extended Faltings' theorem to higher dimensions. The Bombieri--Lang conjecture states that for a variety of general type over a number field, the set of rational points is not Zariski dense.
+
+Current research includes:
+\begin{itemize}
+\item Effective versions of Faltings' theorem: bounding the number of rational points on a curve.
+\item Uniform bounds: proving that the number of rational points on curves of fixed genus is uniformly bounded.
+\item The study of rational points on surfaces and higher-dimensional varieties.
+\end{itemize}
+
+\subsection{Perfectoid Spaces\index{Perfectoid spaces} and $p$-adic Geometry}
+
+Scholze's theory of perfectoid spaces\index{Perfectoid spaces} builds directly on Faltings' work in $p$-adic Hodge theory:
+\begin{itemize}
+\item The Fontaine--Faltings comparison theorem was a key motivation for perfectoid geometry.
+\item Perfectoid spaces have revolutionized the study of $p$-adic Galois representations and the $p$-adic Langlands program.
+\item The theory of diamonds and mixed characteristic geometry extends the reach of Faltings' methods.
+\end{itemize}
+
+\subsection{The ABC Conjecture}
+
+The ABC conjecture, formulated by Oesterl\'e and Masser, is closely related to the Mordell conjecture through the theory of heights. Faltings' height theory has been essential for recent work on the ABC conjecture, including Mochizuki's inter-universal Teichm\"uller theory (which claims a proof of ABC remains controversial).
+
+\subsection{Moduli Spaces of Abelian Varieties}
+
+The study of the moduli space $\mathcal{A}_g$ of principally polarized abelian varieties continues to be an active field:
+\begin{itemize}
+\item The compactification of $\mathcal{A}_g$ using toroidal and minimal compactifications.
+\item The study of Hecke correspondences and the Andre--Oort conjecture.
+\item The arithmetic of Siegel modular forms and their $L$-functions.
+\end{itemize}
+
+\section{Conclusion}
+
+Gerd Faltings' proof of the Mordell conjecture is one of the greatest achievements in the history of number theory. At age 29, he solved a problem that had defeated the finest mathematicians for over sixty years, developing a breathtaking array of new techniques in the process.
+
+His work created the modern theory of arithmetic geometry, establishing $\ell$-adic cohomology, heights, and Arakelov geometry as essential tools. The Faltings height, the Fontaine--Faltings comparison theorem, and his work on the Tate and Shafarevich conjectures are now fundamental parts of the number theorist's toolkit.
+
+The Abel Prize citation recognized Faltings for his contributions to mathematics. The Fields Medal, the Shaw Prize, and the Abel Prize together place him among the most decorated mathematicians of his generation.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Faltings' proof of the Mordell conjecture was so dense and used so many advanced tools that when he first presented it at a seminar, it took weeks for the mathematical community to verify that it was correct.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Proving that algebraic curves with two or more holes (genus $g \geq 2$) have only finitely many rational points.''
+
+\subsection{Mathematical Lineage}
+Advised by Hans-Joachim Nastold.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Faltings' height calculations and p-adic Hodge theory are used to design and analyze post-quantum algebraic cryptosystems (such as multivariate and isogeny\index{Isogeny-based cryptography} cryptography).
+
+\subsection{Algorithms and Numerical Implementations}
+Height computation algorithms (such as the Bilu-Parent algorithm) calculate canonical heights on Jacobian varieties to find rational points on high-genus algebraic curves.
+
+\section{The Research Frontier}
+The development of perfectoid spaces (by Peter Scholze) to extend Faltings' almost purity theorem in p-adic Hodge theory to general algebraic varieties.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item State the Mordell conjecture (now Faltings' theorem) and describe why the genus condition $g \geq 2$ is necessary.
+  \item Explain Faltings' proof of the Tate conjecture for abelian varieties over number fields.
+  \item Describe the basic idea of the almost purity theorem in p-adic Hodge theory.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item G. Faltings, \emph{Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern}, Inventiones Mathematicae 73 (1983).
+  \item J.-M. Fontaine and G. Faltings, \emph{p-adic Hodge theory}, in \emph{Pr\"epublications Math\'ematiques de l'IH\'ES}.
+\end{itemize}
+
+\section*{Bibliography}
+
+\begin{enumerate}
+\item G. Faltings, "Endlichkeitss\"atze f\"ur abelsche Variet\"aten \"uber Zahlk\"orpern," Inventiones Mathematicae 73 (1983), 349--366.
+\item G. Faltings, "Calculus on arithmetic surfaces," Annals of Mathematics 119 (1984), 387--424.
+\item G. Faltings, "Hodge-Tate structures and modular forms," in "Hodge Theory," Princeton University Press, 1985.
+\item G. Faltings, "$p$-adic Hodge theory," Journal of the American Mathematical Society 1 (1988), 255--299.
+\item G. Faltings, "The general case of S. Lang's conjecture," in "Barsotti Symposium in Algebraic Geometry," Academic Press, 1994.
+\item G. Faltings, "A new proof of the Mordell conjecture," in "Arithmetic Geometry," Springer, 1996.
+\item G. Faltings and C. L. Chai, "Degeneration of Abelian Varieties," Springer, 1990.
+\item G. Faltings, "Arithmetic Riemann--Roch" (with S. Zhang), in "Advances in Mathematics," 1992.
+\item J.-M. Fontaine and G. Faltings, "$p$-adic Hodge theory," in "Pr\'epublications Math\'ematiques de l'IH\'ES," 1987.
+\item S. Lang, "Number Theory III: Diophantine Geometry," Springer, 1991.
+\item P. Deligne, "La conjecture de Weil I," Publications Math\'ematiques de l'IH\'ES 43 (1974), 273--307.
+\item L. Szpiro, "S\'eminaire sur les pinceaux arithm\'etiques: la conjecture de Mordell," Ast\'erisque 127 (1985).
+\item B. Conrad, "Faltings' theorem," in "Proceedings of the International Congress of Mathematicians 2010."
+\item P. Scholze, "Perfectoid spaces," Publications Math\'ematiques de l'IH\'ES 116 (2012), 245--313.
+\item A. Wiles, "Modular elliptic curves and Fermat's last theorem\index{Fermat's Last Theorem}," Annals of Mathematics 141 (1995), 443--551.
+\end{enumerate}

@@ -1,0 +1,352 @@
+\chapter{Dennis Sullivan (2022)}
+
+\section{Biographical Sketch}
+
+
+
+Dennis Parnell Sullivan was born on 12 February 1941 in Port Huron, Michigan, USA. He studied at Rice University, earning his bachelor's degree in 1963, and Princeton University, where he completed his PhD in 1966 under the supervision of William Browder. His doctoral work on the classification of manifolds immediately established him as a leading figure in topology.
+
+After brief appointments at the University of California, Berkeley, and the Massachusetts Institute of Technology, Sullivan spent a transformative period at the Institute for Advanced Study during the early 1970s. He later held positions at the University of Paris-Sud in Orsay (1973--1981) and the City University of New York (1981--present). Sullivan has received numerous honors, including the Abel Prize in 2022, the Wolf Prize in Mathematics in 2010, the Nemmers Prize in 2006, the Steele Prize for Lifetime Achievement in 1996, and the Oswald Veblen Prize in Geometry in 1971.
+
+Sullivan is one of the most influential mathematicians of the late twentieth century, having made fundamental contributions spanning algebraic and geometric topology, complex dynamics, hyperbolic geometry, and conformal dynamics.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Sullivan Do?}
+
+Imagine you are trying to decide if two complicated objects---say, a teapot and a donut---are the same shape. A topologist says they are the same if one can be continuously deformed into the other. But what if we only care about the "skeleton" of the object, ignoring fine details like bumps and indentations?
+
+Dennis Sullivan developed a powerful way to strip away the complicated details from topological spaces and focus on their essential structure. His creation, \emph{rational homotopy\index{Homotopy groups} theory}, is like looking at an object through a blurry lens: you lose some information (the small, finite-scale features), but you gain a much clearer picture of the overall architecture.
+
+More concretely, consider a sphere $S^n$. In ordinary homotopy\index{Homotopy groups} theory, the homotopy\index{Homotopy groups} groups $\pi_k(S^n)$ for $k > n$ are complicated, containing a great deal of "torsion" information (finite cyclic groups that measure winding numbers modulo some integer). Sullivan's insight was that if you ignore this torsion---that is, if you tensor everything with the rational numbers $\mathbb{Q}$---the resulting rational homotopy groups $\pi_k(S^n) \otimes \mathbb{Q}$ become beautifully simple and are completely described by a small number of basic building blocks that Sullivan called \emph{minimal models}.
+
+\subsection{Why Does It Matter?}
+
+Sullivan's work is fundamental for several reasons:
+
+\begin{enumerate}
+\item \textbf{Classification of Spaces}: Rational homotopy theory provides a practical method for determining when two spaces have the same "rational" homotopy type, which is often enough information for applications in geometry and physics.
+
+\item \textbf{The Shape of the Universe}: Sullivan's work on the classification of manifolds provides tools for understanding the possible shapes of our three-dimensional universe (cosmology) and higher-dimensional spaces (string theory).
+
+\item \textbf{Chaotic Dynamics}: Sullivan's work on the dynamics of rational maps (complex dynamics) helps explain how chaotic behavior arises in simple mathematical systems. His "no-wandering-domains theorem" was a landmark result in understanding iteration of complex functions.
+
+\item \textbf{Hyperbolic Geometry and 3-Manifolds}: Sullivan's work on Kleinian groups provided essential tools for understanding three-dimensional spaces, culminating in Thurston's geometrization program, which led to the proof of the Poincar\'e conjecture.
+\end{enumerate}
+
+\subsection{The Big Picture}
+
+At the deepest level, Sullivan's work reveals a hidden unity between seemingly disparate areas of mathematics. The same algebraic structures---minimal models, differential graded algebras, and their invariants---appear in topology, geometry, dynamics, and number theory. Sullivan had the remarkable ability to see connections where others saw only separate fields.
+
+\section{The Origin of the Problem}
+
+\subsection{The State of Algebraic Topology in the 1960s}
+
+Algebraic topology in the 1960s had achieved remarkable success. The theory of homology\index{Homology theory} and cohomology\index{Cohomology} was well understood, and homotopy groups were recognized as the fundamental invariants of topological spaces. However, computing homotopy groups remained extremely difficult.
+
+The homotopy groups of spheres were known to follow a certain pattern: $\pi_n(S^n) \cong \mathbb{Z}$, $\pi_{n+1}(S^n) \cong \mathbb{Z}_2$ for $n \geq 3$, $\pi_{n+2}(S^n) \cong \mathbb{Z}_2$ for $n \geq 2$, $\pi_{n+3}(S^n) \cong \mathbb{Z}_{24}$ for $n \geq 3$, and so on. While Serre had shown that all higher homotopy groups of spheres are finite (except for the special cases of $\pi_{2n-1}(S^n)$ for even $n$), the actual computation of these groups was a formidable problem.
+
+\subsection{The Need for a Rational Theory}
+
+The torsion information in homotopy groups---the $p$-primary components and their intricate patterns---is both a blessing and a curse. It makes the theory rich and deep, but it also makes computations extremely difficult. By the late 1960s, topologists were beginning to realize that if one ignored the torsion (by tensoring with $\mathbb{Q}$), the resulting theory would be far simpler and yet still capture essential information about the space.
+
+\subsection{Surgery Theory and Manifold Classification}
+
+Parallel to these developments in homotopy theory was the emergence of surgery theory, which aims to classify manifolds by cutting and pasting operations. The work of Browder, Novikov, Wall, and others in the 1960s had established a powerful framework for deciding when a homotopy equivalence between manifolds could be deformed to a diffeomorphism.
+
+Sullivan's early work in surgery theory, particularly his thesis, addressed the classification of manifolds by analyzing the obstructions to performing surgery. The Sullivan obstruction theory became a central tool in the classification of high-dimensional manifolds.
+
+\subsection{The Challenge of Dynamics}
+
+In a completely different direction, the study of dynamical systems---the iteration of functions---had been revolutionized by Smale's work on hyperbolic dynamics in the 1960s. However, the dynamics of rational maps of the Riemann sphere (complex dynamics) remained poorly understood. While Fatou and Julia had developed a deep theory in the early twentieth century, many fundamental questions remained open, including the structure of the Fatou set and the behavior of wandering domains.
+
+\section{Deep Insight into the Problem}
+
+\subsection{Rational Homotopy Theory and Minimal Models}
+
+Sullivan's fundamental insight was that the rational homotopy type of a simply connected space $X$ can be completely described by a commutative differential graded algebra (CDGA) over $\mathbb{Q}$, now called the \emph{Sullivan minimal model}.
+
+For any simply connected space $X$ with finite-dimensional rational cohomology\index{Cohomology} groups, there exists a minimal CDGA $(\wedge V, d)$---the free graded commutative algebra generated by a graded vector space $V$ with a differential $d$---that models the rational homotopy type of $X$.
+
+The minimal model has the remarkable property that:
+\[
+V^n \cong \operatorname{Hom}(\pi_n(X), \mathbb{Q}).
+\]
+
+Thus, the rational homotopy groups of $X$ are simply the generators of the minimal model. This provides a complete algebraic description of rational homotopy: the rational homotopy type of $X$ is equivalent to the CDGA $A_{PL}(X)$ of polynomial differential forms on $X$ with rational coefficients.
+
+\subsection{The Sullivan Algebra Construction}
+
+Given a space $X$, Sullivan constructed a sequence of spaces $X_n$ (the "Sullivan tower") that approximate $X$. Each stage of the tower is a fibration whose fiber is an Eilenberg--Mac Lane space $K(V_n, n)$ where $V_n = \pi_n(X) \otimes \mathbb{Q}$. The differential $d$ in the minimal model encodes the way these stages are glued together.
+
+This construction provides a purely algebraic approach to rational homotopy theory. The minimal model is unique up to isomorphism, and the rational homotopy type of $X$ can be recovered from it.
+
+\subsection{Surgery Theory and the Classification of Manifolds}
+
+In surgery theory, Sullivan developed the theory of \emph{normal invariants} and the \emph{surgery obstruction map}. The idea: given a simply connected manifold $M$ and a homotopy equivalence $f: N \to M$, one can ask whether $N$ is diffeomorphic to $M$. Sullivan showed that the obstruction to deforming the homotopy equivalence to a diffeomorphism lies in the $L$-groups of the fundamental group.
+
+The Browder--Novikov--Sullivan theory provides a complete classification of manifolds in dimensions $n \geq 5$:
+\[
+\mathcal{S}(M) \cong [M, G/O],
+\]
+where $\mathcal{S}(M)$ is the set of homotopy smoothings of $M$ and $G/O$ is the fiber of the map $BO \to BG$ from the classifying space of the orthogonal group to that of the stable homotopy group.
+
+\subsection{Complex Dynamics: The No-Wandering-Domains Theorem}
+
+In complex dynamics, the iteration of a rational map $R: \widehat{\mathbb{C}} \to \widehat{\mathbb{C}}$ partitions the Riemann sphere into the Fatou set (where dynamics is stable) and the Julia set (where dynamics is chaotic). The connected components of the Fatou set are called Fatou components.
+
+Fatou and Julia had shown that periodic Fatou components are classified into five types: attracting basins, parabolic basins, Siegel disks, Herman rings, and Baker domains. However, the possibility of wandering domains---Fatou components that are not eventually periodic---remained open.
+
+Sullivan's no-wandering-domains theorem (1985) proved that for rational maps, every Fatou component is eventually periodic. This resolved a sixty-year-old problem and fundamentally changed the field of complex dynamics.
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{Rational Homotopy Theory}
+
+Sullivan's rational homotopy theory is one of the most important developments in algebraic topology. Its key elements are:
+
+\begin{itemize}
+\item \textbf{Minimal Models}: For any simply connected space $X$, there exists a unique minimal CDGA $(\wedge V, d)$ that models its rational homotopy type. The generators $V^n$ correspond to $\pi_n(X) \otimes \mathbb{Q}$.
+
+\item \textbf{The Sullivan Algebra of Polynomial Forms}: The algebra $A_{PL}(X)$ of polynomial differential forms with rational coefficients provides a functorial CDGA model for $X$.
+
+\item \textbf{The Rational Homotopy Classification}: Two simply connected spaces $X$ and $Y$ have the same rational homotopy type if and only if their minimal models are isomorphic.
+
+\item \textbf{Formality}: A space is called \emph{formal} if its rational homotopy type is determined by its cohomology\index{Cohomology} algebra. Many important spaces---including K\"ahler manifolds, compact Lie groups\index{Lie groups}, and homogeneous spaces---are formal.
+
+\item \textbf{The Sullivan--de Rham Theorem}: For a smooth manifold $M$, the de Rham complex $\Omega^*(M) \otimes \mathbb{Q}$ and the polynomial forms $A_{PL}(M)$ are weakly equivalent as CDGAs.
+\end{itemize}
+
+\subsection{The Classification of Manifolds via Surgery Theory}
+
+Sullivan's contributions to surgery theory include:
+
+\begin{itemize}
+\item \textbf{The Sullivan Obstruction Theory}: A complete obstruction theory for deciding whether a homotopy equivalence can be deformed to a diffeomorphism.
+
+\item \textbf{The Structure of $G/O$}: Sullivan computed the homotopy groups of $G/O$, showing that they are finite groups in dimensions not congruent to 3 mod 4, with $Z$ summands in dimensions 4k.
+
+\item \textbf{The Characteristic Variety Theorem}: The classification of smooth manifolds up to diffeomorphism is determined by their characteristic classes and their surgery obstructions.
+
+\item \textbf{The Novikov Conjecture}: Sullivan's work on the Novikov conjecture provided fundamental insights into the relationship between the topology of manifolds and their fundamental groups.
+\end{itemize}
+
+\subsection{The Sullivan Conjecture on Finite Group Actions}
+
+One of Sullivan's most striking results is the \emph{Sullivan conjecture} (now the Sullivan--Miller theorem): the classifying space $B\mathbb{Z}/p$ is "contractible" with respect to finite-dimensional $\mathbb{F}_p$-algebras. More precisely, for a finite group $G$, the map $X \to X^{hG}$ from a space to its homotopy fixed point set induces an isomorphism on cohomology with finite coefficients.
+
+This conjecture, proved by Haynes Miller in 1984, has profound implications for the study of group actions on spaces and the homotopy theory of classifying spaces.
+
+\subsection{Complex Dynamics: The No-Wandering-Domains Theorem}
+
+Sullivan's proof of the no-wandering-domains theorem uses the theory of quasiconformal deformations and the Teichm\"uller theory of rational maps. The key steps are:
+
+\begin{enumerate}
+\item Assume a rational map $R$ has a wandering Fatou component $U$.
+\item Using quasiconformal deformation theory, construct a nontrivial family of rational maps $R_t$ that depend holomorphically on a parameter $t$.
+\item Show that this family gives a non-constant holomorphic map from the unit disk to the moduli space of rational maps of fixed degree.
+\item Use the Ahlfors finiteness theorem (the moduli space of rational maps has finite hyperbolic volume) to derive a contradiction: a non-constant holomorphic map from the disk to a finite-volume hyperbolic manifold cannot exist.
+\end{enumerate}
+
+This beautiful argument connected complex dynamics with Teichm\"uller theory, hyperbolic geometry, and the theory of moduli spaces.
+
+\subsection{The Sullivan Dictionary}
+
+Sullivan discovered deep analogies between the dynamics of rational maps and the geometry of Kleinian groups---discrete subgroups of $PSL(2, \mathbb{C})$ that act on the Riemann sphere. This "Sullivan dictionary" has been one of the most fruitful frameworks in modern dynamics:
+
+\begin{itemize}
+\item The Julia set of a rational map corresponds to the limit set of a Kleinian group.
+\item The Fatou set corresponds to the domain of discontinuity.
+\item Periodic cycles correspond to fixed points of group elements.
+\item The Hausdorff dimension of the Julia set corresponds to the critical exponent of the group.
+\end{itemize}
+
+\subsection{Hyperbolic Geometry and Three-Manifolds}
+
+Sullivan's work on hyperbolic geometry and three-manifolds is closely connected to Thurston's geometrization program:
+
+\begin{itemize}
+\item \textbf{The Sullivan--Thurston Theorem}: On the existence of hyperbolic structures on certain fibered three-manifolds.
+\item \textbf{The Sullivan Rigidity Theorem}: Quasiconformal deformations of Kleinian groups are parametrized by the Teichm\"uller space of the boundary of the convex hull.
+\item \textbf{The Density Theorem}: For Kleinian groups, the convex hull of the limit set has finite volume if and only if the group is geometrically finite.
+\end{itemize}
+
+\section{Impact of the Discovery in Science and Technology}
+
+\subsection{Impact on Mathematics}
+
+Sullivan's work has transformed multiple areas of mathematics:
+
+\begin{itemize}
+\item \textbf{Algebraic Topology}: Rational homotopy theory is one of the central tools in algebraic topology. It provides a practical method for computing homotopy invariants and has been extended to the study of $\infty$-categories and derived algebraic geometry.
+
+\item \textbf{Geometric Topology}: Sullivan's surgery theory is essential for the classification of high-dimensional manifolds. The theory of normal invariants and surgery obstructions is now standard.
+
+\item \textbf{Complex Dynamics}: The no-wandering-domains theorem transformed complex dynamics. The Sullivan dictionary continues to guide research in both dynamics and Kleinian groups.
+
+\item \textbf{Hyperbolic Geometry}: Sullivan's work on quasiconformal deformations and the ergodic theory\index{Ergodic theory} of Kleinian groups is fundamental to the modern theory of hyperbolic three-manifolds.
+
+\item \textbf{Homotopy Theory}: The Sullivan conjecture (now theorem) opened new connections between homotopy theory and group theory, and it inspired Miller's proof and subsequent work on the homotopy theory of classifying spaces.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+\begin{itemize}
+\item \textbf{String Theory}: Rational homotopy theory and the theory of minimal models appear in string theory, particularly in the study of mirror symmetry and the geometry of Calabi--Yau manifolds. The formality of K\"ahler manifolds, a consequence of Sullivan's theory, is essential for understanding the topological string.
+
+\item \textbf{Gauge Theory}: The classification of instantons and monopoles in gauge theories uses the topology of moduli spaces, which are studied using Sullivan's methods.
+
+\item \textbf{Conformal Field Theory}: The theory of rational homotopy and minimal models is closely related to vertex operator algebras and conformal field theory. The phrase "minimal models" in CFT refers to the same algebraic structures Sullivan discovered.
+
+\item \textbf{Dynamical Systems}: Sullivan's work on complex dynamics has applications to the study of chaotic systems in physics, including turbulence and the behavior of nonlinear oscillators.
+\end{itemize}
+
+\subsection{Impact on Computer Science}
+
+\begin{itemize}
+\item \textbf{Topological Data Analysis}: The methods of rational homotopy theory, including the computation of minimal models, are being applied in topological data analysis for understanding the shape of data.
+
+\item \textbf{Robotics}: The topology of configuration spaces, studied using Sullivan's methods, is used in motion planning algorithms for robots.
+
+\item \textbf{Computer Graphics}: The geometry of surfaces and three-manifolds, informed by Sullivan's work, is used in computer graphics and visualization.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{Derived Algebraic Geometry and $\infty$-Categories}
+
+Rational homotopy theory has found a natural home in derived algebraic geometry and the theory of $\infty$-categories. Sullivan's minimal models correspond to affine derived schemes, and the CDGA model for rational homotopy provides a bridge between topology and algebraic geometry.
+
+Current research includes:
+\begin{itemize}
+\item The extension of rational homotopy theory to stacks and higher stacks.
+\item The use of Sullivan models in the study of moduli spaces in algebraic geometry.
+\item The connection between formality and the Hodge theory\index{Hodge theory} of complex manifolds.
+\end{itemize}
+
+\subsection{The Classification of Manifolds in Low Dimensions}
+
+While Sullivan's surgery theory works best in dimensions $n \geq 5$, the classification of four-manifolds (through Freedman's work and Seiberg--Witten theory) and three-manifolds (through Perelman's proof of the geometrization conjecture) builds on Sullivan's insights about the structure of manifolds.
+
+\subsection{Complex Dynamics and the Julia Set}
+
+Current developments in complex dynamics include:
+\begin{itemize}
+\item The study of the Hausdorff dimension of Julia sets, using Sullivan's thermodynamic formalism.
+\item The classification of Herman rings and Siegel disks, building on Sullivan's work.
+\item The dynamics of transcendental entire functions, extending Sullivan's dictionary to infinite-degree maps.
+\end{itemize}
+
+\subsection{Kleinian Groups and Hyperbolic Geometry}
+
+The theory of Kleinian groups, which Sullivan helped develop, continues to be an active field:
+\begin{itemize}
+\item The proof of the density theorem for Kleinian groups (Brock, Canary, Minsky).
+\item The classification of hyperbolic three-manifolds using the ending lamination theorem.
+\item The study of higher-dimensional Kleinian groups and their limit sets.
+\end{itemize}
+
+\subsection{Rational Homotopy and Physics}
+
+The connections between rational homotopy theory and theoretical physics continue to deepen:
+\begin{itemize}
+\item The study of topological field theories using Sullivan's models.
+\item The role of formality in mirror symmetry and the homological mirror symmetry conjecture.
+\item The use of minimal models in the BV-BFV formalism for gauge theories.
+\end{itemize}
+
+\section{Detailed Analysis of Key Papers}
+
+\subsection{"Infinitesimal Computations in Topology" (1977)}
+
+This is Sullivan's definitive work on rational homotopy theory. Published in Publications Math\'ematiques de l'IH\'ES, this 163-page paper lays out the complete theory:
+\begin{itemize}
+\item The construction of the algebra of polynomial forms $A_{PL}(X)$.
+\item The existence and uniqueness of minimal models.
+\item The characterization of formal spaces.
+\item The computation of rational homotopy groups using minimal models.
+\item Applications to the topology of Lie groups\index{Lie groups}, homogeneous spaces, and K\"ahler manifolds.
+\end{itemize}
+
+\subsection{"Geometric Topology: Localization, Periodicity, and Galois Symmetry" (1970)}
+
+This MIT lecture notes volume, often called the "Sullivan notes," was enormously influential despite being published only as mimeographed notes. It introduced:
+\begin{itemize}
+\item The localization of spaces at a set of primes.
+\item The Galois symmetry of the homotopy groups of spheres.
+\item The theory of $G/O$ and the classification of manifolds.
+\item The first formulation of the Sullivan conjecture.
+\end{itemize}
+
+\subsection{"Quasiconformal Homeomorphisms and Dynamics I" (1985)}
+
+This paper, published in the Annals of Mathematics, contains the proof of the no-wandering-domains theorem. It:
+\begin{itemize}
+\item Introduced the use of quasiconformal deformations in complex dynamics.
+\item Connected dynamics to Teichm\"uller theory and hyperbolic geometry.
+\item Established the Sullivan dictionary.
+\item Opened the door for the modern theory of complex dynamics.
+\end{itemize}
+
+\section{Conclusion}
+
+Dennis Sullivan's contributions to mathematics span an extraordinary range of fields. His rational homotopy theory transformed algebraic topology; his surgery theory provided a framework for classifying manifolds; his no-wandering-domains theorem revolutionized complex dynamics; and his work on Kleinian groups and hyperbolic geometry helped create the modern theory of three-manifolds.
+
+Throughout these diverse areas, Sullivan's work is characterized by a remarkable combination of geometric intuition and algebraic sophistication. He has the ability to see deep analogies between different fields and to create the technical tools needed to make those analogies precise.
+
+The Abel Prize citation recognized Sullivan "for his groundbreaking contributions to topology in its broadest sense, and in particular its algebraic, geometric, and dynamical aspects." This is a fitting tribute to a mathematician whose work has transformed our understanding of the shape and dynamics of space.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Sullivan's work on the no-wandering-domain conjecture completed a 60-year-old quest in complex dynamics, utilizing quasiconformal mappings to resolve a problem left open by Fatou and Julia.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Conformal dynamics where fractal boundaries (Julia sets) undergo universal scaling under renormalization.''
+
+\subsection{Mathematical Lineage}
+Advised by William Browder.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Sullivan's conformal mappings and fractal geometry are applied in data compression, modeling structural bifurcation in turbulence, and topological physics.
+
+\subsection{Algorithms and Numerical Implementations}
+Numerical conformal mapping packages (like the Schwarz-Christoffel toolbox in MATLAB) resolve fluid flow boundaries using Sullivan's boundary parameterizations.
+
+\section{The Research Frontier}
+Applying 3D conformal dynamics and renormalization to physical systems showing chaotic behavior, and algebraic topology approaches to quantum field theory.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Explain the concept of rational homotopy theory and why the rational homotopy groups $\pi_i(X) \otimes \mathbb{Q}$ are easier to compute than integral ones.
+  \item Describe Dennis Sullivan's proof of the no-wandering-domain conjecture for rational maps of the Riemann sphere.
+  \item Explain how Feigenbaum universality in dynamical systems is proved using renormalization operators on functional spaces.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Dennis Sullivan, \emph{Geometric Topology: Localization, Periodicity, and Galois Symmetry}, Springer.
+  \item W. de Melo and S. van Strien, \emph{One-Dimensional Dynamics}, Springer.
+\end{itemize}
+
+\section*{Bibliography}
+
+\begin{enumerate}
+\item D. Sullivan, "Infinitesimal computations in topology," Publications Math\'ematiques de l'IH\'ES 47 (1977), 269--331.
+\item D. Sullivan, "Geometric topology: localization, periodicity and Galois symmetry," MIT Notes, 1970.
+\item D. Sullivan, "Quasiconformal homeomorphisms and dynamics I," Annals of Mathematics 122 (1985), 401--418.
+\item D. Sullivan, "On the ergodic theory\index{Ergodic theory} at infinity of an arbitrary discrete group of hyperbolic motions," in "Riemann Surfaces and Related Topics," Princeton University Press, 1981.
+\item A. Borel and D. Sullivan, "Cohomology of groups and manifolds," Bulletin of the American Mathematical Society 84 (1978), 1083--1086.
+\item W. Browder, "Surgery on Simply-Connected Manifolds," Springer, 1972.
+\item J. Morgan and D. Sullivan, "The transversality characteristic class and linking cycles in surgery theory," Annals of Mathematics 99 (1974), 463--544.
+\item H. Miller, "The Sullivan conjecture on maps from classifying spaces," Annals of Mathematics 120 (1984), 39--87.
+\item M. H. Freedman, "The topology of four-dimensional manifolds," Journal of Differential Geometry 17 (1982), 357--453.
+\item W. P. Thurston, "Three-Dimensional Geometry and Topology," Princeton University Press, 1997.
+\item J. Milnor, "Dynamics in One Complex Variable," Vieweg, 1999.
+\item P. A. Griffiths and J. W. Morgan, "Rational Homotopy Theory and Differential Forms," Birkh\"auser, 1981.
+\item Y. F\'elix, S. Halperin, and J.-C. Thomas, "Rational Homotopy Theory," Springer, 2001.
+\item C. T. McMullen, "Complex Dynamics and Renormalization," Princeton University Press, 1994.
+\item A. Douady and J. H. Hubbard, "On the dynamics of polynomial-like mappings," Annales Scientifiques de l'ENS 18 (1985), 287--343.
+\end{enumerate}

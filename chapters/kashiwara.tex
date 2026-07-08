@@ -1,0 +1,267 @@
+\chapter{Masaki Kashiwara (2025)}
+
+\section{Biographical Sketch}
+
+
+
+Masaki Kashiwara was born on 30 January 1947 in Yamanashi Prefecture, Japan. He studied at the University of Tokyo, where he earned his undergraduate degree in 1969 and his PhD in 1974 under the supervision of Mikio Sato. His doctoral work on the theory of $\mathcal{D}$-modules and algebraic analysis marked the beginning of a career that would fundamentally reshape the relationship between differential equations, algebra, and geometry.
+
+Kashiwara held positions at Nagoya University (1974--1992) and Kyoto University (1992--2011), where he is now professor emeritus. He has been a central figure in the Research Institute for Mathematical Sciences (RIMS) at Kyoto University. His honors include the Abel Prize in 2025, the Wolf Prize in Mathematics in 2018, the Rolf Schock Prize in 1997, and the Kyoto Prize in 2023.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Kashiwara Do?}
+
+Imagine you have a differential equation like the heat equation $u_t = u_{xx}$ or the wave equation $u_{tt} = u_{xx}$. Solving such equations is one of the central problems of mathematics and physics.
+
+Masaki Kashiwara, building on the vision of his teacher Mikio Sato, developed a revolutionary new way of thinking about differential equations. Instead of studying the equations themselves directly, he studied the \emph{algebraic structure} of the differential operators that appear in the equations.
+
+The key idea: consider the set $\mathcal{D}_X$ of all differential operators on a manifold $X$. This is not just a set---it is a ring, with multiplication given by composition of operators. A system of differential equations corresponds to a \emph{module} over this ring, called a $\mathcal{D}$-module.
+
+\subsection{Why Does It Matter?}
+
+Kashiwara's work on $\mathcal{D}$-modules and algebraic analysis has transformed:
+\begin{itemize}
+\item \textbf{Differential Equations}: Providing a complete algebraic framework for studying linear differential equations.
+\item \textbf{Representation Theory}: The theory of crystal bases, which Kashiwara developed with Lusztig, is essential for understanding representations of quantum groups.
+\item \textbf{Algebraic Geometry}: $\mathcal{D}$-modules provide powerful tools for studying algebraic varieties and their cohomology\index{Cohomology}.
+\item \textbf{Mathematical Physics}: $\mathcal{D}$-modules appear in string theory, conformal field theory, and the geometric Langlands program.
+\end{itemize}
+
+\subsection{The Big Picture}
+
+Kashiwara's work reveals a deep unity: the theory of differential equations, the theory of group representations, and the geometry of algebraic varieties are all manifestations of the same underlying algebraic structures. The $\mathcal{D}$-module framework provides a universal language in which these subjects can be studied together.
+
+\section{The Origin of the Problem}
+
+\subsection{The Theory of Linear Differential Equations}
+
+The theory of linear ordinary differential equations was highly developed by the end of the nineteenth century (Fuchs, Frobenius, Poincar\'e). The theory of linear partial differential equations was more complicated, with the development of distribution theory (Schwartz, 1945) and pseudodifferential operators (H\"ormander, 1960s).
+
+\subsection{Sato's Vision of Algebraic Analysis}
+
+In the 1960s, Mikio Sato proposed a new approach to linear differential equations called \emph{algebraic analysis}. The idea: treat differential equations purely algebraically, using sheaves\index{Sheaf theory} of differential operators and their modules.
+
+Sato's theory of hyperfunctions (1959--1960) showed that the solutions of differential equations could be studied using the cohomology\index{Cohomology} of sheaves\index{Sheaf theory}. This led to the realization that the algebraic structure of $\mathcal{D}$-modules captures the essential features of linear differential equations.
+
+\subsection{The Riemann--Hilbert Problem}
+
+The classical Riemann--Hilbert problem asks: given a linear ordinary differential equation on the Riemann sphere with regular singularities, can one reconstruct the equation from its monodromy representation?
+
+The answer (proved by Plemelj and Birkhoff) is yes. The generalization to partial differential equations---the higher-dimensional Riemann--Hilbert problem---became a central challenge.
+
+\section{Deep Insight into the Problem}
+
+\subsection{The Sheaf\index{Sheaf theory} $\mathcal{D}_X$ of Differential Operators}
+
+On a smooth algebraic variety $X$ (or a complex manifold), the sheaf $\mathcal{D}_X$ of differential operators is defined locally as:
+\[
+\mathcal{D}_X = \mathcal{O}_X[\partial_{x_1}, \ldots, \partial_{x_n}].
+\]
+
+A $\mathcal{D}_X$-module $\mathcal{M}$ is a sheaf of modules over $\mathcal{D}_X$. A system of linear differential equations corresponds to a $\mathcal{D}_X$-module of the form $\mathcal{D}_X / \mathcal{D}_X P$ for a single equation $Pu = 0$, or more generally $\mathcal{D}_X / \sum \mathcal{D}_X P_j$ for a system.
+
+\subsection{Holonomic $\mathcal{D}$-Modules}
+
+A $\mathcal{D}_X$-module $\mathcal{M}$ is called \emph{holonomic} if its characteristic variety is Lagrangian (of minimal possible dimension). Holonomic $\mathcal{D}$-modules correspond to systems of differential equations with the "right number" of solutions.
+
+The characteristic variety $\operatorname{Ch}(\mathcal{M}) \subset T^*X$ is the vanishing set of the principal symbols of all operators that annihilate $\mathcal{M}$. For an elliptic system, the characteristic variety is zero-dimensional in the cotangent direction; for holonomic systems, it has dimension $\dim X$.
+
+\subsection{The Bernstein--Sato Polynomial}
+
+For a polynomial $f \in \mathbb{C}[x_1, \ldots, x_n]$, the Bernstein--Sato polynomial $b_f(s)$ is the monic polynomial of minimal degree such that:
+\[
+P(s) f^{s+1} = b_f(s) f^s,
+\]
+for some differential operator $P(s) \in \mathcal{D}_X[s]$.
+
+Kashiwara proved that the roots of the Bernstein--Sato polynomial are negative rational numbers. This deep result connects the algebraic properties of $f$ to the analytic properties of its vanishing locus.
+
+\subsection{The Riemann--Hilbert Correspondence}
+
+The Riemann--Hilbert correspondence, proved by Kashiwara and independently by Mebkhout, is one of the most important results in algebraic analysis. It states:
+
+\[
+\begin{array}{c}
+\text{Regular holonomic} \\
+\mathcal{D}_X\text{-modules}
+\end{array}
+\longleftrightarrow
+\begin{array}{c}
+\text{Perverse sheaves} \\
+\text{on } X(\mathbb{C})
+\end{array}
+\]
+
+This establishes an equivalence of categories between:
+\begin{itemize}
+\item The category of regular holonomic $\mathcal{D}_X$-modules (algebraic objects representing differential equations with regular singularities).
+\item The category of perverse sheaves on the complex manifold $X(\mathbb{C})$ (topological objects encoding intersection cohomology\index{Cohomology}).
+\end{itemize}
+
+\section{Biggest Contributions and New Tools}
+
+\subsection{The Theory of $\mathcal{D}$-Modules}
+
+Kashiwara's contributions to $\mathcal{D}$-module theory include:
+\begin{itemize}
+\item \textbf{The Kashiwara Theorem on the Existence of Smoothness}: The sheaf $\mathcal{D}_X$ is a coherent sheaf of rings.
+\item \textbf{The Kashiwara Equivalence}: The equivalence between $\mathcal{D}_X$-modules supported on a submanifold $Y$ and $\mathcal{D}_Y$-modules.
+\item \textbf{The Six Operations}: The theory of the six Grothendieck operations for $\mathcal{D}$-modules: $f^*$, $f_*$, $f^!$, $f_!$, $\otimes$, and $\mathcal{H}om$.
+\item \textbf{Holonomic Systems}: The theory of holonomic $\mathcal{D}$-modules and their characteristic varieties.
+\end{itemize}
+
+\subsection{The Riemann--Hilbert Correspondence}
+
+The Riemann--Hilbert correspondence is a landmark:
+\[
+DR: D^b_{\text{rh}}(\mathcal{D}_X) \to D^b_c(\mathbb{C}_X)
+\]
+from the derived category of regular holonomic $\mathcal{D}_X$-modules to the derived category of constructible sheaves. This provides a complete topological description of regular holonomic systems.
+
+\subsection{The Kashiwara--Kawai Index Theorem}
+
+The Kashiwara--Kawai index theorem generalizes the Atiyah--Singer index theorem to $\mathcal{D}$-modules:
+\[
+\chi(X, \mathcal{M}) = \int_{T^*X} \operatorname{Ch}(\mathcal{M}) \cdot \operatorname{Td}(T_X).
+\]
+
+\subsection{Microdifferential Operators and Quantized Contact Transformations}
+
+Kashiwara developed the theory of microdifferential operators $\mathcal{E}_X$, which provide a microlocal version of $\mathcal{D}$-module theory. The quantized contact transformations allow one to transform one $\mathcal{D}$-module into another by a change of variables in the cotangent bundle.
+
+\subsection{Crystal Bases}
+
+With George Lusztig, Kashiwara introduced the theory of crystal bases for representations of quantum groups (quantized universal enveloping algebras) at $q = 0$.
+
+A crystal basis is a basis of a representation of a quantum group that behaves like a "limit" as $q \to 0$:
+\begin{itemize}
+\item The action of the generators becomes combinatorial.
+\item The basis elements correspond to crystals: colored directed graphs encoding the representation.
+\item The crystal graph reflects the structure of the representation under the root operators.
+\end{itemize}
+
+\subsection{The Kashiwara--Bustamante Theory of Distinguished Polynomials}
+
+Kashiwara's work on the theory of weight functions and the classification of representations of quantum groups led to the theory of canonical bases, which are essential for the geometric Langlands program.
+
+\section{Impact of the Discovery in Science and Technology}
+
+\subsection{Impact on Mathematics}
+
+\begin{itemize}
+\item \textbf{Algebraic Analysis}: Kashiwara created the modern theory of $\mathcal{D}$-modules, providing a complete algebraic framework for studying linear differential equations.
+
+\item \textbf{Representation Theory}: Crystal bases revolutionized the theory of representations of quantum groups. They provide a combinatorial approach to the structure of representations and have connections to the theory of symmetric functions and the Rogers--Ramanujan identities.
+
+\item \textbf{Algebraic Geometry}: The Riemann--Hilbert correspondence is essential for modern algebraic geometry, particularly in the study of singularities and intersection cohomology.
+
+\item \textbf{Microlocal Analysis}: The theory of microdifferential operators provides a precise framework for the microlocal analysis of differential equations, with applications to the propagation of singularities and the study of wave fronts.
+
+\item \textbf{Geometric Langlands}: $\mathcal{D}$-modules are a central tool in the geometric Langlands program, where they are used to construct Hecke eigensheaves and study automorphic sheaves.
+\end{itemize}
+
+\subsection{Impact on Physics}
+
+\begin{itemize}
+\item \textbf{Conformal Field Theory}: The theory of $\mathcal{D}$-modules is used in conformal field theory, particularly in the study of the Knizhnik--Zamolodchikov equations and conformal blocks.
+
+\item \textbf{String Theory}: $\mathcal{D}$-modules appear in the study of D-branes and mirror symmetry. The Riemann--Hilbert correspondence is related to the geometric Langlands program and its applications to supersymmetric gauge theories (Kapustin--Witten).
+
+\item \textbf{Quantum Groups}: Crystal bases provide the mathematical framework for understanding the representation theory of quantum groups, which appear in the study of integrable systems and quantum field theory.
+\end{itemize}
+
+\subsection{Impact on Technology}
+
+While Kashiwara's work is primarily theoretical, the theory of crystal bases has connections to:
+\begin{itemize}
+\item \textbf{Quantum Computing}: The representation theory of quantum groups is used in the study of topological quantum computing and anyons.
+\item \textbf{Cryptography}: Some cryptographic protocols use structures related to quantum groups.
+\end{itemize}
+
+\section{Current Developments}
+
+\subsection{Categorification}
+
+The theory of categorification, which lifts algebraic structures to higher categories, builds on Kashiwara's work:
+\begin{itemize}
+\item The categorification of quantum groups using $\mathcal{D}$-modules and perverse sheaves.
+\item The geometric Satake correspondence and the theory of spherical perverse sheaves.
+\item Khovanov homology\index{Homology theory} and knot invariants from categorified quantum groups.
+\end{itemize}
+
+\subsection{Geometric Langlands Program}
+
+$\mathcal{D}$-modules are central to the geometric Langlands program:
+\begin{itemize}
+\item The construction of Hecke eigensheaves as $\mathcal{D}$-modules on the moduli space of bundles.
+\item The connection with conformal field theory and the geometric Langlands correspondence.
+\item The work of Gaitsgory, Raskin, and others on the derived geometric Langlands program.
+\end{itemize}
+
+\subsection{Integrable Systems}
+
+The theory of $\mathcal{D}$-modules has applications to integrable systems:
+\begin{itemize}
+\item The KP hierarchy and its $\mathcal{D}$-module interpretation.
+\item The theory of quantum integrable systems and the Bethe ansatz.
+\item Connections with the theory of Painlev\'e equations.
+\end{itemize}
+
+\section{Conclusion}
+
+Masaki Kashiwara's contributions to mathematics are monumental in scope and depth. His work on $\mathcal{D}$-modules transformed the theory of linear differential equations, created the field of algebraic analysis, and provided essential tools for representation theory and algebraic geometry. The Riemann--Hilbert correspondence, the Kashiwara--Kawai index theorem, and the theory of crystal bases are among the most important mathematical developments of the late twentieth century.
+
+
+\section{Behind the Breakthrough: The Human Story}
+Kashiwara was Mikio Sato's student. Sato's lectures were famously abstract, but Kashiwara was able to turn Sato's intuitive ideas into rigorous, concrete theorems, founding algebraic analysis.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Resolving linear systems of partial differential equations by treating them as geometric D-modules\index{D-modules} on manifolds.''
+
+\subsection{Mathematical Lineage}
+Advised by Mikio Sato (the founder of algebraic analysis).
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Crystal bases and D-modules are used in topological quantum computation (TQFT) to model state spaces and braiding operations in topological qubits.
+
+\subsection{Algorithms and Numerical Implementations}
+Symbolic computer algebra algorithms (such as the b-function / Bernstein-Sato polynomial solvers implemented in Singular and Macaulay2) compute generators for D-modules.
+
+\section{The Research Frontier}
+Generalizing the Riemann-Hilbert correspondence to irregular singular connections, and applying crystal bases to representations of quantum affine algebras.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Explain what a $\mathcal{D}$-module is on a smooth complex manifold and how it generalizes linear systems of partial differential equations.
+  \item State the Riemann-Hilbert correspondence proved by Kashiwara and Mebkhout, linking holonomic $\mathcal{D}$-modules to constructible sheaves.
+  \item What is a crystal basis of a quantum group representation? Explain its connection to the representation theory of Lie algebras at temperature zero ($q \to 0$).
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Ryoshi Hotta, Kiyoshi Takeuchi, and Toshiyuki Tanisaki, \emph{D-Modules, Perverse Sheaves, and Representation Theory}, Birkh\"auser.
+  \item Masaki Kashiwara, \emph{D-modules and Microlocal Calculus}, AMS.
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item M. Kashiwara, "Algebraic study of systems of partial differential equations," Master's Thesis, University of Tokyo, 1970 (in Japanese; English translation: M\'emoires de la SMF 63, 1995).
+\item M. Kashiwara, "On the holonomic systems of linear differential equations II," RIMS K\^oky\^uroku 248 (1975), 1--17.
+\item M. Kashiwara, "The Riemann--Hilbert problem for holonomic systems," Publications of RIMS 20 (1984), 319--365.
+\item M. Kashiwara and T. Kawai, "Micro-hyperbolic pseudo-differential operators I," Journal of the Mathematical Society of Japan 33 (1981), 213--242.
+\item M. Kashiwara and P. Schapira, "Sheaves on Manifolds," Springer, 1990.
+\item M. Kashiwara, "Crystalizing the $q$-analogue of universal enveloping algebras," Communications in Mathematical Physics 133 (1990), 249--260.
+\item M. Kashiwara, "D-modules and Microlocal Calculus," American Mathematical Society, 2003.
+\item M. Kashiwara, "Bases cristallines des groupes quantiques," Cours au Coll\`ege de France, 1994.
+\item M. Sato, T. Kawai, and M. Kashiwara, "Microfunctions and pseudo-differential equations," in "Hyperfunctions and Pseudo-Differential Equations," Springer, 1973.
+\item J. Bernstein, "Algebraic theory of D-modules," Lecture Notes, 1983.
+\item A. Beilinson and J. Bernstein, "A proof of the Jantzen conjectures," Advances in Soviet Mathematics 16 (1993), 1--50.
+\item G. Lusztig, "Canonical bases arising from quantized enveloping algebras," Journal of the American Mathematical Society 3 (1990), 447--498.
+\item J. C. Jantzen, "Lectures on Quantum Groups," American Mathematical Society, 1996.
+\item E. Frenkel, "Lectures on the Langlands program and conformal field theory," in "Frontiers in Number Theory, Physics, and Geometry II," Springer, 2007.
+\item D. Gaitsgory, "Notes on geometric Langlands," in "Current Developments in Mathematics," 2006.
+\end{enumerate}
