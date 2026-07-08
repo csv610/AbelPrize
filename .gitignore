@@ -7,6 +7,6 @@
 *.ind
 *.bbl
 *.blg
-*.pdf
+
 tmp/
 *.bak
