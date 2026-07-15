@@ -4,26 +4,86 @@ This appendix contains short, accessible definitions of the advanced mathematica
 
 \begin{description}
     \item[Abelian Variety] A projective algebraic variety that is also an abelian group, where the group law is defined by algebraic equations. Elliptic curves are one-dimensional abelian varieties.
-    
-    \item[Cusp Form] A modular form that vanishes at the cusp boundary points of the upper half-plane. Geometrically, cusp forms correspond to symmetric forms on Riemann surfaces.
-    
-    \item[D-Module] A module over a ring of differential operators. In algebraic analysis, D-modules generalize the classical study of linear systems of partial differential equations on manifolds.
-    
-    \item[Elliptic Operator] A partial differential operator that generalizes the Laplace operator. Elliptic operators have smooth solutions and are central to geometric analysis.
-    
-    \item[Ergodicity] A property of a dynamical system where the time average of a trajectory equals the space average over the entire state space.
-    
-    \item[Etale Cohomology] A cohomology theory for algebraic varieties that mimics the singular cohomology of topological spaces, allowing one to work over fields of positive characteristic.
-    
-    \item[Galois Cohomology] The application of homological algebra to study the actions of Galois groups on algebraic structures, particularly field extensions and abelian varieties.
-    
-    \item[L-Function] A Dirichlet series that generalizes the Riemann zeta function, encoding deep arithmetic information about algebraic varieties or representations.
-    
-    \item[Modularity Theorem] The theorem stating that every elliptic curve over $\mathbb{Q}$ is parameterized by modular forms, establishing a deep bridge between algebraic geometry and analysis.
-    
-    \item[Sheaf] A tool for systematically tracking local algebraic data (such as functions, vector fields, or groups) attached to the open sets of a topological space.
-    
-    \item[Soliton] A self-reinforcing solitary wave packet that maintains its shape while it propagates at a constant velocity, arising as a solution to integrable nonlinear PDEs.
-    
-    \item[Symplectic Manifold] A smooth manifold equipped with a closed, non-degenerate 2-form. Symplectic manifolds form the phase space of classical mechanics.
+
+    \item[Arakelov Geometry] A framework that treats archimedean places (real/complex embeddings) of a number field on the same footing as non-archimedean places (primes), allowing differential-geometric tools (metrics, curvature) to be used in arithmetic problems.
+
+    \item[BN-Pair (Tits System)] An axiomatic structure $(B,N)$ in a group $G$ that captures the Bruhat decomposition of groups of Lie type. It gives a uniform way to study algebraic groups over arbitrary fields and leads to the construction of Tits buildings.
+
+    \item[Building (Tits Building)] A simplicial complex encoding the structure of a group of Lie type, composed of apartments (Coxeter complexes) glued together. Provides a geometric language for understanding algebraic groups, $p$-adic groups, and the Langlands program.
+
+    \item[Characteristic Class] A cohomology class associated to a vector bundle measuring its twisting. Main types: Stiefel-Whitney (real), Chern (complex), Pontryagin (real, via complexification), Euler class.
+
+    \item[Class Field Theory] The complete classification of abelian extensions of a number field (or local field) in terms of generalized ideal class groups. The Artin reciprocity law provides the explicit isomorphism.
+
+    \item[Cohomology (Sheaf/Étale/Galois)] A tool for measuring obstructions to solving local-to-global problems. \textbf{Sheaf cohomology} tracks local data on a topological space; \textbf{étale cohomology} works for algebraic varieties over arbitrary fields; \textbf{Galois cohomology} studies Galois group actions on modules.
+
+    \item[Cusp Form] A modular form that vanishes at the cusp boundary points of the upper half-plane. Geometrically, cusp forms correspond to symmetric forms on Riemann surfaces with no constant term in their Fourier expansion.
+
+    \item[D-Module] A module over a ring of differential operators. In algebraic analysis, D-modules generalize the classical study of linear systems of partial differential equations on manifolds, bridging algebra and analysis.
+
+    \item[Deformation Theory] The study of how mathematical objects (representations, varieties, modules) vary in families. In Wiles' proof, deformation rings parametrize lifts of Galois representations from finite fields to $\mathbb{Z}_\ell$-algebras.
+
+    \item[Elliptic Curve] A smooth projective curve of genus 1 with a specified base point. Its points form an abelian group via the chord-tangent law. Central to modern number theory (FLT, BSD, cryptography).
+
+    \item[Elliptic Operator] A partial differential operator whose symbol is invertible outside the zero section. Elliptic operators have smooth solutions and finite-dimensional kernel/cokernel; their index is a topological invariant (Atiyah-Singer).
+
+    \item[Ergodicity] A property of a dynamical system where time averages equal space averages for almost every trajectory. Equivalent to: the only invariant sets have measure 0 or 1.
+
+    \item[Étale Cohomology] A cohomology theory for algebraic varieties mimicking singular cohomology but working over fields of positive characteristic. Uses étale covers (analogs of covering spaces) as the site. Essential for proving the Weil conjectures.
+
+    \item[Faltings Height] An arithmetic height function on abelian varieties measuring their complexity. Defined using Arakelov geometry; has the property that only finitely many abelian varieties of bounded height exist in fixed dimension.
+
+    \item[Galois Representation] A continuous homomorphism from the absolute Galois group $\mathrm{Gal}(\overline{K}/K)$ to a linear group (usually $GL_n$). Encodes arithmetic of varieties (elliptic curves, modular forms) in representation-theoretic terms.
+
+    \item[Hecke Algebra] An algebra of operators acting on spaces of modular forms (or automorphic forms). Hecke operators $T_p$ correspond to double cosets; their eigenvalues are the Fourier coefficients of eigenforms.
+
+    \item[Hodge Theory] The study of the decomposition of cohomology of complex algebraic varieties into Hodge components $(p,q)$. $p$-adic Hodge theory compares $p$-adic étale cohomology with de Rham cohomology via period rings ($B_{dR}$, $B_{crys}$).
+
+    \item[Homology Theory] A sequence of abelian groups $H_n(X)$ associated to a topological space $X$, measuring $n$-dimensional holes. Computable via simplicial/cellular/singular chains. Poincaré duality relates $H_k$ and $H_{n-k}$ for manifolds.
+
+    \item[Homotopy Groups] $\pi_n(X)$ classifies maps $S^n \to X$ up to homotopy. Much harder to compute than homology; $\pi_n(S^k)$ are largely unknown. Serre's spectral sequence and mod $\mathcal{C}$ theory gave first systematic results.
+
+    \item[Isogeny] A surjective homomorphism of algebraic groups (e.g., elliptic curves) with finite kernel. In cryptography, isogeny-based cryptosystems (SIDH, CSIDH) use the difficulty of finding isogenies between curves.
+
+    \item[K-Theory] A generalized cohomology theory built from vector bundles. $K^0(X)$ is the Grothendieck group of vector bundles on $X$. Bott periodicity: $K(S^{n+2}) \cong K(S^n)$. Essential for Atiyah-Singer index theorem.
+
+    \item[L-Function] A Dirichlet series $L(s) = \sum a_n n^{-s}$ encoding deep arithmetic information. Generalizes the Riemann zeta function. Examples: Dedekind zeta, Hecke $L$-functions, $L$-functions of elliptic curves/modular forms/Galois representations.
+
+    \item[Langlands Program] A vast web of conjectures connecting number theory (Galois representations) to harmonic analysis (automorphic forms). For $n=1$: class field theory; $n=2$: modularity theorem; general $n$: Langlands correspondence for $GL_n$.
+
+    \item[Modular Form] A holomorphic function on the upper half-plane with high symmetry under $SL(2,\mathbb{Z})$ (or congruence subgroups) and controlled growth at cusps. Fourier coefficients encode arithmetic; weight $k$ modular forms correspond to Galois representations.
+
+    \item[Modularity Theorem] Every elliptic curve over $\mathbb{Q}$ is modular: its $L$-function equals the $L$-function of a weight-2 cusp form. Proved by Wiles (1995), Taylor-Wiles (1995), Breuil-Conrad-Diamond-Taylor (2001). Implied FLT via Frey-Ribet.
+
+    \item[Morse Theory] Studies topology of a manifold via critical points of a smooth function $f: M \to \mathbb{R}$. Nondegenerate critical points of index $\lambda$ correspond to attaching $\lambda$-handles. Morse inequalities relate critical point counts to Betti numbers.
+
+    \item[N-Groups] Finite groups in which every proper subgroup is solvable. Thompson classified all simple N-groups, providing a template for the Classification of Finite Simple Groups.
+
+    \item[Perfectoid Space] A class of $p$-adic analytic spaces (Scholze) where the $p$-th power map is an isomorphism on the structure sheaf. Allows comparison of characteristic $p$ and characteristic 0 geometry; central to modern $p$-adic Hodge theory and Langlands.
+
+    \item[Postnikov Tower] A decomposition of a space $X$ into stages $X \to \cdots \to X_n \to X_{n-1} \to \cdots \to *$ where each fiber is an Eilenberg-Mac Lane space $K(\pi_n(X), n)$. Used by Serre to compute homotopy groups via spectral sequences.
+
+    \item[Selmer Group] A finite subgroup of Galois cohomology $H^1(K, E)$ (for an elliptic curve $E$) defined by local conditions. Controls the Mordell-Weil group $E(K)$ and the Tate-Shafarevich group $\mathrm{Sha}(E/K)$. Central to BSD conjecture.
+
+    \item[Serre Class] A collection of abelian groups closed under subgroups, quotients, extensions, and $\otimes$/$\mathrm{Tor}$. Examples: finite groups, $p$-groups, torsion groups. Serre's mod $\mathcal{C}$ Hurewicz theorem computes homotopy groups modulo a class.
+
+    \item[Sheaf] A tool for systematically tracking local algebraic data (functions, vector fields, groups) attached to open sets of a topological space, with gluing conditions. The foundation of modern algebraic geometry.
+
+    \item[Spectral Sequence] A computational machine that computes a complex invariant (e.g., homology of a total space) by successive approximations ($E_1, E_2, \dots$ pages) starting from simpler data (homology of base and fiber). Converges to the desired result.
+
+    \item[Spectral Theory] The study of eigenvalues and eigenfunctions of operators (Laplacian, Schrödinger, etc.). In automorphic forms, the spectral decomposition of $L^2(G\backslash G(\mathbb{A}))$ under the Laplacian yields cusp forms, Eisenstein series, and continuous spectrum.
+
+    \item[Soliton] A self-reinforcing solitary wave packet that maintains its shape while propagating at constant velocity, arising as a solution to integrable nonlinear PDEs (KdV, sine-Gordon). Discovered by Kruskal-Zabusky; inverse scattering transform solves them.
+
+    \item[Symplectic Manifold] A smooth manifold equipped with a closed, non-degenerate 2-form $\omega$. Forms the phase space of classical mechanics; $\omega$ gives Poisson brackets. Gromov's non-squeezing theorem: a ball cannot be symplectically embedded into a cylinder of smaller radius.
+
+    \item[Tate Module] For an abelian variety $A$ (e.g., elliptic curve), $T_\ell(A) = \varprojlim A[\ell^n] \cong \mathbb{Z}_\ell^{2g}$. The Galois action on $T_\ell(A)$ gives the $\ell$-adic Galois representation $\rho_{A,\ell}$. Microscope for studying $A$ at $\ell$-power torsion.
+
+    \item[Tate-Shafarevich Group] $\mathrm{Sha}(E/K) = \ker(H^1(K,E) \to \prod_v H^1(K_v,E))$. Measures failure of the Hasse principle for elliptic curves: principal homogeneous spaces with points everywhere locally but no global point. Conjectured finite (BSD).
+
+    \item[Variation of Hodge Structure] A family of Hodge structures varying holomorphically over a base. Griffiths transversality governs the derivative of the Hodge filtration. Central to study of moduli spaces and mirror symmetry.
+
+    \item[Weil Conjectures] Four conjectures (proved by Dwork, Grothendieck, Deligne) on zeta functions of varieties over finite fields: rationality, functional equation, Riemann hypothesis (bounds on Frobenius eigenvalues), and Betti number interpretation. Deligne's proof used étale cohomology.
+
+    \item[$\ell$-adic Cohomology] A cohomology theory for algebraic varieties with coefficients in $\mathbb{Q}_\ell$ ($\ell \neq p$). Behaves like singular cohomology but works in positive characteristic. Frobenius action gives $L$-functions; Galois action gives Galois representations.
 \end{description}

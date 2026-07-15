@@ -39,13 +39,30 @@ The central discovery of class field theory is that the abelianization of the ab
 
 Through this isomorphism, one-dimensional representations of the Galois group correspond to characters of the idele class group---which are precisely Hecke characters. This is the $n=1$ case of the Langlands correspondence.
 
+\begin{knowledgebridge}{Class Field Theory in a Nutshell}
+Class field theory gives a complete dictionary for \emph{abelian}
+extensions: one-dimensional symmetries of numbers correspond to
+certain harmonic functions on the adeles. The Langlands program
+asks: what if the symmetry is more complicated---say, two- or
+three-dimensional? What harmonic objects correspond then?
+\end{knowledgebridge}
+
 \subsection{Non-Abelian Extensions}
 
 The central question: what replaces class field theory for non-abelian Galois extensions? If $\operatorname{Gal}(\overline{K}/K) \to GL_n(\mathbb{C})$ is an $n$-dimensional representation of the Galois group, what automorphic object should it correspond to?
 
 The answer was not obvious. The idele class group is abelian, so it cannot capture non-abelian Galois representations. The proper generalization turns out to be the space of automorphic forms on $GL_n(\mathbb{A}_K)$, which are functions on $GL_n(K) \backslash GL_n(\mathbb{A}_K)$ that satisfy certain differential equations and growth conditions.
 
-\subsection{Modular Forms and Elliptic Curves\index{Elliptic curves}}
+\begin{knowledgebridge}{Why Non-Abelian?}
+Abelian symmetries commute: rotating by $90^\circ$ then $180^\circ$
+is the same as $180^\circ$ then $90^\circ$. Many deep number-theoretic
+structures---like the symmetries of solutions to polynomial equations---
+do \emph{not} commute. Langlands' radical idea was that these
+non-commuting symmetries correspond to \textbf{automorphic forms},
+which are highly symmetric functions on matrix groups.
+\end{knowledgebridge}
+
+\subsection{Modular Forms and Elliptic Curves}\index{Elliptic curves}
 
 The connection between modular forms (automorphic forms for $GL_2$) and elliptic curves\index{Elliptic curves} (which give two-dimensional Galois representations) provided a prototype. Eichler and Shimura (1950s) showed that the $L$-function of a modular form matches the $L$-function of an elliptic curve\index{Elliptic curves}.
 
@@ -79,13 +96,83 @@ The correspondence should preserve $L$-functions: the $L$-function of the Galois
 
 For $n=1$, this recovers class field theory: one-dimensional Galois representations correspond to Hecke characters (automorphic forms for $GL_1$). For $n=2$, it connects modular forms and elliptic curves. For higher $n$, it predicts connections between $n$-dimensional Galois representations and automorphic forms for $GL_n$.
 
-\subsection{The $L$-Group}
+\begin{bigidea}
+The Langlands correspondence is a \emph{dictionary} between two
+seemingly unrelated worlds: Galois representations (algebra) and
+automorphic forms (analysis). For $n=1$, it is class field theory;
+for $n=2$, it connects modular forms to elliptic curves; for higher
+$n$, it predicts entirely new correspondences. The dictionary is
+built to preserve $L$-functions, the DNA of number theory.
+\end{bigidea}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    gbox/.style={draw=abelblue, fill=blue!5, rounded corners,
+                 minimum width=4cm, minimum height=1.3cm, text width=3.8cm,
+                 text centered, font=\small\sffamily},
+    abox/.style={draw=abelred, fill=red!5, rounded corners,
+                 minimum width=4cm, minimum height=1.3cm, text width=3.8cm,
+                 text centered, font=\small\sffamily},
+]
+\node[font=\Large\bfseries\sffamily, abelblue]
+    at (-4.5,3.8) {Galois Side};
+\node[font=\Large\bfseries\sffamily, abelred]
+    at ( 4.5,3.8) {Automorphic Side};
+
+\node[gbox] (gn1) at (-4.5,2.2)
+    {\textbf{$n=1$: Class Field Theory}\\
+     $\operatorname{Gal}(\overline{K}/K)^{\text{ab}}$};
+\node[abox] (an1) at ( 4.5,2.2)
+    {\textbf{$n=1$: Hecke Characters}\\
+     $GL_1(\mathbb{A}_K)$};
+
+\node[gbox] (gn2) at (-4.5,0.6)
+    {\textbf{$n=2$: Elliptic Curves}\\
+     $\rho:\operatorname{Gal}\to GL_2(\mathbb{C})$};
+\node[abox] (an2) at ( 4.5,0.6)
+    {\textbf{$n=2$: Modular Forms}\\
+     $GL_2(\mathbb{A}_K)$};
+
+\node[gbox] (gn3) at (-4.5,-1.0)
+    {\textbf{$n\geq3$: Higher Reps}\\
+     $\rho:\operatorname{Gal}\to GL_n(\mathbb{C})$};
+\node[abox] (an3) at ( 4.5,-1.0)
+    {\textbf{$n\geq3$: Automorphic Forms}\\
+     $GL_n(\mathbb{A}_K)$};
+
+\draw[<->, very thick, >=stealth, abelgray]
+    (-1.8,0.6) -- node[above, sloped, font=\small]
+    {$L(\pi,s)=L(\rho,s)$} (1.8,0.6);
+
+\node[text width=10cm, align=center, font=\small, yshift=-3.2cm]
+    at (0,0)
+    {The Langlands correspondence predicts a bijection between
+     Galois representations and automorphic representations that
+     preserve $L$-functions. For $n=1$ this is class field theory;
+     for $n=2$ it includes the modularity theorem; for $n\geq3$
+     it remains largely conjectural.};
+\end{tikzpicture}
+\caption{The Langlands correspondence at levels $n=1$, $n=2$, and $n\geq3$.}
+\label{fig:langlands-correspondence}
+\end{figure}
+
+\subsection{The \texorpdfstring{$L$}{L}-Group}
 
 Langlands introduced the concept of the $L$-group ${}^L G$, a complex Lie group\index{Lie groups} associated to any reductive algebraic group $G$ over $K$. The $L$-group is a semidirect product:
 \[
 {}^L G = \widehat{G}(\mathbb{C}) \rtimes \operatorname{Gal}(\overline{K}/K),
 \]
 where $\widehat{G}$ is the Langlands dual group (defined by the root system of $G$).
+
+\begin{primer}{The Dual Group}
+The Langlands dual group $\widehat{G}$ is defined by swapping roots
+with coroots in the root system of $G$. Think of it as a mirror image:
+if $G$ is $SL_n$ (traceless matrices), its dual is $PGL_n$
+(matrices modulo scalars). This duality appears throughout mathematics
+and physics---it is the same $S$-duality that exchanges electric
+and magnetic fields in gauge theories.
+\end{primer}
 
 The dual group is defined by the root data of $G$: if $G$ has root system $\Phi$ with coroots $\Phi^\vee$, then $\widehat{G}$ has root system $\Phi^\vee$ with coroots $\Phi$. This duality interchanges:
 \begin{itemize}
@@ -108,6 +195,15 @@ The $L$-group captures the internal symmetries of the group and its dual. For $G
 \subsection{The Functoriality Conjecture}
 
 The functoriality conjecture is Langlands' most general and far-reaching conjecture. It predicts that for any homomorphism of $L$-groups ${}^L G \to {}^L H$, there is a corresponding transfer of automorphic forms from $G$ to $H$.
+
+\begin{analogy}{The Rosetta Stone}
+The functoriality conjecture is like a Rosetta Stone for symmetries.
+It says that whenever two groups are related through their $L$-groups,
+the automorphic forms on one group can be \emph{translated} into
+automorphic forms on the other. This would let mathematicians transfer
+knowledge across different worlds of symmetry---a kind of universal
+translation service for harmonic analysis.
+\end{analogy}
 
 This conjecture includes many important results as special cases:
 \begin{itemize}
@@ -225,6 +321,15 @@ The geometric Langlands program has deep connections to conformal field theory a
 
 \section{Impact of the Discovery}
 
+\begin{whyitmatters}
+The Langlands program has been called the ``grand unified theory of
+mathematics'' for good reason. It connects number theory, representation
+theory, algebraic geometry, and even physics through the geometric
+Langlands correspondence. It guided the proof of Fermat's Last Theorem
+and continues to shape the deepest research across all of modern
+mathematics.
+\end{whyitmatters}
+
 \subsection{Impact on Mathematics}
 
 The Langlands program has reshaped number theory, representation theory, and algebraic geometry. It is the central organizing framework for modern number theory. Key impacts include:
@@ -248,7 +353,7 @@ The geometric Langlands program connects to supersymmetric gauge theories and st
 
 \section{Current Developments}
 
-\subsection{$p$-adic Langlands Program}
+\subsection{\texorpdfstring{$p$}{p}-adic Langlands Program}
 
 The $p$-adic Langlands program, developed by Colmez, Fontaine, Emerton, and others, studies $p$-adic representations of absolute Galois groups and their relationship to $p$-adic automorphic forms. The $p$-adic local Langlands correspondence for $GL_2(\mathbb{Q}_p)$ has been established by Colmez and Paskunas.
 
@@ -259,7 +364,7 @@ Key aspects include:
 \item The relationship between $p$-adic automorphic forms and $p$-adic families of Galois representations (the eigencurve of Coleman and Mazur).
 \end{itemize}
 
-\subsection{Perfectoid\index{Perfectoid spaces} Methods}
+\subsection{Perfectoid Methods}\index{Perfectoid spaces}
 
 Scholze's perfectoid spaces\index{Perfectoid spaces} provide new tools for studying $p$-adic Galois representations and the local Langlands correspondence. The Fargues--Fontaine curve and the theory of diamonds have been used to prove new cases of the local Langlands correspondence.
 
@@ -329,8 +434,7 @@ Robert Langlands created one of the most ambitious and influential research prog
 
 The Langlands program exemplifies the power of deep structural insight in mathematics. Langlands saw connections where others saw only disparate phenomena, and his vision has transformed our understanding of the mathematical universe.
 
-The program continues to evolve and expand, with new connections being discovered to $p$-adic geometry, derived algebraic geometry, quantum field theory, and beyond. It remains one of the most active and exciting areas of mathematical research.
-
+The program continues to evolve and expand, with new connections being discovered to $p$-adic geometry, derived algebraic geometry, quantum field theory, and beyond. It remains one of the most active and exciting areas of mathematical research. The Abel Prize citation recognized Langlands ``for his visionary program connecting representation theory to number theory.''
 
 \section{Behind the Breakthrough: The Human Story}
 Langlands wrote his famous 17-page letter outlining the Langlands program to Andr\'e Weil in 1967. He was so nervous about it that he wrote: 'If you are willing to read it as pure speculation, I would appreciate that; if not, I am sure you have a wastebasket handy.'

@@ -8,14 +8,24 @@
 \usepackage{cite}
 \usepackage{enumitem}
 \usepackage{titlesec}
+\titleformat{\section}{\raggedright\Large\bfseries}{\thesection}{1em}{}
 \usepackage{fancyhdr}
 \usepackage{graphicx}
 \geometry{margin=1in}
+\tolerance=2000
+\emergencystretch=3em
+
+% Custom commands
+\newcommand{\Sha}{\text{Sha}} % Tate-Shafarevich group (Cyrillic Sha)
+
 \hypersetup{
-    pdftitle={The Abel Prize Laureates},
     pdfauthor={Chaman Singh Verma},
     pdfsubject={A comprehensive report on the Abel Prize laureates},
     pdfkeywords={Abel Prize, mathematics, laureates, mathematical history}
+}
+
+\pdfstringdefDisableCommands{%
+  \let\$\relax
 }
 
 % TikZ & Colors for the Connections Map
@@ -26,6 +36,73 @@
 \definecolor{abelgreen}{RGB}{30,130,70}
 \definecolor{abelgray}{RGB}{100,100,100}
 \definecolor{abelfill}{RGB}{245,245,250}
+
+\usepackage[most]{tcolorbox}
+
+% --- Pedagogical Boxes for Undergraduate Students ---
+\tcbset{
+    pedagogybox/.style={
+        enhanced,
+        breakable,
+        sharp corners,
+        boxrule=0.5pt,
+        fonttitle=\bfseries,
+        attach boxed title to top left={yshift=-2mm, xshift=2mm},
+        boxed title style={sharp corners, boxrule=0.5pt},
+        before skip=12pt,
+        after skip=12pt,
+        lines before break=5,
+    }
+}
+
+\newtcolorbox{knowledgebridge}[1]{
+    pedagogybox,
+    colback=abelfill,
+    colframe=abelblue,
+    colbacktitle=abelblue,
+    title={Knowledge Bridge: #1},
+    coltitle=white
+}
+
+\newtcolorbox{primer}[1]{
+    pedagogybox,
+    colback=white,
+    colframe=abelgray,
+    colbacktitle=abelgray,
+    title={Quick Primer: #1},
+    coltitle=white,
+    borderline={0.5pt}{0pt}{abelgray, dashed}
+}
+
+\newtcolorbox{bigidea}{
+    pedagogybox,
+    colback=abelblue,
+    colframe=abelblue,
+    colbacktitle=abelblue,
+    title={The Big Idea},
+    coltitle=white,
+    coltext=white,
+    fontupper=\itshape
+}
+
+\newtcolorbox{whyitmatters}{
+    pedagogybox,
+    colback=white,
+    colframe=abelgreen,
+    colbacktitle=abelgreen,
+    title={Why This Matters},
+    coltitle=white
+}
+
+\newtcolorbox{analogy}{
+    pedagogybox,
+    colback=white,
+    colframe=abelred,
+    colbacktitle=abelred,
+    title={Analogy Corner},
+    coltitle=white
+}
+
 
 \setlength{\headheight}{17pt}
 
@@ -76,41 +153,33 @@
 \include{chapters/preface}
 \include{chapters/connections}
 
-\part{Laureates 2003--2009}
-
 \include{chapters/serre}
-\include{chapters/atiyah_singer}
+\include{chapters/atiyah}
+\include{chapters/singer}
 \include{chapters/lax}
 \include{chapters/carleson}
 \include{chapters/varadhan}
-\include{chapters/thompson_tits}
+\include{chapters/thompson}
+\include{chapters/tits}
 \include{chapters/gromov}
-
-\part{Laureates 2010--2016}
-
 \include{chapters/tate}
 \include{chapters/milnor}
 \include{chapters/szemeredi}
 \include{chapters/deligne}
 \include{chapters/sinai}
-\include{chapters/nash_nirenberg}
+\include{chapters/nash}
+\include{chapters/nirenberg}
 \include{chapters/wiles}
-
-\part{Laureates 2017--2023}
-
 \include{chapters/meyer}
 \include{chapters/langlands}
 \include{chapters/uhlenbeck}
-\include{chapters/furstenberg_margulis}
-\include{chapters/lovasz_wigderson}
+\include{chapters/furstenberg}
+\include{chapters/margulis}
+\include{chapters/lovasz}
+\include{chapters/wigderson}
 \include{chapters/sullivan}
 \include{chapters/caffarelli}
-
-\part{Laureates 2024--2026}
-
 \include{chapters/talagrand}
-\include{chapters/kashiwara}
-\include{chapters/faltings}
 
 \backmatter
 \include{chapters/glossary}
@@ -133,7 +202,7 @@
         };
         \node[align=left,text=white,text width=0.72\paperwidth] at (current page.center) {
             Mathematics is the invisible architecture of the modern world. From secure messaging and image compression to climate models, optimization, and the theory of computation, ideas developed by Abel Prize laureates shape both pure research and daily technology.\\[0.45cm]
-            Established in 2002 and first awarded in 2003, the Abel Prize is one of mathematics' highest honors. This volume follows the complete sequence of 24 prize years from Jean-Pierre Serre in 2003 through Gerd Faltings in 2026, covering 29 individual laureates and the fields they transformed.\\[0.45cm]
+            Established in 2002 and first awarded in 2003, the Abel Prize is one of mathematics' highest honors. This volume follows the complete sequence of 22 prize years from Jean-Pierre Serre in 2003 through Michel Talagrand in 2024, covering 27 individual laureates and the fields they transformed.\\[0.45cm]
             Inside are biographical sketches, high-level explanations, human stories, applied-science connections, guided exercises, reading maps, a glossary, and a generated index for students, science writers, and mathematically curious readers.
         };
         \node[align=center,text=white,text width=0.72\paperwidth] at ($(current page.south)+(0,1.85in)$) {

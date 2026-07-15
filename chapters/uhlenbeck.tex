@@ -39,6 +39,15 @@ The area of a surface $S$ parametrized by $u: M^2 \to \mathbb{R}^n$ is:
 \mathcal{A}(u) = \int_M |\det(du^T du)|^{1/2}.
 \]
 
+\begin{knowledgebridge}{What Is the Calculus of Variations?}
+The calculus of variations is about finding the \emph{shape} that
+minimizes a quantity---like a soap film minimizing its area. Given a
+boundary wire, nature ``solves'' this minimization instantly. But
+mathematicians want to know: is the minimizing surface smooth, or
+can it have sharp creases? This question of \textbf{regularity} is
+at the heart of Uhlenbeck's work.
+\end{knowledgebridge}
+
 Critical points of the area functional are minimal surfaces---they satisfy the Euler--Lagrange equation of vanishing mean curvature. The study of minimal surfaces has a long history (Euler, Lagrange, Plateau, Douglas, Rad\'o, Osserman, etc.). The problem of regularity: can a minimal surface have singularities?
 
 The Plateau problem asks: given a closed curve in $\mathbb{R}^n$, does there exist a surface of least area spanning it? This was solved by Douglas and Rad\'o in the 1930s, but the solution allowed for branch points and other singularities. Understanding the nature of these singularities was a central problem.
@@ -50,6 +59,15 @@ A gauge theory is a field theory where the fields are connections on a principal
 D_A * F_A = 0,
 \]
 where $F_A$ is the curvature of the connection $A$ and $*$ is the Hodge star operator. These equations are the classical field equations of the Standard Model.
+
+\begin{primer}{What Is a Gauge Theory?}
+A gauge theory describes fields that have \emph{internal} symmetries:
+you can rotate the field at each point independently, and the physics
+should not change. The Yang--Mills equations are the rules for such
+fields, generalizing Maxwell's equations of electromagnetism. The
+``connection'' $A$ is like a rule for comparing fields at nearby points,
+and its curvature $F_A$ measures how much this rule twists.
+\end{primer}
 
 The instanton equation $*F_A = F_A$ (for 4-manifolds) defines self-dual connections, which minimize the Yang--Mills functional and correspond to absolute minima of the action. The Yang--Mills functional is:
 \[
@@ -67,6 +85,16 @@ Uhlenbeck proved that area-minimizing hypersurfaces are smooth except for a clos
 \item Blow-up analysis: rescale the surface near a singularity and study the limit. If $M$ has a singularity at $x$, consider $M_{r} = (M - x)/r$ as $r \to 0$. The limit is a tangent cone---a minimal surface that is dilation-invariant.
 \item The classification of tangent cones: possible tangent cones of area-minimizing hypersurfaces are either hyperplanes $\mathbb{R}^{n-1}$ or special cones like $\mathbb{C}^{n/2}$.
 \item The dimension estimate: the singular set satisfies $\dim_{\mathcal{H}}(\text{Sing } M) \leq n-7$. This means that in dimensions up to 6, area-minimizing hypersurfaces are completely smooth.
+
+\begin{bigidea}
+Uhlenbeck proved that area-minimizing surfaces are smooth except in
+dimensions 7 and higher. For a soap film in our three-dimensional
+world, this means \emph{no singularities} occur---the film is
+perfectly smooth. The singularities that \emph{can} appear in higher
+dimensions are highly structured, like the tip of a cone. This
+was a revolution in our understanding of geometric minimization.
+\end{bigidea}
+
 \item The structure of singularities: the singular set is the union of isolated points (in dimension 7) and the blow-up limits are given by area-minimizing cones.
 \end{itemize}
 
@@ -95,6 +123,16 @@ The proof proceeds in several steps:
 \end{enumerate}
 
 This compactness theorem is the analytic foundation for using Yang--Mills theory in four-dimensional topology.
+
+\begin{analogy}{Concentrating Energy}
+The Uhlenbeck compactness theorem is like watching a rubber sheet
+being stretched. As you pull harder, the energy increases, but the
+sheet might tear at isolated points where all the stretching
+concentrates. The theorem says that from any sequence of Yang--Mills
+connections with bounded energy, you can extract a limit---possibly
+with ``bubbles'' at finitely many points where curvature piles up,
+much like the tears in the rubber sheet.
+\end{analogy}
 
 \subsection{Removable Singularities}
 
@@ -164,6 +202,15 @@ The factorizations correspond to:
 With Schoen, Uhlenbeck developed a regularity theory for harmonic maps. The Schoen--Uhlenbeck theorem states that a stationary harmonic map from a smooth manifold into a compact Riemannian manifold is smooth outside a closed set of codimension at least 2.
 
 \section{Impact of the Discovery}
+
+\begin{whyitmatters}
+Uhlenbeck's compactness theorem is the foundation upon which the
+entire edifice of gauge theory in mathematics is built. Without it,
+Donaldson could not have discovered exotic $\mathbb{R}^4$, and the
+classification of four-manifolds would remain out of reach. Her
+regularity results are the invisible scaffolding supporting modern
+geometric analysis.
+\end{whyitmatters}
 
 \subsection{Impact on Mathematics}
 

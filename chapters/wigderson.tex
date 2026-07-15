@@ -1,0 +1,207 @@
+\chapter{Avi Wigderson (2021)}
+
+\section{Biographical Sketch}
+
+Avi Wigderson was born on 9 September 1956 in Haifa, Israel. He studied at the Technion and Princeton University, where he completed his PhD in 1983 under the supervision of Richard Lipton. He held positions at the Hebrew University of Jerusalem (1983--1999) and the Institute for Advanced Study in Princeton (1999--present). Wigderson has received the Abel Prize in 2021, the Turing Award in 2023, the Wolf Prize in Mathematics in 2014, and the Knuth Prize in 2009.
+
+Wigderson is one of the founding figures of computational complexity theory. His work on interactive proofs, zero-knowledge protocols, and the role of randomness in computation has fundamentally shaped our understanding of what can be efficiently computed and verified.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Wigderson Do?}
+
+Imagine you are using a computer program that relies on randomness---say, a cryptographic protocol for secure communication. Is the randomness truly necessary, or could the same result be achieved without it? Wigderson showed that randomness can be eliminated from many algorithms, provided we are willing to assume that certain computational problems are hard. This is the ``hardness versus randomness'' paradigm.
+
+Now imagine you want to convince someone that you know a secret without revealing the secret itself. Wigderson, together with Goldreich and Micali, proved that every NP problem has a \emph{zero-knowledge proof}---a protocol that conveys the truth of a statement and nothing else.
+
+\subsection{Why Does It Matter?}
+
+His work has transformed:
+\begin{itemize}
+\item \textbf{Cryptography}: Zero-knowledge proofs and secure multiparty computation are foundational to modern privacy-preserving protocols.
+\item \textbf{Computer Science}: The PCP theorem revolutionized the theory of hardness of approximation.
+\item \textbf{Complexity Theory}: IP = PSPACE showed that interactive proofs capture a vast class of computational problems.
+\item \textbf{Algorithms}: Derandomization results show that randomness can often be eliminated from algorithms.
+\item \textbf{P vs. NP}: The hardness-vs-randomness paradigm connects the central open problem to the power of randomness.
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{The P vs. NP Problem and Randomness}
+
+The P vs. NP problem asks whether problems that can be checked quickly can also be solved quickly. Wigderson's work explores the role of randomness in computation. The central question: can randomness make hard problems easy? And conversely, can we eliminate randomness from algorithms without losing efficiency?
+
+The class BPP (bounded-error probabilistic polynomial time) consists of problems that can be solved by randomized algorithms with high probability. The question of whether $P = BPP$---whether every problem solvable with randomness is also solvable without it---was a central open question.
+
+Wigderson's revolutionary insight was that the answer depends on the existence of hard problems: if there exists a problem that requires exponential-size circuits, then randomization is not needed. This ``hardness vs. randomness'' principle has become a cornerstone of computational complexity theory.
+
+\subsection{Interactive Proofs and Zero-Knowledge}
+
+Building on the work of Goldwasser, Micali, and Rackoff on interactive proofs, Wigderson showed that the class IP (problems with interactive proofs) equals PSPACE (problems solvable with polynomial space). This was a stunning result: any problem solvable with polynomial space can be verified by an interactive protocol.
+
+\begin{primer}{What Is an Interactive Proof?}
+An interactive proof is a conversation between a powerful prover $P$ and a skeptical verifier $V$. Unlike a static proof, the verifier can ask random questions. For example, to convince you two graphs are non-isomorphic, I might let you pick one at random and challenge me to identify it---if I keep answering correctly, you become convinced. Wigderson helped show this model captures all of PSPACE.
+\end{primer}
+
+The IP = PSPACE theorem says that the class of languages with interactive proofs is exactly the class of languages solvable with polynomial space. The key to the proof is an arithmetic technique for encoding Boolean formulas as polynomials, which allows the verifier to check properties of the formula by evaluating the polynomial at random points.
+
+\subsection{The PCP Theorem and Its Origins}
+
+The PCP theorem (probabilistically checkable proofs) grew out of the theory of interactive proofs and program checking. The theorem states that every NP problem has a proof that can be verified by reading only a constant number of bits of the proof.
+
+More precisely: NP is exactly the class of languages $L$ for which there exists a polynomial-time verifier $V$ such that:
+\begin{itemize}
+\item If $x \in L$, there exists a proof $\pi$ such that $V(x, \pi)$ accepts with probability 1 after reading $O(1)$ bits of $\pi$.
+\item If $x \notin L$, for every proof $\pi$, $V(x, \pi)$ accepts with probability at most $1/2$ after reading $O(1)$ bits of $\pi$.
+\end{itemize}
+
+The PCP theorem is one of the deepest results in theoretical computer science, with profound implications for the hardness of approximation.
+
+\begin{analogy}{Grading a 100-Page Exam with Three Questions}
+The PCP theorem says that for any NP statement, you can write a proof that can be checked by reading only a constant number of bits. It is as if a professor could grade a 100-page exam by checking only three randomly chosen lines---and still catch any error with high probability. This surprising fact implies that many optimization problems are not just hard to solve exactly, but even hard to approximate.
+\end{analogy}
+
+\section{Deep Insight into the Problem}
+
+\subsection{The PCP Theorem and Inapproximability}
+
+The PCP theorem implies that many optimization problems are NP-hard to approximate. In particular:
+\begin{itemize}
+\item MAX-3SAT is NP-hard to approximate within a factor of $7/8 + \epsilon$ for any $\epsilon > 0$.
+\item MAX-CUT is NP-hard to approximate within a factor of $16/17 + \epsilon$.
+\item The traveling salesman problem is NP-hard to approximate within any constant factor.
+\end{itemize}
+
+The proof of the PCP theorem is a tour de force of computational complexity, combining algebraic error-correcting codes, recursive composition of proof systems, and the theory of probabilistically checkable proofs.
+
+\subsection{Hardness vs. Randomness}
+
+Wigderson's framework: if there is a problem that requires exponential-size circuits (a hardness assumption), then randomness can be derandomized: $P = BPP$. This leads to explicit constructions of pseudo-random generators.
+
+The key insight: if a problem $L \in \text{DTIME}(2^{O(n)})$ does not have polynomial-size circuits, then there exists a pseudo-random generator $G: \{0,1\}^{O(\log n)} \to \{0,1\}^n$ such that no polynomial-time algorithm can distinguish the output of $G$ from truly random bits.
+
+This pseudo-random generator can be used to derandomize any BPP algorithm: instead of using truly random bits, the algorithm uses the output of $G$ seeded with all possible $O(\log n)$ seeds, and takes the majority vote.
+
+\begin{bigidea}
+Wigderson's ``hardness vs. randomness'' paradigm reveals a beautiful trade-off: if a genuinely hard computational problem exists (requiring exponential-size circuits), then randomness is unnecessary for efficient computation ($P = BPP$). The idea is to use the hard problem to construct a pseudorandom generator that stretches a short random seed into a long string that fools any efficient algorithm.
+\end{bigidea}
+
+\subsection{Zero-Knowledge Proofs}
+
+A zero-knowledge proof is a protocol between a prover $P$ and a verifier $V$ in which $P$ convinces $V$ that a statement is true without revealing any additional information. Goldreich, Micali, and Wigderson proved that every NP language has a zero-knowledge proof system, assuming the existence of one-way functions.
+
+The protocol works by committing to bits using a commitment scheme, then revealing just enough information through a series of challenges to convince the verifier. Crucially, the verifier could simulate the entire conversation without the prover, which is what makes the proof ``zero-knowledge.''
+
+\section{Biggest Contributions and New Tools}
+
+\begin{itemize}
+\item \textbf{Zero-Knowledge Proofs}: With Goldreich and Micali, proving that every NP problem has a zero-knowledge proof system. A zero-knowledge proof allows a prover to convince a verifier of a statement without revealing any information beyond its truth.
+\item \textbf{The PCP Theorem}: With Arora, Lund, Motwani, Sudan, and Szegedy: every NP proof can be encoded so that verification reads only a constant number of bits. This theorem is the foundation of the theory of hardness of approximation.
+\item \textbf{Hardness vs. Randomness}: If a problem exists requiring exponential-size circuits, then $P = BPP$ (with Impagliazzo). This gives explicit derandomization from hardness assumptions.
+\item \textbf{Multiparty Computation}: Goldreich, Micali, Wigderson: secure multiparty computation tolerating any number of malicious parties. This result showed that any function can be computed securely by multiple parties who do not trust each other.
+\item \textbf{The Zig-Zag Product}: With Reingold and Vadhan: a new operation on graphs that constructs expanders with optimal parameters. The zig-zag product is a graph-theoretic analog of the semidirect product in group theory.
+\item \textbf{IP = PSPACE}: With Shamir: interactive proof systems capture all of polynomial space. This was a stunning result that showed the surprising power of interaction in proof systems.
+\end{itemize}
+
+\section{Impact of the Discovery in Science and Technology}
+
+\subsection{Impact on Cryptography}
+
+Zero-knowledge proofs are foundational for modern cryptography. They allow one party to prove possession of information without revealing the information itself. Practical implementations include:
+\begin{itemize}
+\item zk-SNARKs (zero-knowledge succinct non-interactive arguments of knowledge), used in blockchain technology for privacy-preserving transactions.
+\item zk-STARKs (zero-knowledge scalable transparent arguments of knowledge), which offer transparency without a trusted setup.
+\item Bulletproofs and other efficient zero-knowledge protocols.
+\end{itemize}
+
+Secure multiparty computation has been used in practice for privacy-preserving auctions, statistical analysis of genomic data, and secure comparison of financial data across institutions.
+
+\subsection{Impact on Complexity Theory}
+
+The PCP theorem revolutionized the theory of hardness of approximation, showing that many optimization problems are NP-hard to approximate beyond certain thresholds. Before the PCP theorem, it was known that some optimization problems were NP-hard to solve exactly, but it was not known that they were hard to approximate.
+
+The IP = PSPACE theorem showed that interaction adds enormous power to proof systems, and the arithmetization technique used in its proof has become a fundamental tool in complexity theory.
+
+\begin{whyitmatters}
+Wigderson transformed computer science from a discipline about building machines into a deep mathematical theory of what can and cannot be computed. The PCP theorem, zero-knowledge proofs, and the hardness-vs-randomness paradigm are the bedrock of modern cryptography, algorithm design, and our understanding of the power of randomness.
+\end{whyitmatters}
+
+\section{Current Developments}
+
+\subsection{Interactive Proof Systems and Delegation of Computation}
+
+Recent work on interactive proof systems (including the work of Goldwasser, Kalai, and Rothblum on delegating computation) builds on the foundations laid by Wigderson. The key idea is that a powerful server can convince a weak client that it has correctly performed a computation, using only logarithmic communication and polylogarithmic verification time.
+
+\subsection{Derandomization and Pseudo-Random Generators}
+
+Following the hardness vs. randomness paradigm, there has been extensive work on constructing explicit pseudo-random generators and derandomizing algorithms. Current research focuses on unconditional derandomization of specific algorithms, the relationship between circuit lower bounds and derandomization, and the theory of randomness extractors.
+
+\subsection{Post-Quantum Cryptography}
+
+Building cryptography that resists quantum attacks is a major research direction. The theory of zero-knowledge proofs and secure multiparty computation is being adapted to the post-quantum setting, using lattice-based, code-based, and multivariate cryptographic primitives.
+
+\subsection{The Sliding Scale Conjecture}
+
+The sliding scale conjecture of Wigderson and others relates the power of interactive proofs to the number of rounds of interaction. It states that there exist languages that require a certain number of rounds of interaction in a proof system, forming a ``sliding scale'' of complexity.
+
+\section{Conclusion}
+
+Wigderson revealed the deep interplay between randomness, hardness, and proof. His work transformed our understanding of computation and laid the foundations for modern cryptography. The methods he developed---interactive proofs, zero-knowledge protocols, pseudorandom generators, and the PCP theorem---are now foundational tools across theoretical computer science.
+
+The problems he opened---the power of approximation, the nature of randomness, and the limits of efficient verification---continue to drive research at the frontier of computation. The Abel Prize citation recognized Wigderson (jointly with Lov\'asz) ``for their foundational contributions to theoretical computer science and discrete mathematics, and their leading role in shaping them into central fields of modern mathematics.''
+
+\section{Behind the Breakthrough: The Human Story}
+
+Wigderson's 2023 Turing Award recognized his foundational contributions to the theory of computation, but his journey began at the Technion in Haifa, where he was drawn to the emerging field of computational complexity. The development of zero-knowledge proofs came from a simple question: can you prove something without revealing why it is true? Together with Shafi Goldwasser and Silvio Micali, Wigderson turned this philosophical puzzle into a rigorous mathematical framework that now underpins privacy-preserving technology worldwide.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Proving statements without revealing secrets, verifying proofs by reading only a few random bits, and turning hardness assumptions into guarantees of efficiency.''
+
+\subsection{Mathematical Lineage}
+Advised by Richard Lipton, who was advised by Patrick Fischer.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Zero-knowledge proofs enable privacy-preserving verification in blockchain systems. Secure multiparty computation enables collaborative data analysis without revealing private inputs. Derandomization techniques make algorithms more predictable and easier to analyze.
+
+\subsection{Algorithms and Numerical Implementations}
+Practical zero-knowledge proof systems (zk-SNARKs, zk-STARKs) are implemented in cryptographic libraries. Secure multiparty computation protocols are used in privacy-preserving machine learning. Expander graphs constructed via the zig-zag product are used in error-correcting codes and network design.
+
+\section{The Research Frontier}
+The P vs. NP problem, optimal derandomization, the sliding scale conjecture, and the development of practical, efficient zero-knowledge proofs for general computation.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item Define the PCP (Probabilistically Checkable Proofs) theorem and explain its significance for the inapproximability of NP-hard problems.
+  \item Explain Wigderson's de-randomization results: under what conditions can randomized algorithms be converted to deterministic ones ($P = BPP$)?
+  \item Describe how zero-knowledge proofs work and why they are important for modern cryptography.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item Avi Wigderson, \emph{Mathematics and Computation}, Princeton University Press.
+  \item Sanjeev Arora and Boaz Barak, \emph{Computational Complexity: A Modern Approach}, Cambridge University Press.
+  \item Oded Goldreich, \emph{Foundations of Cryptography}, Cambridge University Press.
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item S. Goldwasser, S. Micali, and A. Wigderson, ``How to play any mental game,'' in ``Proceedings of STOC 1987,'' 218--229.
+\item O. Goldreich, S. Micali, and A. Wigderson, ``Proofs that yield nothing but their validity, or all languages in NP have zero-knowledge proof systems,'' Journal of the ACM 38 (1991), 690--728.
+\item S. Arora, C. Lund, R. Motwani, M. Sudan, and M. Szegedy, ``Proof verification and the hardness of approximation problems,'' Journal of the ACM 45 (1998), 501--555.
+\item R. Impagliazzo and A. Wigderson, ``$P = BPP$ if $E$ requires exponential circuits,'' in ``Proceedings of STOC 1997,'' 220--229.
+\item O. Reingold, S. Vadhan, and A. Wigderson, ``Entropy waves, the zig-zag graph product, and new constant-degree expanders,'' Annals of Mathematics 155 (2002), 157--187.
+\item A. Shamir, ``IP = PSPACE,'' Journal of the ACM 39 (1992), 869--877.
+\item A. Wigderson, ``Mathematics and Computation,'' Princeton University Press, 2019.
+\item S. Arora and B. Barak, ``Computational Complexity: A Modern Approach,'' Cambridge University Press, 2009.
+\item O. Goldreich, ``Foundations of Cryptography,'' Cambridge University Press, 2001.
+\item S. Goldwasser and S. Micali, ``Probabilistic encryption and how to play mental poker keeping secret all partial information,'' in ``Proceedings of STOC 1982,'' 365--377.
+\item S. Arora and S. Safra, ``Probabilistic checking of proofs: a new characterization of NP,'' Journal of the ACM 45 (1998), 70--122.
+\item L. Babai, L. Fortnow, and C. Lund, ``Non-deterministic exponential time has two-prover interactive protocols,'' Computational Complexity 1 (1991), 3--40.
+\item U. Feige, S. Goldwasser, L. Lov\'asz, S. Safra, and M. Szegedy, ``Interactive proofs and the hardness of approximating cliques,'' Journal of the ACM 43 (1996), 268--292.
+\item S. Khot, ``On the power of unique 2-prover 1-round games,'' in ``Proceedings of STOC 2002,'' 767--775.
+\item S. Khot, G. Kindler, E. Mossel, and R. O'Donnell, ``Optimal inapproximability results for MAX-CUT and other 2-variable CSPs?'' SIAM Journal on Computing 37 (2007), 319--357.
+\item O. Reingold, ``Undirected connectivity in log-space,'' Journal of the ACM 55 (2008), 1--24.
+\end{enumerate}

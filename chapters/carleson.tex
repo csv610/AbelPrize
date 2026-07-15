@@ -69,6 +69,15 @@ Key milestones:
 
 The idea of convergence "almost everywhere"---that is, at all points except possibly a set of measure zero---was introduced in the context of Lebesgue's theory of measure and integration. In 1915, Nikolai Luzin conjectured that the Fourier series of any $L^2$ function converges to the function almost everywhere.
 
+\begin{knowledgebridge}{Almost Everywhere}
+``Almost everywhere'' means at every point except on a set so small it has zero total length.
+\begin{itemize}
+    \item \textbf{Intuition}: A finite set of points has measure zero. Even the rational numbers --- infinite but spread thinly --- have measure zero.
+    \item \textbf{Why it matters}: If a Fourier series converges almost everywhere, the points where it fails form a set that for all practical purposes never matters.
+    \item \textbf{The surprise}: Before Carleson, many believed that $L^2$ functions could fail on large sets. He proved the opposite.
+\end{itemize}
+\end{knowledgebridge}
+
 This conjecture frustrated mathematicians for half a century. Partial results were obtained:
 \begin{itemize}
 \item Kolmogorov (1922): proved convergence a.e. for certain special sequences of partial sums.
@@ -77,6 +86,10 @@ This conjecture frustrated mathematicians for half a century. Partial results we
 \end{itemize}
 
 But the full conjecture remained open. Many mathematicians believed it might be false.
+
+\begin{bigidea}
+For half a century, the world's best analysts tried to prove that Fourier series of $L^2$ functions could diverge on a large set. Carleson spent years trying to build a counterexample, failed repeatedly, and then realized the reason: the conjecture was \emph{true}. He then proved it, flipping the entire field's expectations upside down. The deepest discoveries sometimes come from the humility to abandon what you believe.
+\end{bigidea}
 
 \section{Deep Insight into the Problem}
 
@@ -96,6 +109,15 @@ where $S_N f$ is the $N$-th partial sum of the Fourier series of $f$. By proving
 \item \textbf{Stopping Times}: The proof uses a carefully constructed stopping time argument, analyzing the growth of partial sums at different scales.
 \end{enumerate}
 
+\begin{primer}{Maximal Functions}
+A maximal function captures the ``worst-case'' behavior of a process at every point.
+\begin{itemize}
+    \item For Fourier series, $S_N f(x)$ is the $N$-th partial sum. Carleson studied $S^* f(x) = \sup_N |S_N f(x)|$, the \emph{largest} approximation error at any stage.
+    \item If you can bound $S^* f$ (prove it is not too large too often), then you can deduce that the individual $S_N f(x)$ converge to $f(x)$ almost everywhere.
+    \item This strategy --- control the maximum to get convergence --- is one of the most powerful ideas in modern analysis.
+\end{itemize}
+\end{primer}
+
 \subsection{The Carleson Maximal Theorem}
 
 Carleson's main result: if $f \in L^2([-\pi, \pi])$, then the maximal partial sum operator satisfies:
@@ -114,6 +136,15 @@ In the course of his work on boundary behavior of analytic functions, Carleson i
 for every Carleson square $S(I)$, where $I$ is an interval on the unit circle and $S(I)$ is the square built on $I$.
 
 Carleson measures characterize exactly when the Hardy space $H^p$ is continuously embedded in $L^p(\mu)$. The Carleson embedding theorem is a fundamental tool in harmonic analysis, complex analysis, and operator theory.
+
+\begin{knowledgebridge}{Carleson Measures}
+A Carleson measure is a way of measuring area in the unit disk that respects the geometry of the boundary circle.
+\begin{itemize}
+    \item The \textbf{Carleson square} $S(I)$ is a box built above an interval $I$ on the circle, stretching inward into the disk.
+    \item A measure is \emph{Carleson} if the mass in every such square is proportional to the length of $I$.
+    \item This simple condition characterizes exactly when analytic functions on the disk have well-behaved boundary values --- making it a cornerstone of modern harmonic analysis.
+\end{itemize}
+\end{knowledgebridge}
 
 \subsection{The Corona Theorem}
 
@@ -198,6 +229,10 @@ Carleson's work transformed analysis:
 
 \item \textbf{Signal Processing}: The mathematical foundations of signal processing, including sampling theory and wavelet\index{Wavelets} analysis, build on Carleson's work.
 \end{itemize}
+
+\begin{whyitmatters}
+Carleson's proof of Luzin's conjecture resolved the oldest open problem in Fourier analysis, but the tools he created were even more important than the theorem itself. Maximal functions, tree structures, stopping times, and Carleson measures unlocked entirely new fields --- time-frequency analysis, wavelet theory, and the modern theory of singular integrals. These techniques continue to drive research in harmonic analysis today.
+\end{whyitmatters}
 
 \subsection{Impact on Science and Engineering}
 

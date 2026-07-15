@@ -57,6 +57,10 @@ An elliptic partial differential equation is one that satisfies a certain positi
 
 The fundamental problem of regularity theory is: given a weak solution of an elliptic PDE, how smooth is it? For linear equations, the classical theory (Schauder estimates, Calder\'on--Zygmund theory) provides strong answers: solutions are $C^\infty$ if the coefficients are smooth.
 
+\begin{knowledgebridge}{What Makes a PDE Elliptic?}
+Elliptic equations are the ``steady-state'' cousins of wave and heat equations. Just as a stretched membrane finds a smooth equilibrium shape, elliptic PDEs tend to produce smooth solutions --- the key question is \emph{how} smooth, and under what conditions.
+\end{knowledgebridge}
+
 For nonlinear equations, the situation is far more delicate. The equation may have solutions that are not smooth, and understanding when and where smoothness fails is one of the central problems of analysis.
 
 \subsection{Free Boundary Problems}
@@ -82,6 +86,10 @@ Another fundamental free boundary problem is the obstacle problem: find the equi
 \]
 
 The free boundary is the boundary of the set where $u > 0$, separating the "free" part of the membrane from the part in contact with the obstacle.
+
+\begin{primer}{The Obstacle Problem}
+Picture a blanket draped over a basketball. Part of the blanket touches the ball (the ``obstacle''), and the rest hangs free. The boundary between the touching and free regions is the \emph{free boundary}. The obstacle problem asks: where does the blanket lose contact, and what shape does the free part take?
+\end{primer}
 
 \subsection{The Monge--Amp\`ere Equation}
 
@@ -121,6 +129,10 @@ Caffarelli's deep insight into free boundary problems was to classify the possib
 
 This classification leads to the regularity of the free boundary: the set of regular points (where the blow-up limit is flat) is an open set on which the free boundary is $C^\infty$, while the singular set has lower dimension.
 
+\begin{bigidea}
+Instead of examining the whole free boundary at once, Caffarelli's key idea was to zoom in on a single point --- like a microscope revealing the local structure. By studying these ``blow-up'' limits, he showed that only two patterns can appear: flat (smooth) or cusp-like (singular). This classification is the foundation of free boundary regularity.
+\end{bigidea}
+
 \section{Biggest Contributions and New Tools}
 
 \subsection{The Caffarelli--Kohn--Nirenberg Theorem on the Navier--Stokes Equations}
@@ -137,6 +149,10 @@ Caffarelli, Kohn, and Nirenberg proved that for any weak solution satisfying a c
 \item The solution is smooth except possibly for a very small set of singularities.
 \item This is the best regularity result currently known for the 3D Navier--Stokes equations.
 \end{itemize}
+
+\begin{analogy}{Navier--Stokes: The Ultimate Weather Forecast}
+Weather prediction solves the Navier--Stokes equations for the atmosphere. The Caffarelli--Kohn--Nirenberg theorem guarantees that even when a forecast breaks down into turbulence, the breakdown is confined to isolated points --- not entire storms. It is the best guarantee of predictability we have.
+\end{analogy}
 
 \subsection{Free Boundary Regularity}
 
@@ -194,6 +210,10 @@ Caffarelli's work has transformed the field of PDEs:
 
 \item \textbf{Geometric Analysis}: Caffarelli's work on fully nonlinear equations and the Monge--Amp\`ere equation is essential for geometric problems involving curvature.
 \end{itemize}
+
+\begin{whyitmatters}
+Caffarelli's regularity theorems are the invisible scaffolding beneath modern applied mathematics. Every time an engineer simulates melting metal, a geophysicist models glacier flow, or a data scientist uses optimal transport to align datasets, Caffarelli's proofs assure them that the underlying equations behave as expected.
+\end{whyitmatters}
 
 \subsection{Impact on Science and Engineering}
 

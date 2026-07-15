@@ -1,0 +1,198 @@
+\chapter{L\'aszl\'o Lov\'asz (2021)}
+
+\section{Biographical Sketch}
+
+L\'aszl\'o Lov\'asz was born on 9 March 1948 in Budapest, Hungary. He studied at E\"otv\"os Lor\'and University in Budapest, where he completed his PhD in 1971 under the supervision of Tibor Gallai, with a dissertation on graph theory and combinatorics. He held positions at E\"otv\"os Lor\'and University (1971--1983), Yale University (1983--1999), and Microsoft Research (1999--2013). Lov\'asz has received numerous honors, including the Abel Prize in 2021, the Wolf Prize in Mathematics in 1999, the Knuth Prize in 1999, the Kyoto Prize in 2010, and the Fulkerson Prize in 1982 and 2012.
+
+Lov\'asz was a prodigy in combinatorial mathematics. By age 16, he had already published his first research paper, and by his early twenties he was one of the leading graph theorists in the world. His work is characterized by an extraordinary ability to bring sophisticated mathematical tools---from linear algebra, topology, and optimization---to bear on problems in discrete mathematics.
+
+\section{High-Level View for a General Audience}
+
+\subsection{What Did Lov\'asz Do?}
+
+Imagine you have a massive social network with billions of users. You want to find communities, recommend friends, and detect fraud. The mathematical language for studying networks is \emph{graph theory}.
+
+Lov\'asz transformed graph theory by bringing in powerful methods from algebra, topology, and optimization. He solved problems that had seemed impossible, like computing the Shannon capacity of a graph---a number that measures how much information can be reliably transmitted through a noisy communication channel. His \emph{semidefinite programming} approach to this problem introduced a new paradigm for combinatorial optimization.
+
+He also gave the world the Lov\'asz Local Lemma, a tool that changed how mathematicians prove the existence of structures with desirable properties, and the LLL algorithm, which finds short vectors in lattices and has profound implications for cryptography.
+
+\subsection{Why Does It Matter?}
+
+His work has transformed:
+\begin{itemize}
+\item \textbf{Algorithms}: Efficient algorithms for network analysis and optimization.
+\item \textbf{Computer Science}: The understanding of computation, optimization, and the power of semidefinite programming.
+\item \textbf{Cryptography}: The LLL algorithm broke knapsack-based cryptosystems and shaped modern lattice-based cryptography.
+\item \textbf{Network Science}: The theory of graph limits (graphons) provides a mathematical foundation for analyzing large networks.
+\item \textbf{Mathematics}: Deep connections between combinatorics, algebra, and optimization.
+\end{itemize}
+
+\section{The Origin of the Problem}
+
+\subsection{The Shannon Capacity of a Graph}
+
+Claude Shannon (1956) asked: given a noisy communication channel, what is the maximum number of distinct messages that can be sent with zero probability of error, per use of the channel?
+
+For a channel where some symbols can be confused, the zero-error capacity is given by the Shannon capacity $\Theta(G)$ of the confusability graph $G$. Here:
+\begin{itemize}
+\item Vertices = symbols that can be transmitted.
+\item Edges connect confusable symbols.
+\item The capacity $\Theta(G)$ is the maximum size of a set of non-confusable $n$-letter words, to the $1/n$ power, as $n \to \infty$.
+\end{itemize}
+
+Computing $\Theta(G)$ was known to be extremely difficult. For example, the Shannon capacity of the 5-cycle $C_5$ was an open problem for over 20 years until Lov\'asz computed it as $\sqrt{5}$ using his $\vartheta$ function.
+
+\subsection{The Probabilistic Method and Dependent Events}
+
+A recurring theme in combinatorics is proving that a combinatorial object exists by showing that a random construction works with positive probability. However, when events are not independent, calculating probabilities becomes difficult. The Lov\'asz Local Lemma was developed to handle precisely this situation: it gives a condition under which a collection of unlikely events can all be avoided simultaneously, even when the events are dependent.
+
+\section{Deep Insight into the Problem}
+
+\subsection{The \texorpdfstring{$\vartheta$}{theta} Function of a Graph}
+
+Lov\'asz introduced the $\vartheta$ function as a semidefinite programming relaxation of graph invariants. For a graph $G = (V,E)$:
+\[
+\vartheta(G) = \max_{v \mapsto u_v \in S^{n-1}} \sum_{v \in V} \langle c, u_v \rangle^2,
+\]
+where $c$ is a unit vector and $u_v$ are unit vectors with $\langle u_v, u_w \rangle = 0$ whenever $vw \in E$.
+
+The $\vartheta$ function satisfies:
+\[
+\alpha(G) \leq \vartheta(G) \leq \overline{\chi}(G),
+\]
+where $\alpha(G)$ is the independence number and $\overline{\chi}(G)$ is the clique cover number.
+
+For the 5-cycle $C_5$, Lov\'asz computed $\vartheta(C_5) = \sqrt{5}$. Since $\vartheta$ is multiplicative under the strong graph product, this immediately gave $\Theta(C_5) = \sqrt{5}$.
+
+The $\vartheta$ function is the first example of a semidefinite programming relaxation in combinatorial optimization. It can be computed in polynomial time using semidefinite programming, making it a practical tool for bounding the independence number and the Shannon capacity.
+
+\begin{knowledgebridge}{What Is Semidefinite Programming?}
+Semidefinite programming (SDP) generalizes linear programming by allowing variables to be entries of a symmetric matrix constrained to be positive semidefinite. The Lov\'asz $\vartheta$ function was the first combinatorial application of SDP---it relaxes a hard integer optimization problem (finding the independence number) into a tractable convex optimization solvable in polynomial time.
+\end{knowledgebridge}
+
+\subsection{The Lov\'asz Local Lemma}
+
+The Lov\'asz Local Lemma (LLL) states: if $\mathcal{E}_1, \ldots, \mathcal{E}_n$ are events, each with probability $p$, and each event depends on at most $d$ other events, then if $ep(d+1) < 1$, there is a positive probability that none of the events occur.
+
+More generally, if each event $\mathcal{E}_i$ has probability at most $p_i$ and depends on at most $d$ other events, and if $\sum_{i=1}^n p_i 2^d < 1/2$ (in the symmetric version), then with positive probability none of the events occur.
+
+\begin{bigidea}
+The Lov\'asz Local Lemma shows that rare events can be avoided \textbf{even when they are not independent}, as long as each event depends on only a few others. This is like a party where each guest will complain only if a specific friend misbehaves: if friendship groups are small enough, everyone can be kept happy. The LLL gives a simple condition on the dependency graph guaranteeing a ``good'' outcome with positive probability.
+\end{bigidea}
+
+The LLL is a powerful tool for proving the existence of combinatorial structures without constructing them explicitly. Typical applications include:
+\begin{itemize}
+\item Hypergraph coloring: coloring the vertices of a hypergraph so that no edge is monochromatic.
+\item Latin transversals: finding a transversal in a Latin square.
+\item Ramsey numbers: lower bounds for Ramsey numbers.
+\item Algorithmic LLL: the constructive version (Moser--Tardos) gives efficient algorithms for finding structures whose existence is guaranteed by the LLL.
+\end{itemize}
+
+\subsection{Graph Limits and Graphons}
+
+Lov\'asz developed a complete theory of dense graph limits, providing an analytic framework for large networks. A \emph{graphon} is a symmetric measurable function $W: [0,1]^2 \to [0,1]$ that captures the limiting structure of a sequence of graphs. Two sequences of graphs converge to the same graphon if they become increasingly similar in terms of their subgraph densities.
+
+This theory connects graph theory to analysis, probability, and statistics, providing a continuous analogue for discrete graph structures.
+
+\section{Biggest Contributions and New Tools}
+
+\begin{itemize}
+\item \textbf{The $\vartheta$ Function}: A semidefinite programming bound for the Shannon capacity of a graph. Lov\'asz showed that $\Theta(C_5) = \sqrt{5}$ using this tool, solving a problem that had been open for 20 years.
+\item \textbf{The Lov\'asz Local Lemma}: If events are not too dependent, they can all be avoided. This is one of the most widely used probabilistic method tools, with applications in hypergraph coloring, random graphs, and algorithm analysis.
+\item \textbf{Graph Limits (Graphons)}: A complete theory of dense graph limits, providing an analytic framework for large networks.
+\item \textbf{The LLL Algorithm}: With Lenstra and Lenstra, factoring polynomials over $\mathbb{Q}$ in polynomial time. The LLL algorithm has become a fundamental tool in computational number theory and cryptography.
+\item \textbf{Perfect Graphs}: The strong perfect graph theorem (with Chudnovsky, Robertson, Seymour, and Thomas) characterizes perfect graphs as exactly those containing no odd hole or odd antihole.
+\item \textbf{Matching Theory}: With Plummer, Lov\'asz wrote the definitive text on matching theory, covering both classical results and the algebraic approach.
+\item \textbf{The Kruskal--Katona Theorem}: Lov\'asz gave an elegant proof using algebraic methods.
+\end{itemize}
+
+\section{Impact of the Discovery in Science and Technology}
+
+The $\vartheta$ function is the prototype for semidefinite programming approaches to combinatorial optimization. The Goemans--Williamson algorithm for MAX-CUT uses a similar SDP relaxation, achieving a 0.878-approximation. SDP relaxations have since become a standard tool for approximating hard optimization problems, including graph coloring, graph partitioning, and the sparsest cut problem.
+
+The LLL algorithm is widely used in number theory (factoring polynomials, solving Diophantine equations) and cryptography (breaking knapsack-based cryptosystems). It remains a fundamental tool in computational number theory.
+
+Graph limits (graphons) provide a new perspective on large networks, connecting graph theory to analysis and probability theory. They have been applied to the study of quasirandom graphs, property testing, and network science. More recently, graphons have found applications in machine learning, particularly in the analysis of graph neural networks.
+
+The strong perfect graph theorem, with Lov\'asz as a key contributor, is one of the deepest results in graph theory, resolving a conjecture dating back to Claude Berge in 1961.
+
+\section{Current Developments}
+
+\subsection{The Unique Games Conjecture}
+
+The Unique Games Conjecture (UGC) of Khot is a central open problem in approximation algorithms. It has deep connections to the $\vartheta$ function and semidefinite programming. If true, the UGC would imply that the Goemans--Williamson algorithm for MAX-CUT is optimal.
+
+\subsection{Algorithmic LLL and the Constructive Lov\'asz Local Lemma}
+
+The Moser--Tardos algorithmic version of the Lov\'asz Local Lemma provides efficient randomized algorithms for finding structures whose existence is guaranteed by the LLL. The algorithm is remarkably simple: repeatedly resample variables that violate constraints, and the expected running time is polynomial. It has been applied to graph coloring, packet routing, and constraint satisfaction problems.
+
+\subsection{Graph Neural Networks}
+
+The theory of graph limits (graphons) has found applications in machine learning, particularly in the analysis of graph neural networks. Graphons model the limit of graph sequences, and graph neural networks learn functions on graphs that are continuous with respect to the graphon topology. The theory of graphon approximation provides guarantees for the generalization of graph neural networks.
+
+\subsection{Post-Quantum Cryptography}
+
+The LLL algorithm is actually a threat to some cryptographic systems: it can break knapsack-based cryptosystems and some lattice-based schemes with poor parameter choices. However, modern lattice-based cryptography (like the Learning With Errors problem) is believed to be secure against both classical and quantum attacks.
+
+\section{Conclusion}
+
+Lov\'asz bridged mathematics and computer science, solving deep problems while creating tools essential for modern computing, cryptography, and algorithm design. His introduction of geometric and algebraic methods transformed combinatorics, and the methods he developed---semidefinite programming, the probabilistic method, and graph limits---have become foundational tools across mathematics and computer science.
+
+The problems he opened---the power of approximation, the structure of large networks, and the limits of combinatorial optimization---continue to drive research at the frontier of computation and mathematics. The Abel Prize citation recognized Lov\'asz (jointly with Wigderson) ``for their foundational contributions to theoretical computer science and discrete mathematics, and their leading role in shaping them into central fields of modern mathematics.''
+
+\section{Behind the Breakthrough: The Human Story}
+
+Lov\'asz was a prodigy who published his first research paper at age 16, and by his early twenties he was one of the foremost graph theorists in the world. The LLL algorithm, developed with Arjen and Hendrik Lenstra, was originally conceived as a tool for factoring polynomials over the rational numbers. To the surprise of its creators, it was soon discovered that the algorithm could break almost every knapsack-based cryptosystem, showing how a pure mathematics tool from lattice theory could have a direct, devastating impact on computer security.
+
+\section{Pedagogical Metaphors and Lineage}
+\subsection{Signature Metaphor}
+``Optimizing discrete structures by relaxing them into the continuous realm of semidefinite matrices, and finding short vectors in high-dimensional lattices.''
+
+\subsection{Mathematical Lineage}
+Advised by Tibor Gallai, who was advised by Lip\'ot Fej\'er.
+
+\section{Applied Science and Computational Algorithms}
+\subsection{Key Takeaways for Applied Science}
+Lattice reduction is critical to breaking cryptosystems and designing secure post-quantum schemes. Semidefinite programming provides polynomial-time relaxations for otherwise intractable combinatorial optimization problems.
+
+\subsection{Algorithms and Numerical Implementations}
+The LLL (Lenstra--Lenstra--Lov\'asz) algorithm finds short vectors in lattices in polynomial time. Semidefinite programming solvers compute the Lov\'asz $\vartheta$ function for graph optimization problems. The Moser--Tardos algorithm provides efficient constructive versions of the Lov\'asz Local Lemma.
+
+\section{The Research Frontier}
+The Unique Games Conjecture and its relationship to the $\vartheta$ function and SDP hierarchies, optimal bounds for algorithmic LLL, and the application of graphon theory to machine learning and network science.
+
+\section{Guided Exercises and Challenges}
+\begin{enumerate}[label=\textbf{\arabic*.}]
+  \item State the Lov\'asz Local Lemma and explain how it allows one to prove the existence of objects satisfying certain constraints.
+  \item Define the $\vartheta$ function and show why $\Theta(C_5) = \sqrt{5}$ follows from $\vartheta(C_5) = \sqrt{5}$.
+  \item Explain how the LLL algorithm finds short vectors in lattices and why this is relevant to breaking knapsack cryptosystems.
+\end{enumerate}
+
+\section{Curriculum Map and Further Reading}
+For students wishing to delve deeper into the mathematical machinery underlying these breakthroughs, the following learning path is recommended:
+\begin{itemize}
+  \item L. Lov\'asz, \emph{Large Networks and Graph Limits}, American Mathematical Society.
+  \item L. Lov\'asz, \emph{Combinatorial Problems and Exercises}, AMS Chelsea Publishing.
+  \item N. Alon and J. Spencer, \emph{The Probabilistic Method}, Wiley.
+\end{itemize}
+
+\section*{Bibliography}
+\begin{enumerate}
+\item L. Lov\'asz, ``On the Shannon capacity of a graph,'' IEEE Transactions on Information Theory 25 (1979), 1--7.
+\item L. Lov\'asz, ``Large Networks and Graph Limits,'' American Mathematical Society, 2012.
+\item L. Lov\'asz, ``The Lov\'asz Local Lemma and its applications,'' in ``Combinatorics, Paul Erd\H{o}s is Eighty,'' Bolyai Society, 1993.
+\item A. K. Lenstra, H. W. Lenstra, and L. Lov\'asz, ``Factoring polynomials with rational coefficients,'' Mathematische Annalen 261 (1982), 515--534.
+\item M. Chudnovsky, N. Robertson, P. Seymour, and R. Thomas, ``The strong perfect graph theorem,'' Annals of Mathematics 164 (2006), 51--229.
+\item L. Lov\'asz and M. D. Plummer, ``Matching Theory,'' North-Holland, 1986.
+\item L. Lov\'asz, ``A semidefinite programming relaxation of the Shannon capacity,'' in ``Proceedings of the ICM 1994.''
+\item L. Lov\'asz, ``Semidefinite programs and combinatorial optimization,'' in ``Proceedings of the ICM 1998.''
+\item L. Lov\'asz and B. Szegedy, ``Limits of dense graph sequences,'' Journal of Combinatorial Theory B 96 (2006), 933--957.
+\item L. Lov\'asz and V. T. S\'os, ``Generalized quasirandom graphs,'' Journal of Combinatorial Theory B 98 (2008), 1184--1203.
+\item R. A. Moser and G. Tardos, ``A constructive proof of the general Lov\'asz Local Lemma,'' Journal of the ACM 57 (2010), 1--15.
+\item M. X. Goemans and D. P. Williamson, ``Improved approximation algorithms for maximum cut and satisfiability problems using semidefinite programming,'' Journal of the ACM 42 (1995), 1115--1145.
+\item S. Khot, ``On the power of unique 2-prover 1-round games,'' in ``Proceedings of STOC 2002,'' 767--775.
+\item U. Feige, S. Goldwasser, L. Lov\'asz, S. Safra, and M. Szegedy, ``Interactive proofs and the hardness of approximating cliques,'' Journal of the ACM 43 (1996), 268--292.
+\item J. Koml\'os and E. Szemer\'edi, ``Limit distribution for the existence of Hamilton circuits in a random graph,'' Discrete Mathematics 43 (1983), 55--63.
+\item L. Lov\'asz, ``Normal hypergraphs and the perfect graph conjecture,'' Discrete Mathematics 2 (1972), 253--267.
+\item L. Lov\'asz, ``On the ratio of optimal integral and fractional covers,'' Discrete Mathematics 13 (1975), 383--390.
+\end{enumerate}

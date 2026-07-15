@@ -15,7 +15,7 @@ The following chart outlines key mathematical connections running through the wo
     
     \item \textbf{The Path to Fermat's Last Theorem}:
     \begin{itemize}
-        \item \textbf{Faltings (1983/2026)} proved the Mordell conjecture, showing that algebraic curves of genus $g \geq 2$ have only finitely many rational points.
+        \item \textbf{Faltings (Fields 1986)} proved the Mordell conjecture, showing that algebraic curves of genus $g \geq 2$ have only finitely many rational points.
         \item \textbf{Wiles (1994/2016)} built upon this Arithmetic Geometry bridge to prove the modularity conjecture for semistable elliptic curves, solving Fermat's Last Theorem.
         \item Both utilized the fundamental work of \textbf{Tate (2010)} on Galois representations and $p$-adic Hodge theory.
     \end{itemize}
@@ -33,7 +33,7 @@ The following chart outlines key mathematical connections running through the wo
 For science communicators and story writers, these abstract mathematical breakthroughs secretly govern the technology running our daily lives:
 
 \begin{description}
-    \item[Secure Messaging \& Blockchain] Elliptic Curve Cryptography (ECC) protects Whatsapp, SSL/HTTPS web pages, and cryptocurrency ledgers. This security rests on curves studied by \textbf{Tate (2010)}, \textbf{Wiles (2016)}, and \textbf{Faltings (2026)}.
+    \item[Secure Messaging \& Blockchain] Elliptic Curve Cryptography (ECC) protects Whatsapp, SSL/HTTPS web pages, and cryptocurrency ledgers. This security rests on curves studied by \textbf{Tate (2010)}, \textbf{Wiles (2016)}, and built on foundations by Fields Medalist \textbf{Faltings (1986)}.
     
     \item[Image \& Film Compression] The images on your phone (JPEG 2000) and digital cinema projectors are compressed and stored using wavelets. This technology is built on the multiresolution analysis founded by \textbf{Meyer (2017)}.
     
@@ -51,7 +51,7 @@ Mathematical connections can be visualized as a directed graph where nodes repre
 \begin{tikzpicture}[node distance=2.5cm, scale=0.9, every node/.style={transform shape}]
   \node[draw=abelblue, thick, rounded corners, fill=abelfill, align=center] (top) {Topology\\\small (Serre, Milnor, Sullivan)};
   \node[draw=abelred, thick, rounded corners, fill=abelred!5, align=center, right=of top] (geo) {Geometry\\\small (Gromov, Uhlenbeck)};
-  \node[draw=abelgreen, thick, rounded corners, fill=abelgreen!5, align=center, below=of top] (alg) {Algebra \& Number Theory\\\small (Tate, Wiles, Deligne, Faltings)};
+  \node[draw=abelgreen, thick, rounded corners, fill=abelgreen!5, align=center, below=of top] (alg) {Algebra \& Number Theory\\\\\\small (Tate, Wiles, Deligne)};
   \node[draw=abelblue, thick, rounded corners, fill=abelfill, align=center, below=of geo] (ana) {Analysis \& PDEs\\\small (Lax, Nash, Caffarelli, Meyer)};
   
   \draw[thick, abelgray, ->] (top) -- (geo) node[midway, above] {K-Theory};

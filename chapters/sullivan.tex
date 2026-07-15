@@ -46,6 +46,10 @@ Algebraic topology in the 1960s had achieved remarkable success. The theory of h
 
 The homotopy groups of spheres were known to follow a certain pattern: $\pi_n(S^n) \cong \mathbb{Z}$, $\pi_{n+1}(S^n) \cong \mathbb{Z}_2$ for $n \geq 3$, $\pi_{n+2}(S^n) \cong \mathbb{Z}_2$ for $n \geq 2$, $\pi_{n+3}(S^n) \cong \mathbb{Z}_{24}$ for $n \geq 3$, and so on. While Serre had shown that all higher homotopy groups of spheres are finite (except for the special cases of $\pi_{2n-1}(S^n)$ for even $n$), the actual computation of these groups was a formidable problem.
 
+\begin{knowledgebridge}{What Are Homotopy Groups?}
+Homotopy groups $\pi_n(X)$ measure the $n$-dimensional holes in a space $X$. For example, $\pi_1(X)$ detects loops that cannot shrink to a point, while $\pi_2(X)$ detects spherical bubbles. The higher homotopy groups of spheres $\pi_k(S^n)$ for $k > n$ are incredibly complex, with intricate patterns of finite cyclic groups. Sullivan's insight: if you ignore the finite torsion by working over $\mathbb{Q}$, the structure becomes beautifully simple.
+\end{knowledgebridge}
+
 \subsection{The Need for a Rational Theory}
 
 The torsion information in homotopy groups---the $p$-primary components and their intricate patterns---is both a blessing and a curse. It makes the theory rich and deep, but it also makes computations extremely difficult. By the late 1960s, topologists were beginning to realize that if one ignored the torsion (by tensoring with $\mathbb{Q}$), the resulting theory would be far simpler and yet still capture essential information about the space.
@@ -75,6 +79,10 @@ V^n \cong \operatorname{Hom}(\pi_n(X), \mathbb{Q}).
 
 Thus, the rational homotopy groups of $X$ are simply the generators of the minimal model. This provides a complete algebraic description of rational homotopy: the rational homotopy type of $X$ is equivalent to the CDGA $A_{PL}(X)$ of polynomial differential forms on $X$ with rational coefficients.
 
+\begin{bigidea}
+Sullivan's minimal model replaces a complicated topological space $X$ with a purely algebraic object---a commutative differential graded algebra $(\wedge V, d)$. The generators $V^n$ correspond to the rational homotopy groups $\pi_n(X) \otimes \mathbb{Q}$, and the differential $d$ encodes how they interact. This is like summarizing a novel by listing its characters and their relationships: you lose fine details, but you capture the essential plot structure.
+\end{bigidea}
+
 \subsection{The Sullivan Algebra Construction}
 
 Given a space $X$, Sullivan constructed a sequence of spaces $X_n$ (the "Sullivan tower") that approximate $X$. Each stage of the tower is a fibration whose fiber is an Eilenberg--Mac Lane space $K(V_n, n)$ where $V_n = \pi_n(X) \otimes \mathbb{Q}$. The differential $d$ in the minimal model encodes the way these stages are glued together.
@@ -91,6 +99,10 @@ The Browder--Novikov--Sullivan theory provides a complete classification of mani
 \]
 where $\mathcal{S}(M)$ is the set of homotopy smoothings of $M$ and $G/O$ is the fiber of the map $BO \to BG$ from the classifying space of the orthogonal group to that of the stable homotopy group.
 
+\begin{primer}{What Is Surgery Theory?}
+Surgery theory asks: given a homotopy equivalence $N \to M$, can we cut and paste $N$ to make it diffeomorphic to $M$? The idea is like tailoring: if a suit (manifold $N$) almost fits a person (manifold $M$), we can take in the seams to make it fit perfectly. Sullivan developed the obstruction theory that tells us exactly when this is possible, classifying high-dimensional manifolds up to diffeomorphism.
+\end{primer}
+
 \subsection{Complex Dynamics: The No-Wandering-Domains Theorem}
 
 In complex dynamics, the iteration of a rational map $R: \widehat{\mathbb{C}} \to \widehat{\mathbb{C}}$ partitions the Riemann sphere into the Fatou set (where dynamics is stable) and the Julia set (where dynamics is chaotic). The connected components of the Fatou set are called Fatou components.
@@ -98,6 +110,10 @@ In complex dynamics, the iteration of a rational map $R: \widehat{\mathbb{C}} \t
 Fatou and Julia had shown that periodic Fatou components are classified into five types: attracting basins, parabolic basins, Siegel disks, Herman rings, and Baker domains. However, the possibility of wandering domains---Fatou components that are not eventually periodic---remained open.
 
 Sullivan's no-wandering-domains theorem (1985) proved that for rational maps, every Fatou component is eventually periodic. This resolved a sixty-year-old problem and fundamentally changed the field of complex dynamics.
+
+\begin{analogy}{The Fractal Balloon}
+Sullivan's no-wandering-domains theorem says every Fatou component of a rational map is eventually periodic. Imagine a balloon whose surface is divided into regions by a fractal coastline. The theorem says no region can drift forever---after finitely many inflations and deflations, every region returns to a previously seen shape. This resolved a sixty-year-old problem and connected complex dynamics to hyperbolic geometry.
+\end{analogy}
 
 \section{Biggest Contributions and New Tools}
 
@@ -161,6 +177,43 @@ Sullivan discovered deep analogies between the dynamics of rational maps and the
 \item The Hausdorff dimension of the Julia set corresponds to the critical exponent of the group.
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    leftbox/.style={draw=abelblue, fill=abelfill, rounded corners,
+                    minimum width=3.8cm, minimum height=0.9cm,
+                    text centered, font=\small\sffamily, text=abelblue},
+    rightbox/.style={draw=abelred, fill=abelfill, rounded corners,
+                     minimum width=3.8cm, minimum height=0.9cm,
+                     text centered, font=\small\sffamily, text=abelred},
+    head/.style={font=\large\bfseries\sffamily},
+    arrow/.style={dashed, <->, >=stealth, thick, abelgray}
+]
+
+\node[head, abelblue] at (-4.7,1.8) {Rational Dynamics};
+\node[head, abelred]  at ( 4.7,1.8) {Kleinian Groups};
+
+\node[leftbox]  (J) at (-4.7, 0.5) {Julia Set};
+\node[rightbox] (L) at ( 4.7, 0.5) {Limit Set};
+
+\node[leftbox]  (F)  at (-4.7,-0.5) {Fatou Set};
+\node[rightbox] (D)  at ( 4.7,-0.5) {Domain of Discontinuity};
+
+\node[leftbox]  (P)  at (-4.7,-1.5) {Periodic Cycles};
+\node[rightbox] (FP) at ( 4.7,-1.5) {Fixed Points};
+
+\node[leftbox]  (H) at (-4.7,-2.5) {Hausdorff Dimension};
+\node[rightbox] (C) at ( 4.7,-2.5) {Critical Exponent};
+
+\draw[arrow] (J)  -- (L);
+\draw[arrow] (F)  -- (D);
+\draw[arrow] (P)  -- (FP);
+\draw[arrow] (H)  -- (C);
+\end{tikzpicture}
+\caption{The Sullivan Dictionary: deep analogies between rational dynamics (left) and Kleinian groups (right).}
+\label{fig:sullivan-dictionary}
+\end{figure}
+
 \subsection{Hyperbolic Geometry and Three-Manifolds}
 
 Sullivan's work on hyperbolic geometry and three-manifolds is closely connected to Thurston's geometrization program:
@@ -189,6 +242,10 @@ Sullivan's work has transformed multiple areas of mathematics:
 \item \textbf{Homotopy Theory}: The Sullivan conjecture (now theorem) opened new connections between homotopy theory and group theory, and it inspired Miller's proof and subsequent work on the homotopy theory of classifying spaces.
 \end{itemize}
 
+\begin{whyitmatters}
+Sullivan's work spans algebraic topology, geometry, and dynamics---three fields that rarely speak to each other. His rational homotopy theory gave topologists algebraic tools for previously intractable invariants; his surgery theory provided a practical method to classify manifolds; and his no-wandering-domains theorem revolutionized complex dynamics. The Sullivan dictionary linking rational maps and Kleinian groups remains one of the most fertile analogies in modern mathematics.
+\end{whyitmatters}
+
 \subsection{Impact on Physics}
 
 \begin{itemize}
@@ -213,7 +270,7 @@ Sullivan's work has transformed multiple areas of mathematics:
 
 \section{Current Developments}
 
-\subsection{Derived Algebraic Geometry and $\infty$-Categories}
+\subsection{Derived Algebraic Geometry and \texorpdfstring{$\infty$}{infinity}-Categories}
 
 Rational homotopy theory has found a natural home in derived algebraic geometry and the theory of $\infty$-categories. Sullivan's minimal models correspond to affine derived schemes, and the CDGA model for rational homotopy provides a bridge between topology and algebraic geometry.
 

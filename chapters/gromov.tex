@@ -30,6 +30,10 @@ Gromov's work shows that geometry is not just about measuring distances on speci
 
 Riemannian geometry, founded by Bernhard Riemann in 1854, studies manifolds equipped with a metric---a way of measuring distances and angles. The curvature of a Riemannian manifold measures how it deviates from being flat. Positive curvature means the geometry is sphere-like; negative curvature means it is saddle-like.
 
+\begin{knowledgebridge}{Curvature}
+\emph{Curvature} measures how a surface bends. A sphere has \emph{positive} curvature (it curves outward the same way in every direction), a saddle has \emph{negative} curvature (it curves up in one direction and down in another), and a flat table has \emph{zero} curvature. On a sphere, parallel lines eventually meet (like lines of longitude at the poles). On a saddle, parallel lines diverge. Riemannian geometry generalizes this intuition to higher dimensions, where curvature at a point is described by a tensor encoding how the space bends in every direction.
+\end{knowledgebridge}
+
 By the 1960s, much was known about manifolds with constant curvature, but the geometry of manifolds with varying curvature was poorly understood. The central problem was: what constraints does the topology of a manifold place on the metrics it can support?
 
 \subsection{The H\"uckel--Gromov Revolution}
@@ -55,7 +59,15 @@ The Gromov--Hausdorff metric measures how far two compact metric spaces are from
 
 Gromov used this notion to prove a compactness theorem: any sequence of manifolds with bounded diameter and bounded Ricci curvature has a convergent subsequence. The limit may be a singular metric space, not a smooth manifold. This allowed the study of degenerations of Riemannian manifolds and opened up the geometry of non-smooth spaces.
 
+\begin{bigidea}
+Gromov's key insight: to understand all possible shapes, define a notion of \emph{distance between shapes themselves}. The Gromov--Hausdorff metric measures how far two metric spaces are from being isometric. This simple idea revolutionized geometry: it allowed Gromov to prove \emph{compactness theorems}---any sequence of manifolds with bounded curvature has a convergent subsequence---and to study the limits of geometric spaces even when the limits are singular. This is the geometric analog of the Bolzano--Weierstrass theorem for numbers.
+\end{bigidea}
+
 The compactness theorem states: let $(M_i, g_i)$ be a sequence of compact $n$-dimensional Riemannian manifolds with $\mathrm{Ric}_{g_i} \geq (n-1)H$ and $\mathrm{diam}(M_i) \leq D$. Then there exists a subsequence $(M_{i_j}, g_{i_j})$ that converges in the Gromov--Hausdorff metric to a compact metric space $(X, d_X)$.
+
+\begin{analogy}{The Telescope and the Microscope}
+Gromov--Hausdorff convergence works like adjusting the zoom on a telescope. Step back far enough, and two different manifolds can look nearly identical. This ``zooming out'' lets mathematicians see the large-scale structure of a family of spaces, ignoring small differences. Conversely, Gromov's methods also act as a \emph{microscope}: pseudoholomorphic curves zoom in on the fine structure of a symplectic manifold, revealing details invisible to classical tools. Together, these viewpoints give a complete picture of geometry at every scale.
+\end{analogy}
 
 \subsection{Hyperbolic Groups and Geometric Group Theory}
 
@@ -71,7 +83,96 @@ A hyperbolic group exhibits exponential growth and has infinitely many elements,
 \item Most finitely presented groups with a single relation (by the work of Gromov and others).
 \end{itemize}
 
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.0]
+
+% === Panel A: δ-hyperbolic triangle ===
+\begin{scope}[shift={(0,0)}]
+\node[font=\bfseries, abelblue] at (2.5, 4.2) {Panel A: $\delta$-Hyperbolic Triangle};
+
+% Vertices
+\coordinate (A) at (0.5, 0.5);
+\coordinate (B) at (4.5, 0.0);
+\coordinate (C) at (2.0, 3.5);
+
+% Sides
+\draw[thick, abelblue] (A) -- node[midway, below, sloped, font=\tiny] {$x$} (B);
+\draw[thick, abelblue] (B) -- node[midway, right, sloped, font=\tiny] {$y$} (C);
+\draw[thick, abelblue] (C) -- node[midway, left, sloped, font=\tiny] {$z$} (A);
+
+% δ-thickened side (showing that each side is within δ of the other two)
+\draw[abelred, dashed, thick] ([xshift=-8pt, yshift=-6pt] A) -- ([xshift=8pt, yshift=-4pt] B);
+\draw[abelred, dashed, thick] ([xshift=6pt, yshift=5pt] B) -- ([xshift=-4pt, yshift=8pt] C);
+\draw[abelred, dashed, thick] ([xshift=-6pt, yshift=6pt] C) -- ([xshift=-8pt, yshift=-6pt] A);
+
+% δ-thickness indicator
+\draw[<->, abelred, thin] (1.2, 0.4) -- node[right, font=\tiny, abelred] {$\delta$} (1.2, 0.05);
+
+% Interior point showing δ-neighborhood
+\fill[abelgray!30, opacity=0.3] (A) -- (B) -- (C) -- cycle;
+\node[circle, fill=abelred, inner sep=2pt] at (2.2, 1.5) {};
+\node[font=\tiny] at (2.5, 1.3) {any point within $\delta$ of a side};
+
+% Labels
+\node[font=\footnotesize, align=center] at (2.5, -0.7) {Sides are $\delta$-thin:\\ each side lies in the\\$\delta$-neighborhood of the other two.};
+\end{scope}
+
+% === Panel B: Euclidean triangle (comparison) ===
+\begin{scope}[shift={(7,0)}]
+\node[font=\bfseries, abelgreen] at (2.5, 4.2) {Panel B: Euclidean Triangle};
+
+\coordinate (D) at (0.5, 0.0);
+\coordinate (E) at (4.5, 0.0);
+\coordinate (F) at (2.8, 3.2);
+
+\draw[thick, abelgreen] (D) -- (E) -- (F) -- cycle;
+
+% Midpoint heights - showing it's NOT thin
+\draw[abelred, dashed, thick] (2.5, 1.8) -- (2.5, 0.0);
+\draw[abelred, dashed, thick] (1.8, 1.2) -- (4.0, 1.2);
+
+\node[font=\footnotesize, align=center] at (2.5, -0.7) {Not $\delta$-thin for small $\delta$:\\ the midpoint of one side can be\\far from the other two sides.};
+\end{scope}
+
+% === Panel C: Tree (δ = 0) ===
+\begin{scope}[shift={(3.5, -5.5)}]
+\node[font=\bfseries, abelgray] at (2.5, 4.2) {Panel C: Tree ($\delta = 0$)};
+
+% Tree with three branches
+\coordinate (O) at (2.5, 0.5);
+\coordinate (P1) at (0.0, 3.5);
+\coordinate (P2) at (2.5, 3.5);
+\coordinate (P3) at (5.0, 3.5);
+
+\draw[thick, abelgray] (O) -- (P1);
+\draw[thick, abelgray] (O) -- (P2);
+\draw[thick, abelgray] (O) -- (P3);
+
+% The three "sides" of the triangle
+\draw[thick, abelblue] (P1) -- (O) -- (P2);
+\draw[thick, abelred] (P2) -- (O) -- (P3);
+\draw[thick, abelgreen] (P3) -- (O) -- (P1);
+
+% Labels
+\node[font=\footnotesize] at (P1) [above left] {$x$};
+\node[font=\footnotesize] at (P2) [above] {$y$};
+\node[font=\footnotesize] at (P3) [above right] {$z$};
+\node[circle, fill=abelgray, inner sep=2pt] at (O) {};
+
+\node[font=\footnotesize, align=center] at (2.5, -0.7) {Sides meet only at the center point.\\Any two sides intersect in a single point.};
+\end{scope}
+
+\end{tikzpicture}
+\caption{$\delta$-hyperbolic spaces compared. \textbf{Panel A}: In a $\delta$-hyperbolic space (here the Poincar\'e disk model), every geodesic triangle is $\delta$-thin: each side is contained in the $\delta$-neighborhood of the union of the other two. \textbf{Panel B}: In Euclidean geometry, triangles are not thin — the midpoint of one side may be arbitrarily far from the other sides. \textbf{Panel C}: A tree is $0$-hyperbolic: sides meet only at the common vertex, so $\delta = 0$ suffices.}
+\label{fig:hyperbolic_triangles}
+\end{figure}
+
 \subsection{Pseudoholomorphic Curves}
+
+\begin{primer}{Symplectic Geometry}
+\emph{Symplectic geometry} is the mathematics of Hamiltonian mechanics. While Riemannian geometry measures \emph{distances}, symplectic geometry measures \emph{areas} of two-dimensional surfaces. A symplectic manifold is a space equipped with a closed, nondegenerate 2-form $\omega$ that assigns an area to each oriented 2-dimensional surface. The key feature: symplectic geometry is \emph{rigid}---unlike Riemannian geometry, you cannot stretch or bend a symplectic space arbitrarily without changing its fundamental structure. Gromov's pseudoholomorphic curves became the primary tool for detecting this rigidity.
+\end{primer}
 
 Gromov's theory of pseudoholomorphic curves (1985) revolutionized symplectic geometry. A pseudoholomorphic curve is a map $u: (\Sigma, j) \to (M, J)$ from a Riemann surface to a symplectic manifold that satisfies the Cauchy--Riemann equations:
 \[
@@ -116,7 +217,7 @@ Gromov's work in group theory:
 \item \textbf{Fillings and Dehn Functions}: Gromov studied the isoperimetric properties of groups, connecting the Dehn function (the minimal area needed to fill a loop) to the geometry of the group's Cayley complex.
 \end{itemize}
 
-\subsection{Partial Differential Relations and the $h$-Principle}
+\subsection{Partial Differential Relations and the \texorpdfstring{$h$}{h}-Principle}
 
 Gromov developed the \emph{$h$-principle} (homotopy\index{Homotopy groups} principle), which gives conditions under which a partial differential relation can be deformed to a genuine solution. The $h$-principle explains why certain PDEs have many solutions (e.g., the existence of immersions of manifolds) and provides a general framework for constructing them.
 
@@ -143,6 +244,10 @@ Gromov and Lawson proved a fundamental obstruction to the existence of metrics o
 \section{Impact of the Discovery}
 
 \subsection{Impact on Mathematics}
+
+\begin{whyitmatters}
+Gromov created entire new fields of mathematics---geometric group theory, symplectic topology, and the quantitative study of Riemannian manifolds---by asking a simple question: what can geometry tell us about shapes beyond their local curvature? His tools (Gromov--Hausdorff convergence, pseudoholomorphic curves, hyperbolic groups, the $h$-principle) are now indispensable, influencing everything from the mathematics of data analysis (manifold learning) to the study of the large-scale structure of the universe.
+\end{whyitmatters}
 
 Gromov's work has transformed multiple fields:
 \begin{itemize}

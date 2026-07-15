@@ -53,6 +53,10 @@ Every time you assess the risk of a rare but catastrophic event, you are using i
 
 The mathematical theory of probability was developed in the twentieth century by Kolmogorov, L\'evy, Doob, It\^o, and others. A central object of study is the \emph{stochastic process}---a family of random variables indexed by time.
 
+\begin{primer}{What Are Stochastic Processes?}
+A \emph{stochastic process} describes a system that evolves randomly over time. Think of the daily temperature in your city: each day's reading is random, but the sequence follows patterns. Mathematically, it is a collection of random variables $\{X_t\}$ indexed by time $t$. Each $X_t$ could represent the temperature at noon on day $t$, the position of a particle at time $t$, or the price of a stock at time $t$. The \emph{law of large numbers} tells us about long-run averages, while large deviations theory tells us about the probability of extreme fluctuations.
+\end{primer}
+
 For a stochastic process, the law of large numbers describes the average behavior, and the central limit theorem describes fluctuations around the average. Large deviations theory sits between these: it describes fluctuations that are larger than those captured by the central limit theorem, but still rare.
 
 \subsection{The Laws of Large Numbers}
@@ -64,6 +68,10 @@ The simplest setting for large deviations is a sequence of independent, identica
 
 But what about the probability that the sample mean deviates from $\mu$ by a fixed amount? For example, if $X_i$ are coin flips with $\mu = 1/2$, what is the probability that the average after $n$ flips exceeds $0.6$?
 
+\begin{analogy}{The Cost of Rare Events}
+Imagine trying to flip a coin and get 600 heads out of 1000 flips. This is like throwing a basketball through the hoop from twice the normal distance: not impossible, but the probability drops dramatically with each extra step. The \emph{rate function} $I(a)$ measures the ``energy cost'' of such a rare event, just as the height of a mountain pass tells you how much energy you need to climb over it. The higher the cost, the more exponentially unlikely the event.
+\end{analogy}
+
 \subsection{Cram\'er's Theorem}
 
 Harald Cram\'er (1938) provided the first result in large deviations theory. For independent random variables, the probability of a large deviation decays exponentially with $n$:
@@ -74,6 +82,10 @@ where the rate function $I(a)$ is the Legendre transform of the cumulant generat
 \[
 I(a) = \sup_{\theta} (\theta a - \log \mathbb{E}[e^{\theta X_1}]).
 \]
+
+\begin{knowledgebridge}{The Legendre Transform}
+The \emph{Legendre transform} encodes a function's information in its slopes. Given a convex function $f(x)$, its Legendre transform $f^*(\theta) = \sup_x (\theta x - f(x))$ gives the maximum distance between the line $y = \theta x$ and the graph of $f$. In large deviations, it transforms the \emph{cumulant generating function} $\log \mathbb{E}[e^{\theta X}]$ (which records moments of $X$) into the \emph{rate function} $I(a)$ (which records probabilities of rare events). This is analogous to how the Fourier transform converts between time and frequency domains.
+\end{knowledgebridge}
 
 This is Cram\'er's theorem, the prototype of all large deviations results.
 
@@ -96,6 +108,10 @@ The question becomes: what is the probability that the empirical measure differs
 \section{Deep Insight into the Problem}
 
 \subsection{The Varadhan Functional and the Donsker--Varadhan Theory}
+
+\begin{bigidea}
+Varadhan's central insight: rare events follow a universal exponential decay law, and the rate of decay is determined by a \emph{rate function} that measures how ``costly'' the event is. For Markov processes, this cost has a beautiful variational formula: $I(\mu) = -\inf_{u>0} \int \frac{Lu}{u} d\mu$, which measures how far a probability measure $\mu$ is from being the stationary distribution. The farther the system tries to stray from equilibrium, the more exponentially unlikely it is---and the rate function tells us exactly how unlikely.
+\end{bigidea}
 
 Varadhan's deep insight was that large deviations for Markov processes could be studied using a variational principle. He introduced the \emph{Donsker--Varadhan rate function} for the empirical measure of a Markov process:
 \[
@@ -189,6 +205,10 @@ Varadhan has worked on the theory of stochastic PDEs:
 \section{Impact of the Discovery in Science and Technology}
 
 \subsection{Impact on Mathematics}
+
+\begin{whyitmatters}
+Before Varadhan, rare events were treated case-by-case. He created a \emph{unified theory} that applies across disciplines: from estimating crash probabilities in finance to predicting extreme weather events, from analyzing genetic mutations to designing reliable communication networks. His large deviation principle gives scientists and engineers a universal language for quantifying risk, making the seemingly unpredictable---predictable.
+\end{whyitmatters}
 
 Varadhan's work transformed probability theory:
 

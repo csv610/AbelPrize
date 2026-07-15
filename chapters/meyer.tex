@@ -44,6 +44,13 @@ or, in the continuous case:
 
 While this representation is extremely powerful, it has a fundamental limitation: each exponential $e^{2\pi i n x}$ extends over the entire real line. A local change in $f$ (like a sharp edge) affects all Fourier coefficients, and conversely, a set of Fourier coefficients determines the function globally.
 
+\begin{knowledgebridge}{Beyond Fourier}
+Think of Fourier analysis like looking at a photograph through a prism:
+you see all the colors (frequencies) in the whole image, but you
+lose where each color appears. Wavelets instead work like a magnifying
+glass that can zoom in on any detail while still telling you where it is.
+\end{knowledgebridge}
+
 The windowed Fourier transform (Gabor transform) provides some localization, but it has a fixed resolution: once the window size is chosen, the resolution is the same at all frequencies. This is the Heisenberg uncertainty principle in signal analysis: there is a fundamental tradeoff between time resolution and frequency resolution.
 
 \subsection{The Heisenberg Uncertainty Principle in Signal Analysis}
@@ -55,6 +62,14 @@ The Heisenberg uncertainty principle for time-frequency analysis states that for
 where $\sigma_t^2 = \int (x - \mu_t)^2 |f(x)|^2 dx$ and $\sigma_\omega^2 = \int (\omega - \mu_\omega)^2 |\hat f(\omega)|^2 d\omega$.
 
 This means that no function can be simultaneously well-localized in both time and frequency. The Gaussian function achieves equality, and the Gabor transform uses a Gaussian window to achieve optimal joint localization for a fixed scale.
+
+\begin{primer}{The Time--Frequency Tradeoff}
+Imagine trying to describe a song. A Fourier transform tells you
+\emph{which} notes are played, but not \emph{when}. A windowed
+transform fixes a short window---good for fast passages, bad for slow
+bass notes. Wavelets solve this by letting the window size change
+automatically: short windows for high frequencies, long windows for low.
+\end{primer}
 
 However, the Gabor transform still has a significant limitation: it uses a fixed window size, which means that high-frequency features (which are typically short-lived) and low-frequency features (which persist) are not both captured optimally.
 
@@ -99,6 +114,14 @@ W_j = V_{j+1} \ominus V_j,
 \]
 and the set $\{\psi_{j,k}(x) = 2^{j/2} \psi(2^j x - k) : j, k \in \mathbb{Z}\}$ forms an orthonormal basis for $L^2(\mathbb{R})$.
 
+\begin{bigidea}
+The key insight of multiresolution analysis is that you can build a
+basis by \emph{successively approximating} a function at finer and
+finer scales. The wavelet captures the \textbf{detail} lost when moving
+from one resolution to the next, just as a photographer might first
+capture a blurry outline and then add sharper details layer by layer.
+\end{bigidea}
+
 \subsection{The Meyer Wavelet}
 
 Meyer constructed the first smooth wavelet function $\psi$ that is $C^\infty$ and has compact support in the frequency domain. The Meyer wavelet is:
@@ -140,6 +163,14 @@ The wavelet transform can be implemented efficiently using filter banks. The dec
 \end{enumerate}
 
 The reconstruction algorithm reverses this process using the synthesis filters $\tilde H$ and $\tilde G$.
+
+\begin{analogy}{The Pyramid Algorithm}
+The wavelet decomposition works like building a visual pyramid.
+At each level you keep a blurry (``low-pass'') version of the image
+and a set of \emph{differences} (``high-pass'') that record the detail
+lost by blurring. To reconstruct, you add the differences back in
+the reverse order---like stacking transparencies from blurry to sharp.
+\end{analogy}
 
 The filters are related to the scaling function and wavelet by:
 \[
@@ -286,6 +317,14 @@ Meyer contributed to the proof of the $T(1)$ theorem, which characterizes the bo
 
 \subsection{Impact on Technology}
 
+\begin{whyitmatters}
+Wavelet theory---born from Meyer's deep insights---quietly powers
+much of the digital world. Every JPEG 2000 image, every FBI
+fingerprint match, every MRI denoising algorithm relies on the
+mathematical machinery he built. It is one of the rare cases where
+pure harmonic analysis became an everyday technology.
+\end{whyitmatters}
+
 \begin{itemize}
 \item \textbf{Image Compression}: JPEG 2000 uses the Cohen--Daubechies--Feauveau (CDF) 9/7 wavelet for lossy compression and the CDF 5/3 wavelet for lossless compression. Wavelet compression at high ratios produces fewer artifacts than DCT-based JPEG.
 \item \textbf{FBI Fingerprints}: The FBI's fingerprint database uses wavelet-based compression at a ratio of 15:1. The WSQ (Wavelet Scalar Quantization) standard was adopted in 1993.
@@ -383,8 +422,7 @@ Yves Meyer created the mathematical theory of wavelets and multiresolution analy
 
 The wavelet transform is a beautiful example of how deep mathematical ideas can lead to practical technology. The theory draws on harmonic analysis, functional analysis, and approximation theory, yet it has found applications in virtually every field that deals with digital signals and images.
 
-Meyer's contributions to Calder\'on--Zygmund theory are equally profound. His work on the $T(1)$ theorem and the wavelet characterization of function spaces has permanently changed the landscape of harmonic analysis.
-
+Meyer's contributions to Calder\'on--Zygmund theory are equally profound. His work on the $T(1)$ theorem and the wavelet characterization of function spaces has permanently changed the landscape of harmonic analysis. The Abel Prize citation recognized Meyer ``for his pivotal role in the development of the mathematical theory of wavelets.''
 
 \section{Behind the Breakthrough: The Human Story}
 Meyer discovered the Meyer wavelet while standing in a queue at a photocopy machine. He saw a paper on wavelets, realized he could construct an orthonormal wavelet basis, and wrote it down.
