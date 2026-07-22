@@ -64,7 +64,7 @@ Elliptic curves have a remarkable property: their points form an abelian group. 
 \centering
 \begin{tikzpicture}[scale=1.3, >=stealth]
 \draw[->, thick] (-2.5,0) -- (2.8,0) node[below] {$x$};
-\draw[->, thick] (0,-3)  -- (0,3.2) node[left]  {$y$};
+\draw[->, thick] (0,-3) -- (0,3.2) node[left] {$y$};
 
 \draw[thick, abelblue, domain=-2.2:2.5, samples=200]
     plot (\x, {sqrt(max(\x*\x*\x - 2*\x + 2,0))});
@@ -85,10 +85,10 @@ Elliptic curves have a remarkable property: their points form an abelian group. 
 \draw[dashed, thin, abelgray] (1.214, -1.167) -- (1.214, 1.167);
 
 \draw (-1,2pt) -- (-1,-2pt) node[below] {$-1$};
-\draw (1,2pt)  -- (1,-2pt)  node[below] {$\phantom{-}1$};
-\draw (2,2pt)  -- (2,-2pt)  node[below] {$\phantom{-}2$};
-\draw (2pt,-2) -- (-2pt,-2) node[left]  {$-2$};
-\draw (2pt, 2) -- (-2pt, 2) node[left]  {$\phantom{-}2$};
+\draw (1,2pt) -- (1,-2pt) node[below] {$\phantom{-}1$};
+\draw (2,2pt) -- (2,-2pt) node[below] {$\phantom{-}2$};
+\draw (2pt,-2) -- (-2pt,-2) node[left] {$-2$};
+\draw (2pt, 2) -- (-2pt, 2) node[left] {$\phantom{-}2$};
 
 \node[draw, rounded corners, fill=abelfill, inner sep=4pt,
       font=\small, anchor=north west] at (-2.5,-3.5)

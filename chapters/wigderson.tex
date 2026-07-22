@@ -1,10 +1,10 @@
-\chapter{Avi Wigderson (2021)}
+\chapter{Avi Wigderson (2021)}\index{Wigderson, Avi}
 
 \section{Biographical Sketch}
 
 Avi Wigderson was born on 9 September 1956 in Haifa, Israel. He studied at the Technion and Princeton University, where he completed his PhD in 1983 under the supervision of Richard Lipton. He held positions at the Hebrew University of Jerusalem (1983--1999) and the Institute for Advanced Study in Princeton (1999--present). Wigderson has received the Abel Prize in 2021, the Turing Award in 2023, the Wolf Prize in Mathematics in 2014, and the Knuth Prize in 2009.
 
-Wigderson is one of the founding figures of computational complexity theory. His work on interactive proofs, zero-knowledge protocols, and the role of randomness in computation has fundamentally shaped our understanding of what can be efficiently computed and verified.
+Avi Wigderson\index{Wigderson, Avi} is one of the founding figures of computational complexity theory\index{Complexity theory}. His work on interactive proofs, zero-knowledge protocols, and the role of randomness in computation has fundamentally shaped our understanding of what can be efficiently computed and verified.
 
 \section{High-Level View for a General Audience}
 
@@ -12,7 +12,7 @@ Wigderson is one of the founding figures of computational complexity theory. His
 
 Imagine you are using a computer program that relies on randomness---say, a cryptographic protocol for secure communication. Is the randomness truly necessary, or could the same result be achieved without it? Wigderson showed that randomness can be eliminated from many algorithms, provided we are willing to assume that certain computational problems are hard. This is the ``hardness versus randomness'' paradigm.
 
-Now imagine you want to convince someone that you know a secret without revealing the secret itself. Wigderson, together with Goldreich and Micali, proved that every NP problem has a \emph{zero-knowledge proof}---a protocol that conveys the truth of a statement and nothing else.
+Now imagine you want to convince someone that you know a secret without revealing the secret itself. Wigderson, together with Goldreich and Micali, proved that every NP problem has a \emph{zero-knowledge proof}\index{Zero-knowledge proofs}---a protocol that conveys the truth of a statement and nothing else.
 
 \subsection{Why Does It Matter?}
 
@@ -22,7 +22,7 @@ His work has transformed:
 \item \textbf{Computer Science}: The PCP theorem revolutionized the theory of hardness of approximation.
 \item \textbf{Complexity Theory}: IP = PSPACE showed that interactive proofs capture a vast class of computational problems.
 \item \textbf{Algorithms}: Derandomization results show that randomness can often be eliminated from algorithms.
-\item \textbf{P vs. NP}: The hardness-vs-randomness paradigm connects the central open problem to the power of randomness.
+\item \textbf{P vs. NP}\index{P vs NP}: The hardness-vs-randomness paradigm connects the central open problem to the power of randomness.
 \end{itemize}
 
 \section{The Origin of the Problem}
@@ -99,7 +99,7 @@ The protocol works by committing to bits using a commitment scheme, then reveali
 \item \textbf{The PCP Theorem}: With Arora, Lund, Motwani, Sudan, and Szegedy: every NP proof can be encoded so that verification reads only a constant number of bits. This theorem is the foundation of the theory of hardness of approximation.
 \item \textbf{Hardness vs. Randomness}: If a problem exists requiring exponential-size circuits, then $P = BPP$ (with Impagliazzo). This gives explicit derandomization from hardness assumptions.
 \item \textbf{Multiparty Computation}: Goldreich, Micali, Wigderson: secure multiparty computation tolerating any number of malicious parties. This result showed that any function can be computed securely by multiple parties who do not trust each other.
-\item \textbf{The Zig-Zag Product}: With Reingold and Vadhan: a new operation on graphs that constructs expanders with optimal parameters. The zig-zag product is a graph-theoretic analog of the semidirect product in group theory.
+\item \textbf{The Zig-Zag Product}: With Reingold and Vadhan: a new operation on graphs that constructs expanders\index{Expander graphs} with optimal parameters. The zig-zag product is a graph-theoretic analog of the semidirect product in group theory.
 \item \textbf{IP = PSPACE}: With Shamir: interactive proof systems capture all of polynomial space. This was a stunning result that showed the surprising power of interaction in proof systems.
 \end{itemize}
 
